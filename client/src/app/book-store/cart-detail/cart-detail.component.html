@@ -1,0 +1,90 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col mt-2">
+            <h2 class="text-center">{{ order.name }}</h2>
+            <h4 class="text-center">{{ order.city }}</h4>
+            <h4 class="text-center"> {{ order.province }} </h4>
+
+            
+<table class="table table-bordered table-stripped p-2">
+    <tr *ngFor='let line of order.cart.lines'>
+        <td>{{ line.book.name }}</td>
+        <td>
+            <input type="text" class="form-control-sm"
+            [value]='line.quantity'
+            (input)="cart.addUpdatedOrderLine(line.book, $any($event.target).value)"
+            >
+        </td>
+    </tr>
+</table>
+
+            <!-- <form #form='ngForm' novalidate
+                   (ngSubmit)='submitOrder(form)' >
+                <div *ngFor='let line of order.cart.lines'>
+                    <label> {{ line.book.name }}</label> 
+                    <<input name="description-{{line.book._id}}"
+                    [(ngModel)]="line.book.description" #descriptionInput > 
+                </div>
+            </form>-->
+
+                    
+                    <!--Conditional Section-->
+                   <!-- <tr *ngIf='cart.lines.length == 0'>
+                        <td class="text-center" colspan="4">Your cart is empty</td>
+                    </tr> -->
+                    <!--Repeating section-->
+                     <!--<div *ngFor='let line of order.cart.lines; let i = index'>-->  <!--THIS WAS NOT COMMENTED OUT-->
+                        <!--<td>
+                            <input type="number" class="form-control-sm" style="width: 5em"
+                            [value]='line.quantity'
+                            (change)='cart.updateQuantity(line.book, $any($event.target).value)'>
+                        </td> -->
+                         <!--Name is question-->
+                        <!--<td>  {{ line.book.author }} </td> --> <!--Author is answer-->
+                        <!--<input name='description' 
+                        [ngModel]='order.cart.lines[i].book.description' type="text" required>
+
+                            
+                        </div> --> <!--THIS WAS NOT COMMENTED OUT-->
+                        
+                           
+                        <!--<td class="text-right">
+                            {{ line.book.price | currency:'USD': 'symbol':'2.2-2' }}
+                        </td>
+                        <td class="text-right">
+                            {{ line.lineTotal | currency:'USD': 'symbol': '2.2-2' }}
+                        </td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-danger"
+                                    (click)='cart.removeLine(line.book._id)'>
+                                    Remove
+                            </button>
+                        </td>-->
+                
+                    </div>
+                
+               
+                   
+                        <!--<td colspan='3' class='text-right'>Total: </td>
+                        <td class='text-right'>
+                            {{ cart.cartPrice | currency: 'USD': 'symbol': '2.2-2' }}
+                        </td>-->
+              
+              
+           
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="text-center">
+                <button class="btn btn-primary m-1" routerLink='/book-list'>
+                    Continue Shopping
+                </button>
+                <button class="btn btn-secondary m-1" (click)="submitOrder(order)"
+                    >
+                    Submit Updated Order
+                </button>
+          
+        </div>
+    </div>
+</div>
