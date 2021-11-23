@@ -5,7 +5,7 @@ import { Book } from "./book.model";
 export class Cart
 {
     public lines: CartLine[] = [];
-    public itemCount = 0;
+    public updatedQuantity = "";
     public cartPrice = 0;
 
     addLine(book: Book, quantity: string = ""):void
@@ -26,7 +26,6 @@ export class Cart
     {
        
         const line = this.lines.find(l => l.book._id === book._id);
-        this.removeLine(book._id);//ADDED THIS
         if(line !== undefined)
         {
             line.quantity = quantity;
@@ -64,12 +63,13 @@ export class Cart
 
     private recalculate(): void
     {
-        this.itemCount = 0;
-        this.cartPrice = 0;
+        /*this.itemCount = 0;
+        this.cartPrice = 0;*/
         this.lines.forEach(l => 
         {
             //this.itemCount += l.quantity;
             //this.cartPrice += (l.quantity *  l.book.price);
+            //this.updatedQuantity += l.changedQuantity;
         });
     }
 }
@@ -78,6 +78,12 @@ export class CartLine
 {
     constructor(public book: Book,
                 public quantity: string){  }
+
+    /*get changedQuantity(): string
+    {
+        return this.quantity;
+    }*/
+
 
     /*get lineTotal(): number{
         return this.quantity * this.book.price;

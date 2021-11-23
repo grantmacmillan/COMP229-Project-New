@@ -17,6 +17,7 @@ export class CartDetailComponent implements OnInit {
 
   constructor(public cart: Cart,
               public order: Order,
+              private updatedOrder: UpdatedOrder,
               private repository: UpdatedOrderRepository,
               private activeRoute: ActivatedRoute) 
     
@@ -35,7 +36,8 @@ export class CartDetailComponent implements OnInit {
 
   submitOrder(order: Order): void
   {
-    this.repository.saveOrder(order).subscribe();
+    this.updatedOrder = order;
+    this.repository.saveOrder(this.updatedOrder).subscribe();
   }
 
 }
