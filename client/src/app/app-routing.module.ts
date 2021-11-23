@@ -11,9 +11,16 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { ServicesComponent } from './pages/services/services.component';
 
+
 const routes: Routes = [
   {path: 'home', component: HomeComponent, data: {title: 'Home'}},
   {path: 'login', data: {title: 'Login'}, redirectTo: '/admin/auth', pathMatch: 'full'},
+
+  {path: 'register', data: {title: 'Register'}, redirectTo: '/admin/register', pathMatch: 'full'},
+
+  //{path: 'register', data: {title: 'Register'}, redirectTo: '/register', pathMatch: 'full'},
+
+ 
 
   {path: 'about', component: AboutComponent, data: {title: 'About'}},
   {path: 'products', component: ProductsComponent, data: {title: 'Products'}},

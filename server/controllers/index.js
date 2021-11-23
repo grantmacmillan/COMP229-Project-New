@@ -159,11 +159,11 @@ module.exports.processRegisterPage = (req, res, next) =>
             //redirect the user and authenticate them
 
             //TODO- Getting ready to convert to API
-            return res.json({success: true, msg: 'User registered successfully'});
+            //return res.json({success: true, msg: 'User registered successfully'});
             
-            //return passport.authenticate('local')(req, res, () => {
-                //res.redirect('/book-list');
-            //});
+            return passport.authenticate('local')(req, res, () => {
+                res.redirect('/book-list');
+            });
         }
     });
     /*if(!req.user)

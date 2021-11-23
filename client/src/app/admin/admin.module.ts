@@ -11,9 +11,11 @@ import { BookTableComponent } from './book-table/book-table.component';
 import { OrderEditorComponent } from './order-editor/order-editor.component';
 import { OrderAditorComponent } from './order-aditor/order-aditor.component';
 import { BookTableEditComponent } from './book-table-edit/book-table-edit.component';
+import { RegisterComponent } from './register/register.component';
 
 const routing = RouterModule.forChild([
     { path: 'auth', component: AuthComponent },
+    { path: 'register', component: RegisterComponent },
     { path: 'main', component: AdminComponent, canActivate: [AuthGuard],
         children: [
             { path: 'books/:mode/:id', component: BookEditorComponent, data: {title: 'Edit Book'}, canActivate: [AuthGuard]},
@@ -36,6 +38,6 @@ const routing = RouterModule.forChild([
 @NgModule({
     imports: [CommonModule, FormsModule, routing],
     providers:[AuthGuard],
-    declarations: [AuthComponent, AdminComponent, OrderTableComponent, BookEditorComponent, BookTableComponent, OrderEditorComponent, OrderAditorComponent, BookTableEditComponent]
+    declarations: [AuthComponent, AdminComponent, OrderTableComponent, BookEditorComponent, BookTableComponent, OrderEditorComponent, OrderAditorComponent, BookTableEditComponent, RegisterComponent]
 })
 export class AdminModule {}
