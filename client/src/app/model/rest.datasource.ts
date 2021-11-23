@@ -58,6 +58,11 @@ export class RestDataSource
     return this.http.post<any>(this.baseUrl + 'login', user, this.httpOptions);
   }
 
+  authenticateRegister(user: User): Observable<any>
+  {
+    return this.http.post<any>(this.baseUrl + 'register', user, this.httpOptions);
+  }
+
   storeUserData(token: any, user: User): void
   {
     localStorage.setItem('id_token', 'Bearer ' + token);

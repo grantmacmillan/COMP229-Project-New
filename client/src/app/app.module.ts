@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import {BookStoreModule} from './book-store/book-store.module'
 import { PagesModule } from './pages/pages.module';
 
+
 //Exports a global function
 export function jwtTokenGetter(): string
 {
@@ -17,6 +18,7 @@ export function jwtTokenGetter(): string
 @NgModule({
   declarations: [
     AppComponent
+    
   ],
   imports: [
     BrowserModule,
