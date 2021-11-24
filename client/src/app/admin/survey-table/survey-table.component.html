@@ -1,5 +1,5 @@
 <main>
-<table class="table table-sm">
+<!-- <table class="table table-sm">
     <thead>
       <tr>
         <th>Title</th>
@@ -37,6 +37,30 @@
       <button class="btn btn-primary" (click)='addSurvey()'>
         <i class="fas fa-plus-circle"></i> Create a Survey
       </button>
+    </tbody>
+  </table> -->
+
+  <table class="table table-sm">
+    <tbody>
+      <tr *ngIf='getSurveys().length == 0'>
+        <td colspan="5">There are no surveys</td>
+      </tr>
+      <ng-template ngFor let-s [ngForOf]='getSurveys()'>
+        <tr>
+          <th>Title</th>
+          <td>{{ s.title }}</td>
+        </tr>
+        <th>Questions</th>
+        <th>Questions Answers</th>
+        <tr *ngFor='let line of s.questionnaire.lines'>
+          <td>{{ line.question.title }}</td>
+          <td>{{ line.question.rightAnswer }}</td>
+          <td>
+            <button class="btn btn-danger" (click)='delete(s._id)'>
+              <i class="fas fa-trash-alt"></i> Delete </button>
+          </td>
+        </tr>
+      </ng-template>
     </tbody>
   </table> 
 </main>
