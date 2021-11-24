@@ -34,6 +34,7 @@ export class QuestionnaireDetailComponent implements OnInit {
   {
     this.surveyAnswered = survey;
     this.repository.saveSurvey(this.surveyAnswered).subscribe();
+    window.alert("This Survey will be submitted")
     //We might wanna redirect this to the checkout for the user to fill in names and such.... just an idea
     this.router.navigateByUrl('/');
   }
