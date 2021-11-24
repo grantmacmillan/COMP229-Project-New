@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Book } from './book.model';
-import { Cart } from './cart.model';
-import { Order } from './order.model';
+import { Question } from './question.model';
+import { Questionnaire } from './questionnaire.model';
+import { Survey } from './survey.model';
 import { map } from 'rxjs/operators';
 import {JwtHelperService} from '@auth0/angular-jwt';
 
 import { User } from './user.model';
-import { UpdatedOrder } from './updatedOrder.model';
+import { SurveyAnswered } from './surveyAnswered.model';
 
 const PROTOCOL = 'http';
 const PORT = 3000;
@@ -36,21 +36,21 @@ export class RestDataSource
     this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
   }
 
-  getBooks(): Observable<Book[]>
+  getQuestions(): Observable<Question[]>
   {
-    return this.http.get<Book[]>(this.baseUrl + 'book-list');
+    return this.http.get<Question[]>(this.baseUrl + 'question-list');
   }
 
-  saveOrder(order: Order): Observable<Order>
+  saveSurvey(survey: Survey): Observable<Survey>
   {
-      console.log(JSON.stringify(order));
-      return this.http.post<Order>(this.baseUrl + 'orders/add', order); // was supposed to be 'orders/add' but changed it to 'orders'
+      console.log(JSON.stringify(survey));
+      return this.http.post<Survey>(this.baseUrl + 'surveys/add', survey); 
   }
 
-  saveUpdatedOrder(updatedOrder: UpdatedOrder): Observable<UpdatedOrder>
+  saveSurveyAnswered(surveyAnswered: SurveyAnswered): Observable<SurveyAnswered>
   {
-    console.log(JSON.stringify(updatedOrder));
-    return this.http.post<UpdatedOrder>(this.baseUrl + 'updatedOrders/add', updatedOrder);
+    console.log(JSON.stringify(surveyAnswered));
+    return this.http.post<SurveyAnswered>(this.baseUrl + 'surveyAnswered/add', surveyAnswered);
   }
 
   authenticate(user: User): Observable<any>
@@ -84,48 +84,47 @@ export class RestDataSource
     return !this.jwtService.isTokenExpired(this.authToken);
   }
 
-  addBook(book: Book): Observable<Book>
+  addQuestion(question: Question): Observable<Question>
   {
     this.loadToken();
-    return this.http.post<Book>(this.baseUrl + 'book-list/add', book, this.httpOptions);
+    return this.http.post<Question>(this.baseUrl + 'question-list/add', question, this.httpOptions);
   }
 
-  updateBook(book: Book): Observable<Book>
+  updateQuestion(question: Question): Observable<Question>
   {
     this.loadToken();
-    return this.http.post<Book>(`${this.baseUrl}book-list/edit/${book._id}`, book, this.httpOptions);
+    return this.http.post<Question>(`${this.baseUrl}question-list/edit/${question._id}`, question, this.httpOptions);
   }
 
-  deleteBook(id: number): Observable<Book>
+  deleteQuestion(id: number): Observable<Question>
   {
     this.loadToken();
-
     console.log(id);
-    return this.http.get<Book>(`${this.baseUrl}book-list/delete/${id}`, this.httpOptions);
+    return this.http.get<Question>(`${this.baseUrl}question-list/delete/${id}`, this.httpOptions);
   }
 
-  getOrders(): Observable<Order[]>
+  getSurveys(): Observable<Survey[]>
   {
     this.loadToken();
-    return this.http.get<Order[]>(this.baseUrl + 'orders');
+    return this.http.get<Survey[]>(this.baseUrl + 'surveys');
   }
 
-  deleteOrder(id: number): Observable<Order>
+  deleteSurvey(id: number): Observable<Survey>
   {
     this.loadToken();
-    return this.http.get<Order>(`${this.baseUrl}orders/delete/${id}`, this.httpOptions);
+    return this.http.get<Survey>(`${this.baseUrl}surveys/delete/${id}`, this.httpOptions);
   }
 
-  updateOrder(order: Order): Observable<Order>
+  updateSurvey(survey: Survey): Observable<Survey>
   {
     this.loadToken();
-    return this.http.post<Order>(`${this.baseUrl}orders/edit/${order._id}`, order, this.httpOptions);
+    return this.http.post<Survey>(`${this.baseUrl}surveys/edit/${survey._id}`, survey, this.httpOptions);
   }
 
-  updateUpdatedOrder(updatedOrder: UpdatedOrder): Observable<UpdatedOrder>
+  updateSurveyAnswered(surveyAnswered: SurveyAnswered): Observable<SurveyAnswered>
   {
     this.loadToken();
-    return this.http.post<UpdatedOrder>(`${this.baseUrl}updatedOrders/edit/${updatedOrder._id}`, updatedOrder, this.httpOptions);
+    return this.http.post<SurveyAnswered>(`${this.baseUrl}updatedOrders/edit/${surveyAnswered._id}`, surveyAnswered, this.httpOptions);
   }
 
   private loadToken(): void

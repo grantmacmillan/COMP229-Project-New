@@ -5,12 +5,12 @@ import { RouterModule } from "@angular/router";
 import { AuthComponent } from "./auth/auth.component";
 import { AuthGuard } from "./auth/auth.guard";
 import { AdminComponent } from "./admin.component";
-import { OrderTableComponent } from './order-table/order-table.component';
-import { BookEditorComponent } from './book-editor/book-editor.component';
-import { BookTableComponent } from './book-table/book-table.component';
-import { OrderEditorComponent } from './order-editor/order-editor.component';
-import { OrderAditorComponent } from './order-aditor/order-aditor.component';
-import { BookTableEditComponent } from './book-table-edit/book-table-edit.component';
+import { SurveyTableComponent } from './survey-table/survey-table.component';
+import { QuestionEditorComponent } from './question-editor/question-editor.component';
+import { QuestionTableComponent } from './question-table/question-table.component';
+import { SurveyEditorComponent } from './survey-editor/survey-editor.component';
+import { SurveyAditorComponent } from './survey-aditor/survey-aditor.component';
+import { QuestionTableEditComponent } from './question-table-edit/question-table-edit.component';
 import { RegisterComponent } from './register/register.component';
 
 const routing = RouterModule.forChild([
@@ -18,19 +18,19 @@ const routing = RouterModule.forChild([
     { path: 'register', component: RegisterComponent },
     { path: 'main', component: AdminComponent, canActivate: [AuthGuard],
         children: [
-            { path: 'books/:mode/:id', component: BookEditorComponent, data: {title: 'Edit Book'}, canActivate: [AuthGuard]},
-            { path: 'books/:mode', component: BookEditorComponent, data: {title: 'Add Book'}, canActivate: [AuthGuard]},
-            { path: 'books', component: BookTableComponent, data: {title: 'Book Table'}, canActivate: [AuthGuard]},
+            { path: 'questions/:mode/:id', component: QuestionEditorComponent, data: {title: 'Edit Question'}, canActivate: [AuthGuard]},
+            { path: 'questions/:mode', component: QuestionEditorComponent, data: {title: 'Add Question'}, canActivate: [AuthGuard]},
+            { path: 'questions', component: QuestionTableComponent, data: {title: 'Question Table'}, canActivate: [AuthGuard]},
 
-            { path: 'page-edit/:mode/:id', component: BookTableEditComponent, data: {title: 'Edit Book'}, canActivate: [AuthGuard]},
-            { path: 'page-edit/:mode', component: BookTableEditComponent, data: {title: 'Book Table'}, canActivate: [AuthGuard]},
-            { path: 'page-edit', component: BookTableEditComponent, data: {title: 'Book Table'}, canActivate: [AuthGuard]},
+            { path: 'page-edit/:mode/:id', component: QuestionTableEditComponent, data: {title: 'Edit Question'}, canActivate: [AuthGuard]},
+            { path: 'page-edit/:mode', component: QuestionTableEditComponent, data: {title: 'Question Table'}, canActivate: [AuthGuard]},
+            { path: 'page-edit', component: QuestionTableEditComponent, data: {title: 'Question Table'}, canActivate: [AuthGuard]},
            
 
-            { path: 'orders', component: OrderTableComponent, data: {title: 'Order Table'}, canActivate: [AuthGuard]},
-            { path: 'orders/:mode', component: OrderEditorComponent, data: {title: 'Add Order'}, canActivate: [AuthGuard]},
-            { path: 'orders/:mode/:id', component: OrderAditorComponent, data: {title: 'Edit Order'}, canActivate: [AuthGuard]}, //need to have the auth guard
-            { path: '**', redirectTo: 'book-list'}]
+            { path: 'surveys', component: SurveyTableComponent, data: {title: 'Survey Table'}, canActivate: [AuthGuard]},
+            { path: 'surveys/:mode', component: SurveyEditorComponent, data: {title: 'Add Survey'}, canActivate: [AuthGuard]},
+            { path: 'surveys/:mode/:id', component: SurveyAditorComponent, data: {title: 'Edit Survey'}, canActivate: [AuthGuard]}, 
+            { path: '**', redirectTo: 'question-list'}]
     },
     { path: '**', redirectTo: 'auth' },
 ]);
@@ -38,6 +38,6 @@ const routing = RouterModule.forChild([
 @NgModule({
     imports: [CommonModule, FormsModule, routing],
     providers:[AuthGuard],
-    declarations: [AuthComponent, AdminComponent, OrderTableComponent, BookEditorComponent, BookTableComponent, OrderEditorComponent, OrderAditorComponent, BookTableEditComponent, RegisterComponent]
+    declarations: [AuthComponent, AdminComponent, SurveyTableComponent, QuestionEditorComponent, QuestionTableComponent, SurveyEditorComponent, SurveyAditorComponent, QuestionTableEditComponent, RegisterComponent]
 })
 export class AdminModule {}

@@ -22,7 +22,6 @@ export class AuthService
 
     authenticateRegister(user: User): Observable<any>
     {
-        //console.log("huhdfhs");
         return this.datasource.authenticateRegister(user);
     }
 

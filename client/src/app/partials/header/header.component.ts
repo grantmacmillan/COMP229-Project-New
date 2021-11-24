@@ -10,8 +10,6 @@ import { User } from 'src/app/model/user.model';
   styleUrls: ['./header.component.css']
 })
 
-//Typescript class that is being exported, this is the code behind
-//It becomes accessible to anyone of the component
 export class HeaderComponent implements OnInit {
   user: User;
 
@@ -26,7 +24,7 @@ export class HeaderComponent implements OnInit {
   onLogoutClick() : void
   {
     this.authService.logout().subscribe(data => {
-      this.router.navigate(['/login']); //Takes user back to login page
+      this.router.navigate(['/login']); 
       });
   }
 
@@ -39,5 +37,4 @@ export class HeaderComponent implements OnInit {
     }
     return result;
   }
-
 }

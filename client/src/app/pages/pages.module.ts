@@ -7,11 +7,12 @@ import { HomeComponent } from "./home/home.component";
 import { ProductsComponent } from "./products/products.component";
 import { ServicesComponent } from "./services/services.component";
 import { PartialsModule } from "../partials/partials.module";
+import { RouterModule } from "@angular/router";
 
 
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, PartialsModule],
+    imports: [BrowserModule, FormsModule, PartialsModule, RouterModule],
     declarations: [
         AboutComponent,
         ContactComponent,

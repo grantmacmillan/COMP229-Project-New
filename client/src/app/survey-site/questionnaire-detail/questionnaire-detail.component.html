@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="col mt-2">
+            <h2 class="text-center">{{ survey.title }}</h2>
+            <h4 class="text-center">{{ survey.category }}</h4>
+            <h4 class="text-center"> {{ survey.description }}</h4>
+
+            
+            <table class="table table-bordered table-stripped p-2">
+                <tr *ngFor='let line of survey.questionnaire.lines'>
+                    <td>{{ line.question.title }}</td>
+                    <td class="form-group">
+                        <input type="text" class="form-control-sm"
+                            [(ngModel)]="line.answer">
+                    </td>
+                </tr>
+            </table>       
+        </div>            
+    </div>
+</div>
+
+<!--Buttons-->
+    <div class="row">
+        <div class="col">
+            <div class="text-center">
+                <button class="btn btn-secondary m-1" routerLink='/question-list'>
+                    Back to Surveys
+                </button>
+                <button class="btn btn-success m-1" (click)="submitSurvey(survey)">
+                    Submit Survey
+                </button>
+            </div>
+        </div>
+    </div> 

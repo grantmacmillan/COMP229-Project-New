@@ -43,5 +43,4 @@ export class RegisterComponent implements OnInit {
       this.errorMessage = 'Form Data Invalid';
     }
   }
-
 }

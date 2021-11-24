@@ -1,39 +1,39 @@
 import { Injectable } from '@angular/core';
-import {Book} from './book.model';
+import {Question} from './question.model';
 import { from, Observable } from 'rxjs';
-import { Order } from './order.model';
+import { Survey } from './survey.model';
 
 
 @Injectable()
 export class StaticDataSource
 {
-    private books: Book[] = 
+    private questions: Question[] = 
     [
-        new Book(1, 'Book 1', 'Author 1', 'Year 1', 'Short Description 1', 10),
-        new Book(2, 'Book 2', 'Author 1', 'Year 2', 'Short Description 2', 20),
-        new Book(3, 'Book 3', 'Author 1', 'Year 3', 'Short Description 3', 30),
-        new Book(4, 'Book 4', 'Author 1', 'Year 4', 'Short Description 4', 40),
-        new Book(5, 'Book 5', 'Author 1', 'Year 5', 'Short Description 5', 50),
-        new Book(6, 'Book 6', 'Author 2', 'Year 6', 'Short Description 6', 60),
-        new Book(7, 'Book 7', 'Author 2', 'Year 7', 'Short Description 7', 70),
-        new Book(8, 'Book 8', 'Author 2', 'Year 8', 'Short Description 8', 80),
-        new Book(9, 'Book 9', 'Author 2', 'Year 9', 'Short Description 9', 90),
-        new Book(10, 'Book 10', 'Author 3', 'Year 10', 'Short Description 10', 110),
-        new Book(11, 'Book 11', 'Author 3', 'Year 11', 'Short Description 11', 111),
-        new Book(12, 'Book 12', 'Author 3', 'Year 12', 'Short Description 12', 112),
-        new Book(13, 'Book 13', 'Author 4', 'Year 13', 'Short Description 13', 113),
-        new Book(14, 'Book 14', 'Author 4', 'Year 14', 'Short Description 14', 114),
-        new Book(15, 'Book 15', 'Author 4', 'Year 15', 'Short Description 15', 115)
+        new Question(1, 'Question 1', 'Right Answer 1'),
+        new Question(2, 'Question 2', 'Right Answer 1'),
+        new Question(3, 'Question 3', 'Right Answer 1'),
+        new Question(4, 'Question 4', 'Right Answer 1'),
+        new Question(5, 'Question 5', 'Right Answer 1'),
+        new Question(6, 'Question 6', 'Right Answer 2'),
+        new Question(7, 'Question 7', 'Right Answer 2'),
+        new Question(8, 'Question 8', 'Right Answer 2'),
+        new Question(9, 'Question 9', 'Right Answer 2'),
+        new Question(10, 'Question 10', 'Right Answer 3'),
+        new Question(11, 'Question 11', 'Right Answer 3'),
+        new Question(12, 'Question 12', 'Right Answer 3'),
+        new Question(13, 'Question 13', 'Right Answer 4'),
+        new Question(14, 'Question 14', 'Right Answer 4'),
+        new Question(15, 'Question 15', 'Right Answer 4')
     ];
 
-    getBooks(): Observable<Book[]>
+    getQuestions(): Observable<Question[]>
     {
-        return from([this.books]);
+        return from([this.questions]);
     }
 
-    saveOrder(order: Order): Observable<Order>
+    saveSurvey(survey: Survey): Observable<Survey>
     {
-        console.log(JSON.stringify(order));
-        return from ([order]);
+        console.log(JSON.stringify(survey));
+        return from ([survey]);
     }
 }

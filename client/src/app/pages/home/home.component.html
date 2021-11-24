@@ -1,1 +1,31 @@
-<app-base-page></app-base-page>
+
+<main class="container">
+    <div class="button-container">
+      <img src="../../assets/images/HomeBanner.png" style="width: 100%; margin-top: 10px; border-style: solid; border-color: black; border-width: 2px;" alt="Banner">
+        <a href="/question-list">
+            <input type="button" class="btn btn-success" value="Select a Survey"/>
+        </a>
+    </div>
+  
+  <!--Body of the main-->
+      <div>
+        <table style="margin-top: 40px;">
+          <tr>
+            <td>
+            <!-- Survey Template -->
+              <div class="card" style="width: 40rem;">
+                <img src="../../assets/images/gameDesign.png" class="card-img-top" alt="Survey Template 1">
+                  <div class="card-body">
+                    <h5 class="card-title" style="text-align: center;">Short Answer Survey</h5>
+                    <p class="card-text">Click the link below to start creating your short answer survey!</p>
+                    <a *ngIf='isLoggedIn()' routerLink="/admin/main/surveys" class="btn btn-success">Create</a>
+                    <a *ngIf='!isLoggedIn()' routerLink="/login" class="btn btn-success">Create</a>
+                  </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+  </main>
+
+  

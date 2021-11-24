@@ -4,8 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {BookStoreModule} from './book-store/book-store.module'
+import {BookStoreModule} from './survey-site/survey-list.module'
 import { PagesModule } from './pages/pages.module';
+import { PartialsModule } from './partials/partials.module';
 
 
 //Exports a global function
@@ -25,6 +26,7 @@ export function jwtTokenGetter(): string
     AppRoutingModule,
     BookStoreModule,
     PagesModule,
+    PartialsModule,
 
     JwtModule.forRoot({
       config:{

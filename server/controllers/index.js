@@ -11,7 +11,6 @@ let DB = require('../config/db');
 let userModel = require('../models/user');
 let User = userModel.User; // alias
 
-//This is decoupling the controller from the routing because of testability.
 //Display the home page
 module.exports.displayHomePage = (req, res, next) =>
 {
@@ -92,16 +91,12 @@ module.exports.processLoginPage = (req, res, next) =>
                expiresIn: 604800 //1 week
            });
 
-           //Getting ready to convert to API
-           //this json data will be consumed by the front end
               return res.json({success: true, msg: 'User Logged in Successfully', user: {
                     id: user._id,
                     displayName: user.displayName,
                     username: user.username,
                     email: user.email
                }, token: authToken});
-
-           //return res.redirect('/book-list');
        });
     }) (req, res, next);
 }
@@ -117,7 +112,8 @@ module.exports.displayRegisterPage = (req, res, next) =>
             displayName: req.user ? req.user.displayName: ''
         })
     }
-    else{
+    else
+    {
         return res.redirect('/');
     }
 }
@@ -127,7 +123,6 @@ module.exports.processRegisterPage = (req, res, next) =>
     //create a user object
     let newUser = new User({
         username: req.body.username,
-        //password: req.body.password
         email: req.body.email,
         displayName: req.body.displayName
     });
@@ -154,35 +149,16 @@ module.exports.processRegisterPage = (req, res, next) =>
         }
         else
         {
-            //if no error exists, then registration is successful
-
-            //redirect the user and authenticate them
-
-            //TODO- Getting ready to convert to API
-            //return res.json({success: true, msg: 'User registered successfully'});
-            
             return passport.authenticate('local')(req, res, () => {
-                res.redirect('/book-list');
+                res.redirect('/question-list');
             });
         }
     });
-    /*if(!req.user)
-    {
-        res.render('auth/register', {
-            title: "Register",
-            messages: req.flash('registerMessage'),
-            displayName: req.user ? req.user.displayName: ''
-        })
-    }
-    else{
-        return res.redirect('/');
-    }*/
 }
 
 module.exports.performLogout = (req, res, next) => 
 {
     req.logout();
-    //res.redirect('/');
     res.json({success: true, msg: 'User Successfully Logged Out!'});
 }
 
