@@ -52,13 +52,18 @@
         </tr>
         <th>Questions</th>
         <th>Questions Answers</th>
+        <th>Category</th>
+        <th colspan="2">Description</th>
         <tr *ngFor='let line of s.questionnaire.lines'>
           <td>{{ line.question.title }}</td>
           <td>{{ line.question.rightAnswer }}</td>
+          <td>{{ s.category }}</td>
+          <td>{{ s.description }}</td>
           <td>
             <button class="btn btn-danger" (click)='delete(s._id)'>
               <i class="fas fa-trash-alt"></i> Delete </button>
           </td>
+          
         </tr>
       </ng-template>
     </tbody>
