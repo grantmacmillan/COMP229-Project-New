@@ -42,4 +42,9 @@ export class SurveyTableComponent implements OnInit
   {
     this.router.navigateByUrl('/admin/main/surveys/edit/' + id);
   }
+
+  filledOutSurvey(): void
+  {
+    this.router.navigateByUrl('/admin/surveyAnswered');
+  }
 }

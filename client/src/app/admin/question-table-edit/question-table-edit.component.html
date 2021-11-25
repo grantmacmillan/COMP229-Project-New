@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>Title</th>
-            <th>Right Answer</th>
+            <th>Choice 1</th>
             <th></th>
             <th></th>
             <th></th>
@@ -11,7 +11,7 @@
     <tbody>
         <tr *ngFor='let q of getQuestions()'>
             <td>{{ q.title }}</td>
-            <td>{{ q.rightAnswer }}</td>
+            <td>{{ q.choice1 }}</td>
             <td>
                 <button class="btn btn-sm btn-primary m-1" (click)='editQuestion(q._id)'> 
                     <i class="fas fa-pencil-alt"></i> Edit

@@ -14,17 +14,17 @@ import { SurveyAnsweredRepository } from 'src/app/model/surveyAnswered.repositor
 })
 export class QuestionnaireDetailComponent implements OnInit {
   editing = false;
+  
 
   constructor(public questionnaire: Questionnaire,
               public survey: Survey,
               private surveyAnswered: SurveyAnswered,
+              private repositorySurvey: SurveyRepository,
               private repository: SurveyAnsweredRepository,
               private activeRoute: ActivatedRoute,
               private router: Router) 
-    
   {
-      this.editing = activeRoute.snapshot.params.mode === 'cart'; 
-      Object.assign(this.survey, repository.getSurvey(activeRoute.snapshot.params.id)); 
+      Object.assign(this.survey, repositorySurvey.getSurvey(activeRoute.snapshot.params.id));
   }
 
   ngOnInit(): void {
@@ -34,8 +34,7 @@ export class QuestionnaireDetailComponent implements OnInit {
   {
     this.surveyAnswered = survey;
     this.repository.saveSurvey(this.surveyAnswered).subscribe();
-    window.alert("This Survey will be submitted")
-    //We might wanna redirect this to the checkout for the user to fill in names and such.... just an idea
+    window.alert("This Survey has been submitted")
     this.router.navigateByUrl('/');
   }
 }

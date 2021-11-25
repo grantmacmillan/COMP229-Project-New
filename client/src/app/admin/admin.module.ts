@@ -12,10 +12,12 @@ import { SurveyEditorComponent } from './survey-editor/survey-editor.component';
 import { SurveyAditorComponent } from './survey-aditor/survey-aditor.component';
 import { QuestionTableEditComponent } from './question-table-edit/question-table-edit.component';
 import { RegisterComponent } from './register/register.component';
+import { SurveyAnsweredTableComponent } from './survey-answered-table/survey-answered-table.component';
 
 const routing = RouterModule.forChild([
     { path: 'auth', component: AuthComponent },
     { path: 'register', component: RegisterComponent },
+    { path: 'surveyAnswered', component: SurveyAnsweredTableComponent, canActivate: [AuthGuard]},
     { path: 'main', component: AdminComponent, canActivate: [AuthGuard],
         children: [
             { path: 'questions/:mode/:id', component: QuestionEditorComponent, data: {title: 'Edit Question'}, canActivate: [AuthGuard]},
@@ -38,6 +40,6 @@ const routing = RouterModule.forChild([
 @NgModule({
     imports: [CommonModule, FormsModule, routing],
     providers:[AuthGuard],
-    declarations: [AuthComponent, AdminComponent, SurveyTableComponent, QuestionEditorComponent, QuestionTableComponent, SurveyEditorComponent, SurveyAditorComponent, QuestionTableEditComponent, RegisterComponent]
+    declarations: [AuthComponent, AdminComponent, SurveyTableComponent, QuestionEditorComponent, QuestionTableComponent, SurveyEditorComponent, SurveyAditorComponent, QuestionTableEditComponent, RegisterComponent, SurveyAnsweredTableComponent]
 })
 export class AdminModule {}

@@ -1,17 +1,20 @@
 "use strict"
 class Question 
 {
-    constructor(_id = "", title = "", rightAnswer = "") {
+    constructor(_id = "", title = "", choice1 = "", choice2 = "", choice3 = "", choice4 = "") {
         this._id = _id;
         this.title = title;
-        this.rightAnswer = rightAnswer
+        this.choice1 = choice1;
+        this.choice2 = choice2;
+        this.choice3 = choice3;
+        this.choice4 = choice4;
     }
 
     toString()
     {
         return "_id        : " + this._id + "\n" +
                "title      : " + this.title + "\n" + 
-               "rightAnswer: " + this.rightAnswer + "\n" 
+               "choice 1   : " + this.choice1 + "\n" 
     }
 }
 

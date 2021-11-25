@@ -1,3 +1,4 @@
+<main>
 <div class="container">
     <div class="row">
         <div class="col mt-2">
@@ -5,13 +6,24 @@
             <h4 class="text-center">{{ survey.category }}</h4>
             <h4 class="text-center"> {{ survey.description }}</h4>
 
-            
             <table class="table table-bordered table-stripped p-2">
-                <tr *ngFor='let line of survey.questionnaire.lines'>
+                <tr *ngFor='let line of survey.questionnaire.lines; let i = index;'>
                     <td>{{ line.question.title }}</td>
-                    <td class="form-group">
-                        <input type="text" class="form-control-sm"
-                            [(ngModel)]="line.answer">
+                    <td> 
+                        <label>{{ line.question.choice1 }}</label>
+                        <input type="radio" name={{i}} class="form-control-sm" value={{line.question.choice1}} [(ngModel)]='line.answer'>
+                    </td>
+                    <td>
+                        <label>{{ line.question.choice2 }}</label>
+                        <input type="radio" name={{i}} class="form-control-sm" value={{line.question.choice2}} [(ngModel)]='line.answer'>
+                    </td>
+                    <td>
+                        <label>{{ line.question.choice3 }}</label>
+                        <input type="radio" name={{i}} class="form-control-sm" value={{line.question.choice3}} [(ngModel)]='line.answer'>
+                    </td>
+                    <td>
+                        <label>{{ line.question.choice4 }}</label>
+                        <input type="radio" name={{i}} class="form-control-sm" value={{line.question.choice4}} [(ngModel)]='line.answer'>
                     </td>
                 </tr>
             </table>       
@@ -32,3 +44,4 @@
             </div>
         </div>
     </div> 
+</main>

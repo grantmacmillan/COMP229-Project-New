@@ -3,7 +3,10 @@ export class Question
     constructor(
         public _id?: number,
         public title?: string,
-        public rightAnswer?: string
+        public choice1?: string,
+        public choice2?: string,
+        public choice3?: string,
+        public choice4?: string
     ){}
 
     public toString(): string
@@ -11,7 +14,7 @@ export class Question
         return `Question
         -------------------------
         Title        : ${this.title}
-        Right Answer : ${this.rightAnswer}
+        Choice 1     : ${this.choice1}
         -------------------------
         `;
     }

@@ -22,6 +22,17 @@ export class Survey
         this._id = null;
         this.title = this.category = this.description = null;
         this.name = this.address = this.city = this.province = this.postalCode = this.country = null;
-        this.questionnaire.clear();
+        //this.questionnaire.clear();
+    }
+
+    public toString(): string
+    {
+        return `Survey
+        -------------------------
+        Title        : ${this.title}
+        Cat : ${this.category}
+        Questionnaire: ${this.questionnaire}
+        -------------------------
+        `;
     }
 }

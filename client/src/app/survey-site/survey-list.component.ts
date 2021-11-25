@@ -53,18 +53,14 @@ export class SurveyListComponent
     this.changePage(1);
   }
 
-  //This Might cause problem
   get pageCount(): number
   {
     return Math.ceil(this.surveyRepository
       .getSurveysByCategory(this.selectedCategory).length / this.surveysPerPage);
   }
 
-  //CLEAN THIS IF IT WORKS
   selectSurvey(id: number): void
   {
-    //this.cart.addLine(order);
-    //this.location.back();
-    this.router.navigateByUrl('/questionnaire/' + id); //Need to change this
+    this.router.navigateByUrl('/questionnaire/' + id);
   }
 }

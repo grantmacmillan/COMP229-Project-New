@@ -1,24 +1,43 @@
-<div class="bg-primary p-2 text-white"
-    [class.bg-warning]='editing'
-    [class.text-dark]='editing'>
-    <h5>{{ editing ? 'Edit' : 'Add' }} Question</h5>
-</div>
-<form novalidate #form='ngForm' (ngSubmit)='save(form)'>
+<main>
+    <div class="container">
+        <div
+            [class.text-dark]='editing'
+            [class.text-dark]='editing'>
+            <h5>{{ editing ? 'Edit' : 'Add' }} Question</h5>
+        </div>
+        <form novalidate #form='ngForm' (ngSubmit)='save(form)'>
 
-    <div class="form-group">
-        <label>Title</label>
-        <input type="text" class="form-control" name='title' [(ngModel)]='question.title'>
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" class="form-control" name='title' [(ngModel)]='question.title'>
+            </div>
+
+            <div class="form-group">
+                <label>Choice 1</label>
+                <input type="text" class="form-control" name='choich1' [(ngModel)]='question.choice1'>
+            </div>
+
+            <div class="form-group">
+                <label>Choice 2</label>
+                <input type="text" class="form-control" name='choich2' [(ngModel)]='question.choice2'>
+            </div>
+
+            <div class="form-group">
+                <label>Choice 3</label>
+                <input type="text" class="form-control" name='choich3' [(ngModel)]='question.choice3'>
+            </div>
+
+            <div class="form-group">
+                <label>Choice 4</label>
+                <input type="text" class="form-control" name='choich4' [(ngModel)]='question.choice4'>
+            </div>
+
+            <button class="btn btn-primary m-1" [class.btn-warning]='editing' type="submit">
+                <i class="{{editing ? 'fas fa-save' : 'fas fa-plus-circle'}}"></i> {{ editing ? "Save" : "Add" }}
+            </button>
+            <button type='reset' class="btn btn-secondary" routerLink='/admin/main/questions'>
+                <i class="fas fa-undo"></i> Cancel
+            </button>
+        </form>
     </div>
-
-    <div class="form-group">
-        <label>Right Answer</label>
-        <input type="text" class="form-control" name='rightAnswer' [(ngModel)]='question.rightAnswer'>
-    </div>
-
-    <button class="btn btn-primary m-1" [class.btn-warning]='editing' type="submit">
-        <i class="{{editing ? 'fas fa-save' : 'fas fa-plus-circle'}}"></i> {{ editing ? "Save" : "Add" }}
-    </button>
-    <button type='reset' class="btn btn-secondary" routerLink='/admin/main'>
-        <i class="fas fa-undo"></i> Cancel
-    </button>
-</form>
+</main>

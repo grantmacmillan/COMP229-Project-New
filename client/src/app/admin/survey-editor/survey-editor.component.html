@@ -43,8 +43,8 @@
 
     <!--Repeating section for questions-->
     <div *ngFor='let line of questionnaire.lines'>
-        <label> {{ line.question.title }} </label>
-        <label class="text-right">{{ line.question.rightAnswer }}</label>
+        <label> {{ line.question.title }} </label><br>
+        <label class="text-right">{{ line.question.choice1 }}</label>
        
     <button class="btn btn-sm btn-danger"
             (click)='questionnaire.removeLine(line.question._id)'>

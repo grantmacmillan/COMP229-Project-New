@@ -1,45 +1,5 @@
 <main>
-<!-- <table class="table table-sm">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Category</th>
-        <th colspan="2">Description</th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngIf='getSurveys().length == 0'>
-        <td colspan="5">There are no surveys</td>
-      </tr>
-      <ng-template ngFor let-s [ngForOf]='getSurveys()'>
-        <tr>
-          <td>{{ s.title }}</td>
-          <td>{{ s.category }}</td>
-          <th>{{ s.description }}</th>
-          <th>Questions</th>
-          <td>      
-          </td>
-          <td>
-            <button class="btn btn-danger" (click)='delete(s._id)'>
-              <i class="fas fa-trash-alt"></i> Delete
-            </button>
-          </td>
-        </tr>
-        <tr *ngFor='let line of s.questionnaire.lines'>
-          <td colspan="2"></td>
-          <td>{{ line.question.title }}</td>
-          <td>{{ line.question.rightAnswer }}</td>
-        </tr>
-        
-      </ng-template>
-      <button class="btn btn-primary" (click)='addSurvey()'>
-        <i class="fas fa-plus-circle"></i> Create a Survey
-      </button>
-    </tbody>
-  </table> -->
-
+  <p class="titles">Previously Created Surveys</p>
   <table class="table table-sm">
     <tbody>
       <tr *ngIf='getSurveys().length == 0'>
@@ -54,20 +14,30 @@
         <th>Questions Answers</th>
         <th>Category</th>
         <th colspan="2">Description</th>
+        
+          <button class="btn btn-danger" (click)='delete(s._id)'>
+            <i class="fas fa-trash-alt"></i> Delete </button>
+        
         <tr *ngFor='let line of s.questionnaire.lines'>
           <td>{{ line.question.title }}</td>
-          <td>{{ line.question.rightAnswer }}</td>
+          <td>{{ line.question.choice1 }}<br>  
+              {{ line.question.choice2 }}<br>
+              {{ line.question.choice3 }}<br>
+              {{ line.question.choice4 }}</td>
           <td>{{ s.category }}</td>
           <td>{{ s.description }}</td>
-          <td>
-            <button class="btn btn-danger" (click)='delete(s._id)'>
-              <i class="fas fa-trash-alt"></i> Delete </button>
-          </td>
         </tr>
       </ng-template>
-      <button class="btn btn-primary" (click)='addSurvey()'>
-        <i class="fas fa-plus-circle"></i> Create a Survey
-      </button>
     </tbody>
   </table> 
+
+  <div class="d-grid gap-2 col-3 mx-auto">
+    <button class="btn btn-primary" (click)='addSurvey()'>
+      <i class="fas fa-plus-circle"></i> Create a Survey
+    </button>
+
+    <button class="btn btn-success" (click)='filledOutSurvey()'>
+      <i class="fas fa-plus-circle"></i> Filled Out Surveys
+    </button>
+  </div>
 </main>

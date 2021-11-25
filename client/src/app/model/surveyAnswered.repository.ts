@@ -17,16 +17,20 @@ export class SurveyAnsweredRepository
 
     constructor(private dataSource: RestDataSource)
     {
-        dataSource.getSurveys().subscribe(data => {
+        /*dataSource.getSurveys().subscribe(data => {
             this.surveyAnswered = data;
-            this.categories = data.map(s => s.category).filter((n, index, array) => array.indexOf(n) === index).sort();
+        })*/
+        dataSource.getAnsweredSurveys().subscribe(data => {
+            this.surveyAnswered = data;
         })
+
     }
 
     loadSurveys(): void
     {
         this.loaded = true;
-        this.dataSource.getSurveys().subscribe(surveyAnswered => this.surveyAnswered = surveyAnswered);
+        //this.dataSource.getSurveys().subscribe(surveyAnswered => this.surveyAnswered = surveyAnswered);
+        this.dataSource.getAnsweredSurveys().subscribe(surveyAnswered => this.surveyAnswered = surveyAnswered);
     }
 
     getSurveysByCategory(category?: string): Survey[]
@@ -50,6 +54,7 @@ export class SurveyAnsweredRepository
 
     getSurvey(id: number): Survey
     {
+        console.log();
         return this.surveyAnswered.find(s => s._id === id) as Survey;
     }
 
@@ -67,7 +72,7 @@ export class SurveyAnsweredRepository
 
     deleteSurvey(id: number): void
     {
-        this.dataSource.deleteSurvey(id).subscribe(survey => {
+        this.dataSource.deleteSurveyAnswered(id).subscribe(survey => {
             this.surveyAnswered.splice(this.surveyAnswered.findIndex(s => id === s._id), 1);
         });
     }

@@ -27,7 +27,10 @@ module.exports.displayAddPage = (req, res, next) => {
 module.exports.processedAddPage =  (req, res, next) => {
     let newQuestion = Question({
         "title": req.body.title, 
-        "rightAnswer": req.body.rightAnswer
+        "choice1": req.body.choice1,
+        "choice2": req.body.choice2,
+        "choice3": req.body.choice3,
+        "choice4": req.body.choice4
     });
     
     //This is to create the new question into the database
@@ -66,7 +69,10 @@ module.exports.processEditPage = (req, res, next) => {
     let updatedQuestion = new Question({
         "_id": id,
         "title": req.body.title, 
-       "rightAnswer": req.body.rightAnswer
+        "choice1": req.body.choice1,
+        "choice2": req.body.choice2,
+        "choice3": req.body.choice3,
+        "choice4": req.body.choice4
     });
 
     Question.updateOne({_id: id}, updatedQuestion, (err) =>

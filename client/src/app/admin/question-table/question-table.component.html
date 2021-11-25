@@ -4,7 +4,7 @@
     <thead>
         <tr>
             <th>Title</th>
-            <th>Right Answer</th>
+            <th colspan="4">Choices</th>
             <th></th>
             <th></th>
             <th></th>
@@ -13,7 +13,10 @@
     <tbody>
         <tr *ngFor='let q of getQuestions()'>
             <td>{{ q.title }}</td>
-            <td>{{ q.rightAnswer }}</td>
+            <td>{{ q.choice1 }}</td>
+            <td>{{ q.choice2 }}</td>
+            <td>{{ q.choice3 }}</td>
+            <td>{{ q.choice4 }}</td>
             <td>
                 <button class="btn btn-sm btn-primary m-1" (click)='editQuestion(q._id)'> 
                     <i class="fas fa-pencil-alt"></i> Edit
@@ -33,7 +36,7 @@
         </tr>
     </tbody>
 </table>
-<button class="btn btn-primary" (click)='addQuestion()'>
+<button class="btn btn-primary m-1" (click)='addQuestion()'>
     <i class="fas fa-plus-circle"></i> Create Question
 </button>
 <button class="btn btn-secondary" (click)='cancel()'>

@@ -109,11 +109,24 @@ export class RestDataSource
     return this.http.get<Survey[]>(this.baseUrl + 'surveys');
   }
 
+  getAnsweredSurveys(): Observable<SurveyAnswered[]>
+  {
+    this.loadToken();
+    return this.http.get<SurveyAnswered[]>(this.baseUrl + 'surveyAnswered');
+  }
+
   deleteSurvey(id: number): Observable<Survey>
   {
     this.loadToken();
     return this.http.get<Survey>(`${this.baseUrl}surveys/delete/${id}`, this.httpOptions);
   }
+
+  deleteSurveyAnswered(id: number): Observable<SurveyAnswered>
+  {
+    this.loadToken();
+    return this.http.get<SurveyAnswered>(`${this.baseUrl}surveyAnswered/delete/${id}`, this.httpOptions);
+  }
+
 
   updateSurvey(survey: Survey): Observable<Survey>
   {

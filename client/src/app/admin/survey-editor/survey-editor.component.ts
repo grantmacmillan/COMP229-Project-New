@@ -6,8 +6,6 @@ import { Questionnaire } from 'src/app/model/questionnaire.model';
 import { Survey } from 'src/app/model/survey.model';
 import { SurveyRepository } from 'src/app/model/survey.repository';
 
-
-//This should be the add route
 @Component({
   selector: 'app-survey-editor',
   templateUrl: './survey-editor.component.html',

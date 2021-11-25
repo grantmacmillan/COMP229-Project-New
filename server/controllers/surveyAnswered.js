@@ -31,7 +31,10 @@ module.exports.processSurveyAnsweredAddPage = (req, res, next) => {
         let question = new Question(
             line.question._id, 
             line.question.title,
-            line.question.rightAnswer
+            line.question.choice1,
+            line.question.choice2,
+            line.question.choice3,
+            line.question.choice4
         );
         let answer = line.answer;
         questionnaire.lines.push({question, answer});
@@ -79,7 +82,10 @@ module.exports.processSurveyAnsweredEditPage = (req, res, next) => {
         let question = new Question(
           line.question._id,
           line.question.title,
-          line.question.rightAnswer
+          line.question.choice1,
+          line.question.choice2,
+          line.question.choice3,
+          line.question.choice4
         );
         let answer = line.answer;
         questionnaire.lines.push({question, answer});
