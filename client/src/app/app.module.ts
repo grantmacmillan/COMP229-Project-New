@@ -8,7 +8,6 @@ import {BookStoreModule} from './survey-site/survey-list.module'
 import { PagesModule } from './pages/pages.module';
 import { PartialsModule } from './partials/partials.module';
 
-
 //Exports a global function
 export function jwtTokenGetter(): string
 {
@@ -19,7 +18,6 @@ export function jwtTokenGetter(): string
 @NgModule({
   declarations: [
     AppComponent
-    
   ],
   imports: [
     BrowserModule,

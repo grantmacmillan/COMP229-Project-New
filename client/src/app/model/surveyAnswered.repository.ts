@@ -17,19 +17,13 @@ export class SurveyAnsweredRepository
 
     constructor(private dataSource: RestDataSource)
     {
-        /*dataSource.getSurveys().subscribe(data => {
-            this.surveyAnswered = data;
-        })*/
         dataSource.getAnsweredSurveys().subscribe(data => {
-            this.surveyAnswered = data;
-        })
-
+            this.surveyAnswered = data;})
     }
 
     loadSurveys(): void
     {
         this.loaded = true;
-        //this.dataSource.getSurveys().subscribe(surveyAnswered => this.surveyAnswered = surveyAnswered);
         this.dataSource.getAnsweredSurveys().subscribe(surveyAnswered => this.surveyAnswered = surveyAnswered);
     }
 

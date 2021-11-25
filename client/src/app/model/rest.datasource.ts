@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Question } from './question.model';
-import { Questionnaire } from './questionnaire.model';
 import { Survey } from './survey.model';
-import { map } from 'rxjs/operators';
 import {JwtHelperService} from '@auth0/angular-jwt';
 
 import { User } from './user.model';
@@ -63,12 +61,23 @@ export class RestDataSource
     return this.http.post<any>(this.baseUrl + 'register', user, this.httpOptions);
   }
 
+  modifyUser(user: User): Observable<any>
+  {
+    return this.http.post<any>(this.baseUrl + 'user-edit', user, this.httpOptions);
+  }
+
   storeUserData(token: any, user: User): void
   {
     localStorage.setItem('id_token', 'Bearer ' + token);
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
     this.user = user;
+  }
+
+  retrieveUserData(user: User): User
+  {
+    localStorage.getItem(JSON.stringify(user));
+    return this.user = user;
   }
 
   logout(): Observable<any>

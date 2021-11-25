@@ -14,9 +14,12 @@
         <th>Questions Answers</th>
         <th>Category</th>
         <th colspan="2">Description</th>
-        
+
           <button class="btn btn-danger" (click)='delete(s._id)'>
             <i class="fas fa-trash-alt"></i> Delete </button>
+
+          <button class="btn btn-success" (click)='stats(s._id)'>
+            <i class="fas fa-trash-alt"></i> Stats</button>
         
         <tr *ngFor='let line of s.questionnaire.lines'>
           <td>{{ line.question.title }}</td>
@@ -32,12 +35,16 @@
   </table> 
 
   <div class="d-grid gap-2 col-3 mx-auto">
-    <button class="btn btn-primary" (click)='addSurvey()'>
+    <button class="btn btn-primary" routerLink="/admin/main/surveys/add">
       <i class="fas fa-plus-circle"></i> Create a Survey
     </button>
 
-    <button class="btn btn-success" (click)='filledOutSurvey()'>
+    <button class="btn btn-success" routerLink="/admin/main/survey-answered">
       <i class="fas fa-plus-circle"></i> Filled Out Surveys
+    </button>
+
+    <button class="btn btn-warning" routerLink='/admin/main/user-edit'>
+      <i class="fas fa-plus-circle"></i> Modify Account
     </button>
   </div>
 </main>

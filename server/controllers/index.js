@@ -11,32 +11,6 @@ let DB = require('../config/db');
 let userModel = require('../models/user');
 let User = userModel.User; // alias
 
-//Display the home page
-module.exports.displayHomePage = (req, res, next) =>
-{
-    res.render('index', {title: 'Home', displayName: req.user ? req.user.displayName: ''});
-}
-
-module.exports.displayAboutPage = (req, res, next) =>
-{
-    res.render('index', {title: 'About', displayName: req.user ? req.user.displayName: ''});
-}
-
-module.exports.displayProjectsPage = (req, res, next) =>
-{
-    res.render('index', {title: 'Projects', displayName: req.user ? req.user.displayName: ''});
-}
-
-module.exports.displayServicesPage = (req, res, next) =>
-{
-    res.render('index', {title: 'Services', displayName: req.user ? req.user.displayName: ''});
-}
-
-module.exports.displayContactPage = (req, res, next) =>
-{
-    res.render('index', {title: 'Contact Me', displayName: req.user ? req.user.displayName: ''});
-}
-
 module.exports.displayLoginPage = (req, res, next) =>
 {
     //check if the user is already logged in
@@ -100,6 +74,29 @@ module.exports.processLoginPage = (req, res, next) =>
        });
     }) (req, res, next);
 }
+
+module.exports.processEditPage = (req, res, next) => {
+    let id = req.params.id;
+    let updatedUser = new User({
+        "_id": id,
+        "username": req.body.username, 
+        "email": req.body.email,
+        "displayName": req.body.displayName
+    });
+
+    User.updateOne({_id: id}, updatedUser, (err) =>
+    {
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+            res.json({success: true, msg: 'Successfully Edited User', user: updatedUser});
+        }
+    });
+};
 
 module.exports.displayRegisterPage = (req, res, next) =>
 {

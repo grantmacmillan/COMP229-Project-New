@@ -11,6 +11,8 @@ let Survey = mongoose.Schema({
     province: String,
     postalCode: String,
     country: String,
+    activatesIn: Number,
+    deactivatesIn: Number,
     questionnaire: 
     {
         lines:

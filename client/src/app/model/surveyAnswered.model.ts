@@ -14,6 +14,8 @@ export class SurveyAnswered
     public postalCode: string;
     public country: string;
     public description: string;
+    public activatesIn: number;
+    public deactivatesIn: number;
 
     constructor(public questionnaire: Questionnaire) {}
         
@@ -22,6 +24,9 @@ export class SurveyAnswered
         this._id = null;
         this.title = this.category = this.description = null;
         this.name = this.address = this.city = this.province = this.postalCode = this.country = null;
+        this.activatesIn = this.deactivatesIn = null;
         this.questionnaire.clear();
     }
+
+    
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/model/auth.service';
 import { Survey } from 'src/app/model/survey.model';
 import { SurveyRepository } from 'src/app/model/survey.repository';
+import { User } from 'src/app/model/user.model';
 
 @Component({
   templateUrl: './survey-table.component.html'
@@ -33,18 +35,13 @@ export class SurveyTableComponent implements OnInit
     }
   }
 
-  addSurvey(): void 
-  {
-    this.router.navigateByUrl('/admin/main/surveys/add');
-  }
-
   editSurvey(id: number): void 
   {
     this.router.navigateByUrl('/admin/main/surveys/edit/' + id);
   }
 
-  filledOutSurvey(): void
+  stats(id: number): void
   {
-    this.router.navigateByUrl('/admin/surveyAnswered');
+    this.router.navigateByUrl('/admin/main/stats-table/' + id); 
   }
 }

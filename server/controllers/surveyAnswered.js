@@ -51,7 +51,9 @@ module.exports.processSurveyAnsweredAddPage = (req, res, next) => {
         "province": req.body.province,
         "postalCode": req.body.postalCode,
         "country": req.body.country,   
-        "questionnaire": questionnaire 
+        "questionnaire": questionnaire,
+        "activatesIn": req.body.activatesIn,
+        "deactivatesIn": req.body.deactivatesIn 
     })
 
     
@@ -103,7 +105,9 @@ module.exports.processSurveyAnsweredEditPage = (req, res, next) => {
         "province": req.body.province,
         "postalCode": req.body.postalCode,
         "country": req.body.country,   
-        "questionnaire": questionnaire
+        "questionnaire": questionnaire,
+        "activatesIn": req.body.activatesIn,
+        "deactivatesIn": req.body.deactivatesIn
     });
 
     SurveyAnswered.updateOne({_id: id}, surveyAnswered, (err) => {

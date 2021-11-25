@@ -34,7 +34,7 @@ export class QuestionnaireDetailComponent implements OnInit {
   {
     this.surveyAnswered = survey;
     this.repository.saveSurvey(this.surveyAnswered).subscribe();
-    window.alert("This Survey has been submitted")
-    this.router.navigateByUrl('/');
+    window.alert("Your Survey has been submitted")
+    this.router.navigate(['/']).then(() => {window.location.reload()}); 
   }
 }

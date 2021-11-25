@@ -51,7 +51,9 @@ module.exports.processAddPage = (req, res, next) => {
         "province": req.body.province,
         "postalCode": req.body.postalCode,
         "country": req.body.country,   
-        "questionnaire": questionnaire 
+        "questionnaire": questionnaire,
+        "activatesIn": req.body.activatesIn,
+        "deactivatesIn": req.body.deactivatesIn
     });
     
     //Add new Survey Object to the Database
@@ -102,7 +104,9 @@ module.exports.processEditPage = (req, res, next) => {
         "province": req.body.province,
         "postalCode": req.body.postalCode,
         "country": req.body.country,   
-        "questionnaire": questionnaire
+        "questionnaire": questionnaire,
+        "activatesIn": req.body.activatesIn,
+        "deactivatesIn": req.body.deactivatesIn
     });
 
     Survey.updateOne({_id: id}, updatedSurvey, (err) => {
