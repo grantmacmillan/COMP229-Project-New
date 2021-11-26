@@ -1,4 +1,17 @@
+<!--
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Survey Answered Table Component Html - survey-answered-table.component.html
+-->
+
 <main>
+<!--Title-->
 <p class="titles">Filled Out Surveys</p>
 <div class="container">
     <table class="table table-sm">
@@ -6,6 +19,8 @@
         <tr *ngIf='getSurveys().length == 0'>
             <td colspan="5">There are no filled surveys</td>
         </tr>
+
+        <!--Table with surveys-->
         <ng-template ngFor let-s [ngForOf]='getSurveys()'>
             <tr>
                 <th>Title</th>
@@ -16,6 +31,7 @@
                 <th>Category</th>
                 <th colspan="2">Description</th>
 
+                <!--Delete Button-->
                 <button class="btn btn-danger" (click)='delete(s._id)'>
                     <i class="fas fa-trash-alt"></i> Delete </button>
 
@@ -29,6 +45,7 @@
         </tbody>
     </table>
     
+    <!--Back Button-->
     <div class="d-grid gap-2 col-3 mx-auto">
         <button class="btn btn-secondary" routerLink="/admin/main/surveys">
             <i class="fas fa-plus-circle"></i> Back

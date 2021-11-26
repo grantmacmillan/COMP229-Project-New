@@ -1,3 +1,15 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Manifest of the app folder - app.module.ts
+*/
+
 //Manifest for the app folder
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';

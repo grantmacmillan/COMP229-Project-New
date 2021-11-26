@@ -1,11 +1,27 @@
+<!--
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Questionnaire-Detail Component Html - questionnaire-detail.component.html
+-->
+
+<!--Main Content-->
 <main>
 <div class="container">
     <div class="row">
         <div class="col mt-2">
-            <h2 class="text-center">{{ survey.title }}</h2>
-            <h4 class="text-center">{{ survey.category }}</h4>
-            <h4 class="text-center"> {{ survey.description }}</h4>
 
+            <!--Titles-->
+            <p class="titles">{{ survey.title }}</p>
+            <h5 class="text-center">{{ survey.category }}</h5>
+            <h6 class="text-center"> {{ survey.description }}</h6>
+
+            <!--Displays Questions and Choices In a Repeating Manner-->
             <table class="table table-bordered table-stripped p-2">
                 <tr *ngFor='let line of survey.questionnaire.lines; let i = index;'>
                     <td>{{ line.question.title }}</td>

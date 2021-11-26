@@ -1,4 +1,15 @@
-//This is the controller that controls the view
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Header Component - header.component.ts
+*/
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/model/auth.service';
@@ -6,8 +17,7 @@ import { User } from 'src/app/model/user.model';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  templateUrl: './header.component.html'
 })
 
 export class HeaderComponent implements OnInit {
@@ -21,6 +31,7 @@ export class HeaderComponent implements OnInit {
     this.user = new User();
   }
 
+  //Logs Out The User
   onLogoutClick() : void
   {
     this.authService.logout().subscribe(data => {
@@ -28,6 +39,7 @@ export class HeaderComponent implements OnInit {
       });
   }
 
+  //Checks if User is Logged In
   isLoggedIn(): boolean
   {
     const result = this.authService.authenticated;

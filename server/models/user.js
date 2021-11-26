@@ -1,3 +1,15 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: User Model - user.js
+*/
+
 //require modules for the User model
 let mongoose = require('mongoose');
 let passportLocalMongoose = require('passport-local-mongoose');

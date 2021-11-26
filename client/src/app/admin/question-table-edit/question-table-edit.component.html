@@ -1,3 +1,16 @@
+<!--
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Question Table Edit Component Html - question-table-edit.component.html
+-->
+
+<!--Table-->
 <table class="table table-sm table-striped">
     <thead>
         <tr>
@@ -9,9 +22,11 @@
         </tr>
     </thead>
     <tbody>
+        <!--Questions-->
         <tr *ngFor='let q of getQuestions()'>
             <td>{{ q.title }}</td>
             <td>{{ q.choice1 }}</td>
+            <!--Buttons-->
             <td>
                 <button class="btn btn-sm btn-primary m-1" (click)='editQuestion(q._id)'> 
                     <i class="fas fa-pencil-alt"></i> Edit
@@ -31,6 +46,8 @@
         </tr>
     </tbody>
 </table>
-<button class="btn btn-primary" (click)='addQuestion()'>
+
+<!--Create New Question Button-->
+<button class="btn btn-primary">
     <i class="fas fa-plus-circle"></i> Create a Question
 </button>

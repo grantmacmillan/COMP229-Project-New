@@ -1,3 +1,15 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Entry Point of the applicaiton - app.js
+*/
+
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');

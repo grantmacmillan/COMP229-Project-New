@@ -1,14 +1,28 @@
+<!--
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Survey-Aditor Component Html - survey-aditor.component.html
+-->
+
+<!--Conditional Thank you-->
 <div *ngIf='surveySent' class="m-2 text-center">
     <h2>Thanks!</h2>
     <p>Thanks for creating your survey.</p>
-    <button class="btn btn-primary" (click)='surveyList()'>Return to Surveys</button>
+    <button class="btn btn-primary" routerLink='/admin/main/surveys'>Return to Surveys</button>
 </div>
-<div *ngIf='!surveySent'>
-<div  class="bg-primary p-2 text-white">
-    <h5>Edit Survey</h5>
-</div>
-<form novalidate #form='ngForm' (ngSubmit)='updateSurvey(form)'>
 
+<div *ngIf='!surveySent'>
+    <div  class="bg-primary p-2 text-white">
+        <h5>Edit Survey</h5>
+    </div>
+<!--Form-->
+<form novalidate #form='ngForm' (ngSubmit)='updateSurvey(form)'>
     <div class="form-group">
         <label>Survey Title</label>
         <input  type="text" class="form-control" name='title' [(ngModel)]='survey.title'>
@@ -24,17 +38,19 @@
         <input type="text" class="form-control" name='description' [(ngModel)]='survey.description'>
     </div>
 
+    <!--Buttons-->
     <button class="btn btn-warning m-1" type="submit">
         <i class="fas fa-plus-circle"></i> Edit
     </button>
-    <button class="btn btn-secondary m-1" (click)="addQuestion()">
+    <button class="btn btn-secondary m-1" routerLink='/admin/main/page-edit'>
         Add Question
     </button>
-    <button class="btn btn-secondary m-1" (click)="surveyList()">
+    <button class="btn btn-secondary m-1" routerLink='/admin/main/surveys'>
         Back
     </button>
 
 </form>
+
 </div> 
      <!--Conditional Section IF No Books-->
     <div *ngIf='questionnaire.lines.length == 0'>

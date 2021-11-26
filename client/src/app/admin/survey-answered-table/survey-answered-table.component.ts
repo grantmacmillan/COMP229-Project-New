@@ -1,3 +1,15 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Survey Answered Table Component - survey-answered-table.component.ts
+*/
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SurveyAnswered } from 'src/app/model/surveyAnswered.model';
@@ -5,8 +17,7 @@ import { SurveyAnsweredRepository } from 'src/app/model/surveyAnswered.repositor
 
 @Component({
   selector: 'app-survey-answered-table',
-  templateUrl: './survey-answered-table.component.html',
-  styleUrls: ['./survey-answered-table.component.css']
+  templateUrl: './survey-answered-table.component.html'
 })
 export class SurveyAnsweredTableComponent implements OnInit {
 
@@ -19,16 +30,13 @@ export class SurveyAnsweredTableComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Get Surveys
   getSurveys(): SurveyAnswered[]
   {
     return this.repository.getSurveys();
   }
 
-  filledOutSurvey(): void
-  {
-    this.router.navigateByUrl('/admin/surveyAnswered');
-  }
-
+  //Delete a survey based on id
   delete(id: number): void
   {
     if(confirm("Are you sure?"))

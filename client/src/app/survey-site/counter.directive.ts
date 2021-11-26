@@ -1,14 +1,24 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Counter Directive - counter.directive.ts
+*/
+
 import { Directive, ViewContainerRef, TemplateRef, Input, Attribute, SimpleChanges, OnChanges } from '@angular/core';
 
 @Directive({
-  // tslint:disable-next-line: directive-selector
   selector: '[counterOf]'
 })
 export class CounterDirective implements OnChanges
 {
   constructor(private container: ViewContainerRef,
-              private template: TemplateRef<any>)
-  {  }
+              private template: TemplateRef<any>) { }
 
   @Input('counterOf')
   counter: number;

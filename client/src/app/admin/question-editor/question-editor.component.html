@@ -1,12 +1,26 @@
+<!--
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Question Editor Component Html - question-editor.component.html
+-->
+
 <main>
+    <!--Conditional title-->
     <div class="container">
         <div
             [class.text-dark]='editing'
             [class.text-dark]='editing'>
             <h5>{{ editing ? 'Edit' : 'Add' }} Question</h5>
         </div>
-        <form novalidate #form='ngForm' (ngSubmit)='save(form)'>
 
+        <!--Form-->
+        <form novalidate #form='ngForm' (ngSubmit)='save(form)'>
             <div class="form-group">
                 <label>Title</label>
                 <input type="text" class="form-control" name='title' [(ngModel)]='question.title'>
@@ -32,6 +46,7 @@
                 <input type="text" class="form-control" name='choich4' [(ngModel)]='question.choice4'>
             </div>
 
+            <!--Buttons-->
             <button class="btn btn-primary m-1" [class.btn-warning]='editing' type="submit">
                 <i class="{{editing ? 'fas fa-save' : 'fas fa-plus-circle'}}"></i> {{ editing ? "Save" : "Add" }}
             </button>

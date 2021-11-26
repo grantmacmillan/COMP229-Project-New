@@ -1,6 +1,6 @@
 module.exports = function () {
     return {
-        "book-list":
+        "question-list":
             [
                 {
                     _id: 1,

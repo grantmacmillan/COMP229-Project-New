@@ -1,3 +1,15 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Controller to allow Full CRUD on SurveyAnswered Object - surveyAnswered.js
+*/
+
 let express = require('express');
 const survey = require('../models/survey');
 let router = express.Router();

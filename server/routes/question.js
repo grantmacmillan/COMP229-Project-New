@@ -1,24 +1,21 @@
-let express = require('express');
-const { removeData } = require('jquery');
-let router = express.Router();
-let mongoose = require('mongoose');
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Routes of the questions - question.js
+*/
 
-let jwt = require('jsonwebtoken');
+let express = require('express');
+let router = express.Router();
 
 let passport = require('passport');
 
 let questionController = require('../controllers/question');
-
-//helper function for guard purposes
-function requireAuth(req, res, next)
-{
-    //check if the user is logged in
-    if(!req.isAuthenticated())
-    {
-        return res.redirect('/login');
-    }
-    next(); //Allows to go to the next event
-}
 
 /*GET Route for the Book List page - READ operation*/
 router.get('/', questionController.displayQuestionList);

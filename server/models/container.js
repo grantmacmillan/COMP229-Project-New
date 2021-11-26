@@ -1,3 +1,15 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Container for the Question, Line and Questionnaire - container.js
+*/
+
 "use strict"
 class Question 
 {
@@ -14,7 +26,10 @@ class Question
     {
         return "_id        : " + this._id + "\n" +
                "title      : " + this.title + "\n" + 
-               "choice 1   : " + this.choice1 + "\n" 
+               "choice 1   : " + this.choice1 + "\n"+
+               "choice 2   :" + this.choice2 + "\n" +
+               "choice 3   :" + this.choice3 + "\n" + 
+               "choice 4   :" + this.choice4 + "\n"
     }
 }
 

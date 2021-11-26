@@ -1,20 +1,21 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Routes of the survey - survey.js
+*/
+
 let express =  require('express');
 let router = express.Router();
 
-let jwt = require('jsonwebtoken');
 let passport = require('passport');
 
 let surveyController = require('../controllers/survey');
-
-function requireAuth(req, res, next)
-{
-    // check if the user is logged in
-    if(!req.isAuthenticated())
-    {
-        return res.redirect('/login');
-    }
-    next();
-}
 
 /*GET ORDER LIST -- READ */
 router.get('/', surveyController.displaySurveyList);
