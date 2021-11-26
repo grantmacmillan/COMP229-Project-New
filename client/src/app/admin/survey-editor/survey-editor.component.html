@@ -50,15 +50,15 @@ Description: Survey Editor Component Html - survey-editor.component.html
 
 <!--Buttons-->
 <div style="text-align: center;">
-    <button class="btn btn-primary m-1" type="submit">
-        <i class="fas fa-plus-circle"></i> Create Survey
+    <button class="btn btn-success m-1" type="submit">
+        <i class="fas fa-check-square"></i> Create Survey
     </button>
-    <button class="btn btn-secondary m-1" (click)="addQuestion()">
-        Add Question(s)
+    <button class="btn btn-primary m-1" (click)="addQuestion()">
+        <i class="fas fa-plus-circle">  Add Question(s) </i> 
     </button>
 
     <button class="btn btn-secondary m-1" (click)="cancel()">
-        Cancel
+        <i class="fas fa-undo"> Cancel </i>
     </button>
 </div>
 </form>
@@ -66,16 +66,21 @@ Description: Survey Editor Component Html - survey-editor.component.html
 <div *ngIf='questionnaire.lines.length == 0' style="text-align: center;">
     <label class="text-center" colspan="4">No questions in this survey</label>
 </div> 
-</div> 
-     
 
     <!--Repeating section for questions-->
     <div *ngFor='let line of questionnaire.lines'>
         <label> {{ line.question.title }} </label><br>
-        <label class="text-right">{{ line.question.choice1 }}</label>
-       
+        <ul>
+            <li><label class="text-right">{{ line.question.choice1 }}</label></li>
+            <li><label class="text-right">{{ line.question.choice2 }}</label></li>
+            <li><label class="text-right">{{ line.question.choice3 }}</label></li>
+            <li><label class="text-right">{{ line.question.choice4 }}</label></li>
+        </ul>
     <button class="btn btn-sm btn-danger"
             (click)='questionnaire.removeLine(line.question._id)'>
             Remove
     </button> 
+</div> 
+     
+
             

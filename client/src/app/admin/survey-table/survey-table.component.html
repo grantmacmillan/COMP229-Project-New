@@ -26,17 +26,17 @@ Description: Survey Table Component Html - survey-table.component.html
           <td>{{ s.title }}</td>
         </tr>
           <th>Questions</th>
-          <th>Questions Answers</th>
+          <th>Choices</th>
           <th>Category</th>
           <th colspan="2">Description</th>
 
           <!--Delete Button-->
-          <button class="btn btn-danger" (click)='delete(s._id)'>
+          <button class="btn btn-danger m-1" (click)='delete(s._id)'>
             <i class="fas fa-trash-alt"></i> Delete </button>
 
             <!--Stats Button-->
           <button class="btn btn-success" (click)='stats(s._id)'>
-            <i class="fas fa-trash-alt"></i> Stats</button>
+            <i class="fas fa-info-circle"></i> Stats</button>
         
             <!--Questions and choices-->
           <tr *ngFor='let line of s.questionnaire.lines'>
@@ -60,12 +60,12 @@ Description: Survey Table Component Html - survey-table.component.html
 
     <!--Filled Out Surveys-->
     <button class="btn btn-success" routerLink="/admin/main/survey-answered">
-      <i class="fas fa-plus-circle"></i> Filled Out Surveys
+      <i class="fas fa-list"></i> Filled Out Surveys
     </button>
 
     <!--Modify Account Survey-->
     <button class="btn btn-warning" routerLink='/admin/main/user-edit'>
-      <i class="fas fa-plus-circle"></i> Modify Account
+      <i class="fas fa-exchange-alt"></i> Modify Account
     </button>
   </div>
 </main>
