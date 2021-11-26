@@ -74,13 +74,6 @@ export class RestDataSource
     this.user = user;
   }
 
-  //Retrieves User Data -- Still Need to work on that
-  retrieveUserData(user: User): User
-  {
-    localStorage.getItem(JSON.stringify(user));
-    return this.user = user;
-  }
-
   //Logs a User Out
   logout(): Observable<any>
   {
@@ -88,6 +81,11 @@ export class RestDataSource
     this.user = null;
     localStorage.clear();
     return this.http.get<any>(this.baseUrl + 'logout', this.httpOptions)
+  }
+
+  getUsers(): Observable<User[]>
+  {
+    return this.http.get<User[]>(this.baseUrl + 'user-edit');
   }
 
   //Checks if the User is LoggedIn

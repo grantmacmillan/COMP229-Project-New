@@ -23,6 +23,19 @@ let DB = require('../config/db');
 let userModel = require('../models/user');
 let User = userModel.User; // alias
 
+module.exports.displayUserList= (req, res, next) => {
+    User.find((err, userList) => {
+        if(err)
+        {
+            return console.error(err);
+        }
+        else
+        {
+            res.json(userList);
+        }
+    });
+};
+
 module.exports.displayLoginPage = (req, res, next) =>
 {
     //check if the user is already logged in

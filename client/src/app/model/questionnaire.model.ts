@@ -29,6 +29,7 @@ export class Questionnaire
         }
         else
         {
+            console.log("Question pushed");
             this.lines.push(new QuestionnaireLine(question, answer));
         }
     }

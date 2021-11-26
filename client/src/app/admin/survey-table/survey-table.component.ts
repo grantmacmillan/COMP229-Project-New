@@ -14,6 +14,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Survey } from 'src/app/model/survey.model';
 import { SurveyRepository } from 'src/app/model/survey.repository';
+import { User } from 'src/app/model/user.model';
 
 @Component({
   templateUrl: './survey-table.component.html'
@@ -23,7 +24,8 @@ export class SurveyTableComponent implements OnInit
   includeShipped = false;
 
   constructor(private repository: SurveyRepository,
-              private router: Router) { }
+              private router: Router,
+              public user: User) { }
 
   ngOnInit(): void {
   }
@@ -57,5 +59,10 @@ export class SurveyTableComponent implements OnInit
   stats(id: number): void
   {
     this.router.navigateByUrl('/admin/main/stats-table/' + id); 
+  }
+
+  modifyUser(id: string): void
+  {
+    this.router.navigateByUrl('/admin/main/user-edit');
   }
 }

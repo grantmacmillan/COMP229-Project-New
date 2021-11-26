@@ -34,7 +34,7 @@ export class AuthComponent implements OnInit {
   }
 
   //Authenticate a user
-  authenticate(form: NgForm): void
+  authenticate(form: NgForm, id: string): void
   {
     if(form.valid)
     {

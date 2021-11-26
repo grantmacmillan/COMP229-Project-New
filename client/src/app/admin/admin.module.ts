@@ -29,6 +29,7 @@ import { UserEditorComponent } from './user-editor/user-editor.component';
 import { StatsTableComponent } from './stats-table/stats-table.component';
 import { HttpClientModule } from "@angular/common/http";
 import { ContactService } from "./contact.service";
+import { User } from "../model/user.model";
 
 const routing = RouterModule.forChild([
     { path: 'auth', component: AuthComponent },
@@ -59,7 +60,7 @@ const routing = RouterModule.forChild([
 
 @NgModule({
     imports: [CommonModule, FormsModule, routing, HttpClientModule, ReactiveFormsModule],
-    providers:[AuthGuard, ContactService],
+    providers:[AuthGuard, ContactService, User],
     declarations: [AuthComponent, AdminComponent, SurveyTableComponent, 
         QuestionEditorComponent, QuestionTableComponent, SurveyEditorComponent, 
         SurveyAditorComponent, QuestionTableEditComponent, RegisterComponent, 

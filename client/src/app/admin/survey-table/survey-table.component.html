@@ -64,7 +64,7 @@ Description: Survey Table Component Html - survey-table.component.html
     </button>
 
     <!--Modify Account Survey-->
-    <button class="btn btn-warning" routerLink='/admin/main/user-edit'>
+    <button class="btn btn-warning" (click)='modifyUser(user._id)'>
       <i class="fas fa-exchange-alt"></i> Modify Account
     </button>
   </div>

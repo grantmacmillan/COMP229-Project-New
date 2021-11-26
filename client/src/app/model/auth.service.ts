@@ -19,10 +19,13 @@ import { User } from "./user.model";
 export class AuthService
 {
     user: User;
+    users: User[];
 
     constructor(private datasource: RestDataSource)
     {
         this.user = new User();
+        datasource.getUsers().subscribe(data => {
+            this.users=data;});
     }
 
     //Authenticate An Existing User
@@ -43,10 +46,10 @@ export class AuthService
         return this.datasource.modifyUser(user);
     }
 
-    //Allows the retrieval of User Date -- Still Need to Work on that
-    retrieveUserData(user: User): User
+    //Returns Sepecific User based on Id -- Still Need to work on that
+    getUser(id: string): User
     {
-        return this.datasource.retrieveUserData(user);
+        return this.users.find(u => u._id === id) as User;
     }
 
     //Stores User Data
