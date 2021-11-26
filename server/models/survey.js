@@ -1,6 +1,18 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Survey Model - survey.js
+*/
+
 let mongoose = require('mongoose');
 
-//Create survey model class
+//Create Survey model class
 let Survey = mongoose.Schema({
     title: String,
     category: String,
@@ -11,8 +23,8 @@ let Survey = mongoose.Schema({
     province: String,
     postalCode: String,
     country: String,
-    activatesIn: Number,
-    deactivatesIn: Number,
+    activatesIn: String,
+    deactivatesIn: String,
     questionnaire: 
     {
         lines:

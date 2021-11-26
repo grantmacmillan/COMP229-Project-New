@@ -1,3 +1,15 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: SurveyAnswered Model - surveyAnswered.model.ts
+*/
+
 import { Injectable } from "@angular/core";
 import { Questionnaire } from "./questionnaire.model";
 
@@ -14,8 +26,8 @@ export class SurveyAnswered
     public postalCode: string;
     public country: string;
     public description: string;
-    public activatesIn: number;
-    public deactivatesIn: number;
+    public activatesIn: String;
+    public deactivatesIn: String;
 
     constructor(public questionnaire: Questionnaire) {}
         
@@ -27,6 +39,4 @@ export class SurveyAnswered
         this.activatesIn = this.deactivatesIn = null;
         this.questionnaire.clear();
     }
-
-    
 }

@@ -1,3 +1,15 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Question Editor Component - question-editor.component.ts
+*/
+
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -29,6 +41,7 @@ export class QuestionEditorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Saves a Question
   save(form: NgForm): void
   {
     this.repository.saveQuestion(this.question); 

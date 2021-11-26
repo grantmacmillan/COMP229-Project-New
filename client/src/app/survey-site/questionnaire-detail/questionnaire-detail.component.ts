@@ -1,5 +1,16 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Questionnaire-Detail Component - questionnaire-detail.component.ts
+*/
+
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Questionnaire } from 'src/app/model/questionnaire.model';
 import { Survey } from 'src/app/model/survey.model';
@@ -9,13 +20,11 @@ import { SurveyAnsweredRepository } from 'src/app/model/surveyAnswered.repositor
 
 @Component({
   selector: 'app-questionnaire-detail',
-  templateUrl: './questionnaire-detail.component.html',
-  styleUrls: ['./questionnaire-detail.component.css']
+  templateUrl: './questionnaire-detail.component.html'
 })
 export class QuestionnaireDetailComponent implements OnInit {
   editing = false;
   
-
   constructor(public questionnaire: Questionnaire,
               public survey: Survey,
               private surveyAnswered: SurveyAnswered,
@@ -30,6 +39,7 @@ export class QuestionnaireDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Submits the filled survey to the SurveyAnswered Repository
   submitSurvey(survey: Survey): void
   {
     this.surveyAnswered = survey;

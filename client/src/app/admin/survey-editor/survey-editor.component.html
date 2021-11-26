@@ -1,3 +1,16 @@
+<!--
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Survey Editor Component Html - survey-editor.component.html
+-->
+
+<!--Conditional Title-->
 <div *ngIf='surveySent' class="m-2 text-center">
     <h2>Thanks!</h2>
     <p>Thanks for creating a survey.</p>
@@ -7,6 +20,7 @@
     <p class="titles" style="padding-top: 30px;">Add Survey</p>
 <form novalidate #form='ngForm' (ngSubmit)='submitSurvey(form)'>
 
+    <!--Survey Information-->
     <div class="form-group">
         <label>Survey Title</label>
         <input  type="text" class="form-control" name='title' [(ngModel)]='survey.title'>
@@ -24,17 +38,17 @@
 
     <div class="form-group">
         <label>Activates In: 
-            <input type="number" class="form-control" name='activatesIn' [(ngModel)]='survey.activatesIn'>
+            <input type="date" class="form-control" name='activatesIn' [(ngModel)]='survey.activatesIn'>
         </label>
     </div>
 
     <div class="form-group">
         <label>How long does the survey stay active? 
-            <input type="number" class="form-control" name='deactivatesIn' [(ngModel)]='survey.deactivatesIn'>
+            <input type="date" class="form-control" name='deactivatesIn' [(ngModel)]='survey.deactivatesIn'>
         </label>
     </div>
 
-
+<!--Buttons-->
 <div style="text-align: center;">
     <button class="btn btn-primary m-1" type="submit">
         <i class="fas fa-plus-circle"></i> Create Survey
@@ -48,7 +62,7 @@
     </button>
 </div>
 </form>
-<!--Conditional Section IF No Books-->
+<!--Conditional Section IF No Surveys-->
 <div *ngIf='questionnaire.lines.length == 0' style="text-align: center;">
     <label class="text-center" colspan="4">No questions in this survey</label>
 </div> 

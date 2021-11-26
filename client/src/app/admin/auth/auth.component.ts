@@ -1,3 +1,15 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Auth Component - auth.component.ts
+*/
+
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -21,6 +33,7 @@ export class AuthComponent implements OnInit {
     this.user = new User();
   }
 
+  //Authenticate a user
   authenticate(form: NgForm): void
   {
     if(form.valid)

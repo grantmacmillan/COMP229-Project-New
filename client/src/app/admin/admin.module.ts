@@ -1,3 +1,15 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Admin Module - admin.module.ts
+*/
+
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -14,7 +26,6 @@ import { QuestionTableEditComponent } from './question-table-edit/question-table
 import { RegisterComponent } from './register/register.component';
 import { SurveyAnsweredTableComponent } from './survey-answered-table/survey-answered-table.component';
 import { UserEditorComponent } from './user-editor/user-editor.component';
-import { User } from "../model/user.model";
 import { StatsTableComponent } from './stats-table/stats-table.component';
 import { HttpClientModule } from "@angular/common/http";
 import { ContactService } from "./contact.service";

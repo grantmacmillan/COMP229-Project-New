@@ -1,3 +1,15 @@
+<!--
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Survey-List Component Html - survey-list.component.html
+-->
+
 <main>
     <div class="container">
         <p class="titles">Surveys</p>
@@ -37,6 +49,7 @@
                 
                 </div>
 
+                <!-- Pagination -->
                 <div class="form-inline float-end" style="width: 130px;">
                     <select class="form-control" [value]='surveysPerPage' (change)='changePageSize($any($event.target).value)'>
                         <option value="3">3 per page</option>
@@ -46,6 +59,7 @@
                     </select>
                 </div> 
 
+                <!--Page Button-->
                 <div class="btn-group float-end m-1">
                     <button *counter='let page of pageCount' (click)='changePage(page)'
                             class="btn btn-outline-secondary"

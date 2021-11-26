@@ -1,3 +1,15 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Controller to allow user to login, logout, and register - index.js
+*/
+
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');

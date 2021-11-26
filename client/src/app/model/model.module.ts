@@ -1,3 +1,15 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Model Module - model.module.ts
+*/
+
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { AuthService } from "./auth.service";
@@ -15,6 +27,5 @@ import { SurveyAnsweredRepository } from "./surveyAnswered.repository";
     providers: [QuestionRepository, StaticDataSource, Questionnaire, Survey, SurveyRepository, SurveyAnsweredRepository, SurveyAnswered,
     {provide: StaticDataSource, useClass: RestDataSource}, 
     RestDataSource, AuthService]
-
 })
 export class ModelModule{}

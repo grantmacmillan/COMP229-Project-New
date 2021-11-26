@@ -1,3 +1,15 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Stats Table Component - stats-table.component.ts
+*/
+
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Survey } from 'src/app/model/survey.model';
@@ -8,8 +20,7 @@ import { ContactService } from '../contact.service';
 
 @Component({
   selector: 'app-stats-table',
-  templateUrl: './stats-table.component.html',
-  styleUrls: ['./stats-table.component.css']
+  templateUrl: './stats-table.component.html'
 })
 export class StatsTableComponent implements OnInit {
 
@@ -30,16 +41,19 @@ export class StatsTableComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Get Surveys
   getSurveys(): SurveyAnswered[]
   {
     return this.repository.getSurveys();
   }
 
+  //Exporting Table to Excel
   exportElmToExcel(): void
   {
     this.contactService.exportTableElmToExcel(this.statisticTable, 'statisticTable');
   }
 
+  //Getting Number of Answered Surveys Stats
   get numberAnsweredSurveys(): Number
   {
     let count = 0;
@@ -52,6 +66,7 @@ export class StatsTableComponent implements OnInit {
     return count;
   }
 
+  //Getting how many people selected choice 1
   get choice1(): Number
   {
     let count = 0;
@@ -67,6 +82,7 @@ export class StatsTableComponent implements OnInit {
     return count;
   }
 
+  //Getting how many people selected choice 2
   get choice2(): Number
   {
     let count = 0;
@@ -82,6 +98,7 @@ export class StatsTableComponent implements OnInit {
     return count;
   }
 
+  //Getting how many people selected choice 3
   get choice3(): Number
   {
     let count = 0;
@@ -97,6 +114,7 @@ export class StatsTableComponent implements OnInit {
     return count;
   }
 
+  //Getting how many people selected choice 4
   get choice4(): Number
   {
     let count = 0;

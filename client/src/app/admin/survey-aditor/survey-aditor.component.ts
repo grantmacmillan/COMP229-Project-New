@@ -1,3 +1,15 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Survey-Aditor Component - survey-aditor.component.ts
+*/
+
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -7,8 +19,7 @@ import { SurveyRepository } from 'src/app/model/survey.repository';
 
 @Component({
   selector: 'app-survey-aditor',
-  templateUrl: './survey-aditor.component.html',
-  styleUrls: ['./survey-aditor.component.css']
+  templateUrl: './survey-aditor.component.html'
 })
 export class SurveyAditorComponent implements OnInit {
   editing = false;
@@ -28,6 +39,7 @@ export class SurveyAditorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Update surveys
   updateSurvey(form: NgForm): void
   {
     this.submitted = true;
@@ -37,15 +49,5 @@ export class SurveyAditorComponent implements OnInit {
     }
 
     this.router.navigate(['/admin/main/surveys']).then(() => {window.location.reload()}); //Same fix as teacher 
-  }
-
-  addQuestion(): void 
-  {
-    this.router.navigateByUrl('/admin/main/page-edit');
-  }
-
-  surveyList(): void
-  {
-    this.router.navigateByUrl('/admin/main/surveys'); //Same fix as teacher 
   }
 }

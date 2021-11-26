@@ -1,10 +1,26 @@
+<!--
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Registed Component Html - register.component.html
+-->
+
 <main class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-sm-8 offset-sm-1">
+
+            <!--Conditional Error Message-->
             <div class="bg-danger mt-2 p-2 text-center text-white"
                  *ngIf='errorMessage != null'>
                  {{ errorMessage }}
             </div>
+
+            <!--Form-->
             <h1>Please Register</h1>
             <form autoComplete='off' #form='ngForm'
                   (ngSubmit)='authenticateRegister(form)'> 
@@ -40,6 +56,7 @@
                     id='displayName' required autocomplete='off'>
                 </fieldset>
 
+                <!--Buttons-->
                 <fieldset class="form-group text-right">
                     <button class='btn btn-primary m-1' type='submit'>
                         <i class="fas fa-sign-in-alt"></i> 

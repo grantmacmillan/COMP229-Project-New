@@ -1,10 +1,20 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Survey Repository - survey.repository.ts
+*/
+
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Question } from "./question.model";
 import { Survey } from "./survey.model";
 import { RestDataSource } from "./rest.datasource";
-import { StaticDataSource } from "./static.datasource";
-
 
 @Injectable()
 export class SurveyRepository
@@ -22,22 +32,43 @@ export class SurveyRepository
         })
     }
 
+    //Load surveys from the RestDataSource
     loadSurveys(): void
     {
         this.loaded = true;
         this.dataSource.getSurveys().subscribe(surveys => this.surveys = surveys);
     }
 
+    //Gets Surveys by Category and checks if active or not
     getSurveysByCategory(category?: string): Survey[]
-    {
-        return this.surveys.filter(s => category == null || category === s.category);
+    {    
+        let surveyList = [];
+        let surveysA = "";
+        let surveysD = "";
+        let activatesIn = 0;
+        let deactivatesIn = 0;
+
+        this.surveys.filter(s => category == null || category === s.category).forEach(function (survey) 
+        {
+            surveysA = survey.activatesIn as string;
+            activatesIn = Date.parse(surveysA);
+            surveysD = survey.deactivatesIn as string;
+            deactivatesIn = Date.parse(surveysD);
+
+            if(Date.now() >= activatesIn && Date.now() < deactivatesIn)
+                    surveyList.push(survey);     
+        })
+
+        return surveyList as Survey[];
     }
 
+    //Gets categories
     getCategories(): string[]
     {
         return this.categories;
     }
 
+    //Gets surveys
     getSurveys(): Survey[] 
     {
         if(!this.loaded)
@@ -47,16 +78,19 @@ export class SurveyRepository
         return this.surveys;
     }
 
+    //Gets a survey based on an id
     getSurvey(id: number): Survey
     {
         return this.surveys.find(s => s._id === id) as Survey;
     }
 
+    //Saves a survey
     saveSurvey(survey: Survey): Observable<Survey>
     {
         return this.dataSource.saveSurvey(survey);
     }
 
+    //Updates a survey
     updateSurvey(updatedSurvey: Survey): void
     {
         this.dataSource.updateSurvey(updatedSurvey).subscribe(survey => {
@@ -64,6 +98,7 @@ export class SurveyRepository
         })
     }
 
+    //Deletes a survey based on an id
     deleteSurvey(id: number): void
     {
         this.dataSource.deleteSurvey(id).subscribe(survey => {
@@ -71,6 +106,7 @@ export class SurveyRepository
         });
     }
 
+    //Gets a question based on an id
     getQuestion(id: number): Question
     {
         return this.questions.find(q => q._id === id) as Question;

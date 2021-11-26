@@ -1,15 +1,25 @@
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Survey Editor Component - survey-editor.component.ts
+*/
+
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Question } from 'src/app/model/question.model';
 import { Questionnaire } from 'src/app/model/questionnaire.model';
 import { Survey } from 'src/app/model/survey.model';
 import { SurveyRepository } from 'src/app/model/survey.repository';
 
 @Component({
   selector: 'app-survey-editor',
-  templateUrl: './survey-editor.component.html',
-  styleUrls: ['./survey-editor.component.css']
+  templateUrl: './survey-editor.component.html'
 })
 export class SurveyEditorComponent implements OnInit {
   editing = false;
@@ -33,8 +43,10 @@ export class SurveyEditorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Submits a survey
   submitSurvey(form: NgForm): void
   {
+    console.log(this.survey.toString());
     this.submitted = true;
     if(form.valid)
     {
@@ -46,16 +58,19 @@ export class SurveyEditorComponent implements OnInit {
     }
   }
 
+  //Go to add question
   addQuestion(): void 
   {
     this.router.navigateByUrl('/admin/main/questions');
   }
 
+  //Go to survey list
   surveyList(): void
   {
     this.router.navigate(['/admin/main/surveys']).then(() => {window.location.reload()}); //Same fix as teacher 
   }
 
+  //Go to survey list
   cancel(): void
   {
     this.router.navigateByUrl('/admin/main/surveys');

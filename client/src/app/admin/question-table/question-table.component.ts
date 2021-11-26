@@ -1,4 +1,15 @@
-import { Location } from '@angular/common';
+/*
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Question Table Component - question-table.component.ts
+*/
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Question } from 'src/app/model/question.model';
@@ -12,17 +23,18 @@ export class QuestionTableComponent implements OnInit {
 
   constructor(private repository: QuestionRepository,
               private router: Router,
-              public questionnaire: Questionnaire,
-              private location: Location) { }
+              public questionnaire: Questionnaire) { }
 
   ngOnInit(): void {
   }
 
+  //Get Questions
   getQuestions(): Question[]
   {
     return this.repository.getQuestions();
   }
 
+  //Delete Question
   deleteQuestion(id: number): void
   {
     if(confirm("Are you sure?") && (id !== undefined))
@@ -36,25 +48,16 @@ export class QuestionTableComponent implements OnInit {
     }
   }
 
-  addQuestion(): void
-  {
-    this.router.navigateByUrl('/admin/main/questions/add');
-  }
-
+  //Edit Question
   editQuestion(id: number): void
   {
     this.router.navigateByUrl('/admin/main/questions/edit/' + id);
   }
 
+  //Add Question to Questionnaire
   addQuestionToQuestionnaire(question: Question): void
   {
     this.questionnaire.addLine(question);
-    //this.location.back(); // Cannot be this because when I add a book, it goes back to this page. 
     this.router.navigateByUrl('/admin/main/surveys/add');
-  }
-
-  cancel(): void
-  {
-    this.router.navigateByUrl('/admin/main/surveys/add')
   }
 }
