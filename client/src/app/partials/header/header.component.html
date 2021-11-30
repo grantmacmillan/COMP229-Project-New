@@ -46,6 +46,13 @@ Description: Header Component - header.component.html
                 <i class="fas fa-lg fa-user"></i> Welcome, {{ user.displayName }}   
             </li>
 
+            
+            <!--MODIFY-->
+            <!--<li *ngIf='isLoggedIn()' class="nav-item">
+              <a (click)='modifyUser(user._id)'>
+                <i class="fas fa-lg fa-sign-out-alt"></i> Logout</a>
+            </li> -->
+
             <!--LOGOUT-->
             <li *ngIf='isLoggedIn()' class="nav-item">
               <a (click)='onLogoutClick()' routerLink='/logout' class="nav-link" routerLink="/login">
@@ -53,7 +60,7 @@ Description: Header Component - header.component.html
             </li>
 
             <!--LOGIN-->
-            <li *ngIf='!isLoggedIn()' class="nav-item">
+            <li *ngIf='!isLoggedIn()' class="nav-item"> 
               <a class="nav-link" routerLink="/login"><i class="fas fa-lg fa-sign-in-alt"></i> Login</a>
             </li>
         </ul>
