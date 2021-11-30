@@ -13,12 +13,17 @@ Description: Survey Table Component Html - survey-table.component.html
 <main>
   <!--Title-->
   <p class="titles">Previously Created Surveys</p>
+  <div class="form-row text-center">
+    <button class="btn btn-primary" routerLink="/admin/main/surveys/add">
+      <i class="fas fa-plus-circle"></i> Create a Survey
+    </button>
+  </div>
+  <br>
   <table class="table table-sm">
     <tbody>
       <tr *ngIf='getSurveys().length == 0'>
         <td colspan="5">There are no surveys</td>
       </tr>
-
       <!--Conditionary Survey List-->
       <ng-template ngFor let-s [ngForOf]='getSurveys()'>
         <tr>
@@ -54,10 +59,6 @@ Description: Survey Table Component Html - survey-table.component.html
 
   <!--Create a survey Button-->
   <div class="d-grid gap-2 col-3 mx-auto">
-    <button class="btn btn-primary" routerLink="/admin/main/surveys/add">
-      <i class="fas fa-plus-circle"></i> Create a Survey
-    </button>
-
     <!--Filled Out Surveys-->
     <button class="btn btn-success" routerLink="/admin/main/survey-answered">
       <i class="fas fa-list"></i> Filled Out Surveys
