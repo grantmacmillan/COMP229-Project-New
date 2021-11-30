@@ -53,6 +53,11 @@ Description: Header Component - header.component.html
                 <i class="fas fa-lg fa-sign-out-alt"></i> Logout</a>
             </li> -->
 
+            <li *ngIf='isLoggedIn()' class="nav-item">
+              <a routerLink="/admin/register"><i class="fas fa-exchange-alt"></i> Modify Account</a>
+            </li>
+            
+
             <!--LOGOUT-->
             <li *ngIf='isLoggedIn()' class="nav-item">
               <a (click)='onLogoutClick()' routerLink='/logout' class="nav-link" routerLink="/login">
