@@ -16,11 +16,12 @@ main {
     padding-bottom: 10px;
     margin-bottom: 100px;
     margin-top: 100px;
+    background-color: #2f2f2f;
 }
 body
 {
-    background-color: #dee4e7;
-    color: #000;
+    background-color: #121212;
+    color: white;
 }
 
 p {
@@ -33,16 +34,23 @@ table {
 
 td {
     padding: 20px;
+    color: white;
 }
 
 ul {
     text-align: left;
 }
 
+th
+{
+    color: white;
+}
+
 /*CLASSES*/
 .button-container{
     display: inline-block;
     position: relative;
+    
 }
 
 .button-container a{
@@ -50,7 +58,7 @@ ul {
     bottom: 1em;
     right: 3em;
     border-radius: 1.5em;
-    color: white;
+    color: black;
     text-transform: uppercase;
     padding: 1em 1.5em;
 }
@@ -66,6 +74,14 @@ ul {
     padding-left: 10px; 
     padding-right: 10px; 
     text-align: justify;
+    color: white;
+    
+}
+
+
+.card 
+{
+    background-color: #121212;
 }
 
 .center {
@@ -78,6 +94,7 @@ ul {
     border-width: 2px; 
     border-style: solid;
     width: 250px;
+    color: white;
 }
 
 .centerForm {
@@ -109,6 +126,7 @@ ul {
 	padding-right: 10px;
 	margin-top: 10px;
 	padding-left: 50px;
+
 }
 
 .nav-item {

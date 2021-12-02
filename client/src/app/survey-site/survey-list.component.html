@@ -32,7 +32,7 @@ Description: Survey-List Component Html - survey-list.component.html
             
             <!--Surveys-->
             <div class="col-9 p-2">
-                <div *ngFor='let survey of surveys' class="card m-1 p-1 bg-light">
+                <div *ngFor='let survey of surveys' class="card m-1 p-1 bg-gray">
                     
                             <h4>
                                 {{ survey.title }}
@@ -40,7 +40,7 @@ Description: Survey-List Component Html - survey-list.component.html
                                 {{ survey.category }}
                                 </span>
                             </h4>
-                        <div class="card-text bg-white p-1">{{ survey.description }}
+                        <div class="card-text bg-black p-1">{{ survey.description }}
                             <button class="btn btn-secondary float-end"
                             (click)='selectSurvey(survey._id)'>
                                 Select Survey
