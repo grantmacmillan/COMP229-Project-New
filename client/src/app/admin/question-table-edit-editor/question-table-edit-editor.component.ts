@@ -1,16 +1,3 @@
-/*
-Student IDs: 
-  - 301129935
-  - 301136902
-  - 301180926
-  - 301166198
-  - 301134374
-  - 301153049
-WebApp name: Survey Site
-Description: Question Editor Component - question-editor.component.ts
-*/
-
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,17 +6,18 @@ import { QuestionRepository } from 'src/app/model/question.repository';
 import { Questionnaire } from 'src/app/model/questionnaire.model';
 
 @Component({
-  templateUrl: './question-editor.component.html'
+  selector: 'app-question-table-edit-editor',
+  templateUrl: './question-table-edit-editor.component.html',
+  styleUrls: ['./question-table-edit-editor.component.css']
 })
-export class QuestionEditorComponent implements OnInit {
+export class QuestionTableEditEditorComponent implements OnInit {
   editing = false;
   question: Question = new Question();
 
   constructor(private repository: QuestionRepository,
               private router: Router,
               activeRoute: ActivatedRoute,
-              public questionnaire: Questionnaire,
-              private location: Location) 
+              public questionnaire: Questionnaire) 
   {
     this.editing = activeRoute.snapshot.params.mode === 'edit'; 
     if(this.editing)
@@ -45,6 +33,8 @@ export class QuestionEditorComponent implements OnInit {
   save(form: NgForm): void
   {
     this.repository.saveQuestion(this.question); 
-    this.router.navigateByUrl('/admin/main/questions');
+    this.questionnaire.addLine(this.question);  
+    this.router.navigateByUrl('/admin/main/page-edit');
   }
+
 }

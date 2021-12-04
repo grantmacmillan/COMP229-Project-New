@@ -14,7 +14,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Question } from 'src/app/model/question.model';
 import { QuestionRepository } from 'src/app/model/question.repository';
-import { Questionnaire } from 'src/app/model/questionnaire.model';
+import { Questionnaire, QuestionnaireLine } from 'src/app/model/questionnaire.model';
+import { Survey } from 'src/app/model/survey.model';
 
 @Component({
   selector: 'app-question-table-edit',
@@ -24,7 +25,11 @@ export class QuestionTableEditComponent implements OnInit {
 
   constructor(private repository: QuestionRepository,
     private router: Router,
-    public questionnaire: Questionnaire) { }
+    public questionnaire: Questionnaire,
+    public survey: Survey) 
+    {
+      this.questionnaire = this.survey.questionnaire;
+    }
 
   ngOnInit(): void {
   }
@@ -45,19 +50,26 @@ export class QuestionTableEditComponent implements OnInit {
     else
     {
       window.location.reload(); 
-      this.router.navigateByUrl('/admin/main/questions');
+      this.router.navigateByUrl('/admin/main/page-edit');
     }
   }
 
   //Go to Edit Question
   editQuestion(id: number): void
   {
-    this.router.navigateByUrl('/admin/main/questions/edit/' + id);
+    this.router.navigateByUrl('/admin/main/page-edit/edit/' + id);
   }
 
   //Add Question to Questionnaire
-  addQuestionToQuestionnaire(question: Question): void
+  addQuestionToQuestionnaire(question: Question, survey: Survey): void
   {
-    this.questionnaire.addLine(question);
+    this.questionnaire.lines.push(new QuestionnaireLine(question, ""));
+    this.router.navigateByUrl('/admin/main/surveys/edit/' + survey._id);
+  }
+
+  //Back Button
+  returnToEditSurvey(id: number): void
+  {
+    this.router.navigateByUrl('/admin/main/surveys/edit/' + id);
   }
 }

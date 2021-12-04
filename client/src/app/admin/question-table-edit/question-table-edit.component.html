@@ -10,12 +10,17 @@ WebApp name: Survey Site
 Description: Question Table Edit Component Html - question-table-edit.component.html
 -->
 
+<main>
+    <!--Title-->
+    <p class="titles">Question List</p>
+
+
 <!--Table-->
-<table class="table table-sm table-striped">
+<table class="table table-sm">
     <thead>
         <tr>
             <th>Title</th>
-            <th>Choice 1</th>
+            <th colspan="4">Choices</th>
             <th></th>
             <th></th>
             <th></th>
@@ -26,6 +31,10 @@ Description: Question Table Edit Component Html - question-table-edit.component.
         <tr *ngFor='let q of getQuestions()'>
             <td>{{ q.title }}</td>
             <td>{{ q.choice1 }}</td>
+            <td>{{ q.choice2 }}</td>
+            <td>{{ q.choice3 }}</td>
+            <td>{{ q.choice4 }}</td>
+
             <!--Buttons-->
             <td>
                 <button class="btn btn-sm btn-primary m-1" (click)='editQuestion(q._id)'> 
@@ -39,7 +48,7 @@ Description: Question Table Edit Component Html - question-table-edit.component.
             </td>
             <td>
                 <button class="btn btn-success btn-sm float-right"
-                (click)='addQuestionToQuestionnaire(q)'>
+                (click)='addQuestionToQuestionnaire(q, survey)'>
                     Add To Survey
                 </button>
             </td>
@@ -48,6 +57,12 @@ Description: Question Table Edit Component Html - question-table-edit.component.
 </table>
 
 <!--Create New Question Button-->
-<button class="btn btn-primary">
+<button class="btn btn-primary" routerLink='/admin/main/page-edit/add'>
     <i class="fas fa-plus-circle"></i> Create a Question
 </button>
+
+<!--Back Button-->
+<button class="btn btn-secondary m-1" (click)='returnToEditSurvey(survey._id)'>
+    <i class="fas fa-undo"></i> Back
+</button>
+</main>

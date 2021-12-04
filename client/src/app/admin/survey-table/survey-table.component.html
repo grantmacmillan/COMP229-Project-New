@@ -14,7 +14,7 @@ Description: Survey Table Component Html - survey-table.component.html
   <!--Title-->
   <p class="titles">Previously Created Surveys</p>
   <div class="form-row text-center">
-    <button class="btn btn-primary" routerLink="/admin/main/surveys/add">
+    <button class="btn btn-primary" (click)='createSurvey()'>
       <i class="fas fa-plus-circle"></i> Create a Survey
     </button>
   </div>
@@ -40,8 +40,12 @@ Description: Survey Table Component Html - survey-table.component.html
             <i class="fas fa-trash-alt"></i> Delete </button>
 
             <!--Stats Button-->
-          <button class="btn btn-success" (click)='stats(s._id)'>
+          <button class="btn btn-success m-1" (click)='stats(s._id)'>
             <i class="fas fa-info-circle"></i> Stats</button>
+
+            <!-- Edit Button -->
+            <button class="btn btn-warning m-1" (click)='editSurvey(s)'>
+              <i class="fas fa-exchange-alt"></i> Edit</button>
         
             <!--Questions and choices-->
           <tr *ngFor='let line of s.questionnaire.lines'>

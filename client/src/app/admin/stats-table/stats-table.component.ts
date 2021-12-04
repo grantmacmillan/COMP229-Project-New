@@ -12,6 +12,7 @@ Description: Stats Table Component - stats-table.component.ts
 
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Questionnaire } from 'src/app/model/questionnaire.model';
 import { Survey } from 'src/app/model/survey.model';
 import { SurveyRepository } from 'src/app/model/survey.repository';
 import { SurveyAnswered } from 'src/app/model/surveyAnswered.model';

@@ -30,6 +30,7 @@ import { StatsTableComponent } from './stats-table/stats-table.component';
 import { HttpClientModule } from "@angular/common/http";
 import { ContactService } from "./contact.service";
 import { User } from "../model/user.model";
+import { QuestionTableEditEditorComponent } from './question-table-edit-editor/question-table-edit-editor.component';
 
 const routing = RouterModule.forChild([
     { path: 'auth', component: AuthComponent },
@@ -40,8 +41,8 @@ const routing = RouterModule.forChild([
             { path: 'questions/:mode', component: QuestionEditorComponent, data: {title: 'Add Question'}, canActivate: [AuthGuard]},
             { path: 'questions', component: QuestionTableComponent, data: {title: 'Question Table'}, canActivate: [AuthGuard]},
 
-            { path: 'page-edit/:mode/:id', component: QuestionTableEditComponent, data: {title: 'Edit Question'}, canActivate: [AuthGuard]},
-            { path: 'page-edit/:mode', component: QuestionTableEditComponent, data: {title: 'Question Table'}, canActivate: [AuthGuard]},
+            { path: 'page-edit/:mode/:id', component: QuestionTableEditEditorComponent, data: {title: 'Edit Question'}, canActivate: [AuthGuard]},
+            { path: 'page-edit/:mode', component: QuestionTableEditEditorComponent, data: {title: 'Question Table'}, canActivate: [AuthGuard]},
             { path: 'page-edit', component: QuestionTableEditComponent, data: {title: 'Question Table'}, canActivate: [AuthGuard]},
            
             { path: 'survey-answered', component: SurveyAnsweredTableComponent, canActivate: [AuthGuard]},
@@ -64,6 +65,6 @@ const routing = RouterModule.forChild([
     declarations: [AuthComponent, AdminComponent, SurveyTableComponent, 
         QuestionEditorComponent, QuestionTableComponent, SurveyEditorComponent, 
         SurveyAditorComponent, QuestionTableEditComponent, RegisterComponent, 
-        SurveyAnsweredTableComponent, UserEditorComponent, StatsTableComponent]
+        SurveyAnsweredTableComponent, UserEditorComponent, StatsTableComponent, QuestionTableEditEditorComponent]
 })
 export class AdminModule {}

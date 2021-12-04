@@ -25,7 +25,8 @@ export class SurveyTableComponent implements OnInit
 
   constructor(private repository: SurveyRepository,
               private router: Router,
-              public user: User) { }
+              public user: User,
+              public survey:Survey) { }
 
   ngOnInit(): void {
   }
@@ -50,9 +51,9 @@ export class SurveyTableComponent implements OnInit
   }
 
   //Go to edit survey page
-  editSurvey(id: number): void 
+  editSurvey(survey: Survey): void 
   {
-    this.router.navigateByUrl('/admin/main/surveys/edit/' + id);
+    this.router.navigateByUrl('/admin/main/surveys/edit/' + survey._id);
   }
 
   //Go to stats page
@@ -61,8 +62,16 @@ export class SurveyTableComponent implements OnInit
     this.router.navigateByUrl('/admin/main/stats-table/' + id); 
   }
 
+  //Modify User
   modifyUser(id: string): void
   {
     this.router.navigateByUrl('/admin/main/user-edit');
+  }
+
+  //Create Survey
+  createSurvey(): void
+  {
+    this.router.navigateByUrl('/admin/main/surveys/add');
+    //this.router.navigate(['/admin/main/surveys/add']).then(() => {window.location.reload()}); //Same fix as teacher
   }
 }

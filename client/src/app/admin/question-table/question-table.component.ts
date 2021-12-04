@@ -14,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Question } from 'src/app/model/question.model';
 import { QuestionRepository } from 'src/app/model/question.repository';
-import { Questionnaire } from 'src/app/model/questionnaire.model';
+import { Questionnaire, QuestionnaireLine } from 'src/app/model/questionnaire.model';
 
 @Component({
   templateUrl: './question-table.component.html'
@@ -57,7 +57,7 @@ export class QuestionTableComponent implements OnInit {
   //Add Question to Questionnaire
   addQuestionToQuestionnaire(question: Question): void
   {
-    this.questionnaire.addLine(question);
+    this.questionnaire.lines.push(new QuestionnaireLine(question, ""));
     this.router.navigateByUrl('/admin/main/surveys/add');
   }
 }

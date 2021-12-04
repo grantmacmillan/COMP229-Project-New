@@ -13,6 +13,7 @@ Description: Survey-Aditor Component - survey-aditor.component.ts
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Question } from 'src/app/model/question.model';
 import { Questionnaire } from 'src/app/model/questionnaire.model';
 import { Survey } from 'src/app/model/survey.model';
 import { SurveyRepository } from 'src/app/model/survey.repository';
@@ -34,6 +35,7 @@ export class SurveyAditorComponent implements OnInit {
   {
     this.editing = activeRoute.snapshot.params.mode === 'edit'; 
     Object.assign(this.survey, repository.getSurvey(activeRoute.snapshot.params.id));
+    this.questionnaire = this.survey.questionnaire;
   }
 
   ngOnInit(): void {
@@ -50,4 +52,21 @@ export class SurveyAditorComponent implements OnInit {
 
     this.router.navigate(['/admin/main/surveys']).then(() => {window.location.reload()}); //Same fix as teacher 
   }
+
+  //Add Questions
+  addQuestion(id: number): void
+  {
+    this.router.navigateByUrl('/admin/main/page-edit');
+  }
+
+  removeQuestion(question: Question): void
+  {
+    const index = this.questionnaire.lines.findIndex(l => l.question._id === question._id)
+    this.questionnaire.lines.splice(index, 1);
+
+    console.log(this.survey);
+    console.log(this.questionnaire);
+    this.repository.updateSurvey(this.survey);
+  }
+
 }

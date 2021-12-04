@@ -111,4 +111,9 @@ export class SurveyRepository
     {
         return this.questions.find(q => q._id === id) as Question;
     }
+
+    //Get questions for the survey
+    getQuestions(): Question[] {
+        return this.questions;
+    }
 }
