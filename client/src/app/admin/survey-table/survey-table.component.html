@@ -10,16 +10,12 @@ WebApp name: Survey Site
 Description: Survey Table Component Html - survey-table.component.html
 -->
 
-<main>
+<main class="container" style="padding-bottom: auto; margin-bottom: auto;">
+  <div style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black;">
   <!--Title-->
   <p class="titles">Previously Created Surveys</p>
-  <div class="form-row text-center">
-    <button class="btn btn-primary" (click)='createSurvey()'>
-      <i class="fas fa-plus-circle"></i> Create a Survey
-    </button>
-  </div>
   <br>
-  <table class="table table-sm">
+  <table class="table">
     <tbody>
       <tr *ngIf='getSurveys().length == 0'>
         <td colspan="5">There are no surveys</td>
@@ -28,13 +24,17 @@ Description: Survey Table Component Html - survey-table.component.html
       <ng-template ngFor let-s [ngForOf]='getSurveys()'>
         <tr>
           <th>Title</th>
-          <td>{{ s.title }}</td>
-        </tr>
-          <th>Questions</th>
-          <th>Choices</th>
           <th>Category</th>
           <th colspan="2">Description</th>
-
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+          <td>{{ s.title }}</td>
+          <td>{{s.category}}</td>
+          <td>{{s.description}}</td>
+        
           <!--Delete Button-->
           <button class="btn btn-danger m-1" (click)='delete(s._id)'>
             <i class="fas fa-trash-alt"></i> Delete </button>
@@ -46,31 +46,20 @@ Description: Survey Table Component Html - survey-table.component.html
             <!-- Edit Button -->
             <button class="btn btn-warning m-1" (click)='editSurvey(s)'>
               <i class="fas fa-exchange-alt"></i> Edit</button>
-        
-            <!--Questions and choices-->
-          <tr *ngFor='let line of s.questionnaire.lines'>
-            <td>{{ line.question.title }}</td>
-            <td>{{ line.question.choice1 }}<br>  
-                {{ line.question.choice2 }}<br>
-                {{ line.question.choice3 }}<br>
-                {{ line.question.choice4 }}</td>
-            <td>{{ s.category }}</td>
-            <td>{{ s.description }}</td>
-          </tr>
+
+              <button class="btn btn-primary m-1"
+              (click)='selectSurvey(s._id)'>
+              <i class="fas fa-question-circle"></i> See Full Survey
+            </button>
       </ng-template>
     </tbody>
   </table> 
+</div>
 
   <!--Create a survey Button-->
   <div class="d-grid gap-2 col-3 mx-auto">
-    <!--Filled Out Surveys-->
-    <button class="btn btn-success" routerLink="/admin/main/survey-answered">
-      <i class="fas fa-list"></i> Filled Out Surveys
-    </button>
-
-    <!--Modify Account Survey-->
-    <button class="btn btn-warning" (click)='modifyUser(user._id)'>
-      <i class="fas fa-exchange-alt"></i> Modify Account
+    <button class="btn btn-secondary" routerLink="/admin/main/dashboard">
+      <i class="fas fa-undo"></i> Back To Dashboard
     </button>
   </div>
 </main>

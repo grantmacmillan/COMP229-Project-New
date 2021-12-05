@@ -10,7 +10,7 @@ WebApp name: Survey Site
 Description: Survey-List Component Html - survey-list.component.html
 -->
 
-<main>
+<main style="padding-bottom: auto; margin-bottom: auto;">
     <div class="container">
         <p class="titles">Surveys</p>
         <div class="row">
@@ -18,11 +18,11 @@ Description: Survey-List Component Html - survey-list.component.html
             <!--Categories-->
             <div class="col-2 p-2">
                 <div class="d-grid gap-2">
-                    <button class="btn btn-secondary" 
+                    <button class="btn btn-secondary" style="box-shadow: 5px 5px 5px black;"
                     (click)='changeCategory()'>
                     All Categories
                     </button>
-                    <button *ngFor='let category of categories'
+                    <button *ngFor='let category of categories'  style="box-shadow: 5px 5px 5px black;"
                     class="btn btn-secondary"
                     [class.active] = 'category == selectedCategory' (click)='changeCategory(category)'>
                     {{ category }}
@@ -31,16 +31,15 @@ Description: Survey-List Component Html - survey-list.component.html
             </div>
             
             <!--Surveys-->
-            <div class="col-9 p-2">
-                <div *ngFor='let survey of surveys' class="card m-1 p-1 bg-gray">
-                    
+            <div class="col-9 p-2" style="box-shadow: 5px 5px 15px black;">
+                <div *ngFor='let survey of surveys' class="card m-1 p-1 bg-dark"  style="box-shadow: 5px 5px 5px rgb(19, 19, 19);">
                             <h4>
                                 {{ survey.title }}
                                 <span class="badge rounded-pill bg-warning float-end">
                                 {{ survey.category }}
                                 </span>
                             </h4>
-                        <div class="card-text bg-black p-1">{{ survey.description }}
+                        <div class="card-text bg-dark p-1">{{ survey.description }}
                             <button class="btn btn-secondary float-end"
                             (click)='selectSurvey(survey._id)'>
                                 Select Survey
@@ -50,7 +49,7 @@ Description: Survey-List Component Html - survey-list.component.html
                 </div>
 
                 <!-- Pagination -->
-                <div class="form-inline float-end" style="width: 130px;">
+                <div class="form-inline float-end" style="width: 130px; padding-top: 4px;">
                     <select class="form-control" [value]='surveysPerPage' (change)='changePageSize($any($event.target).value)'>
                         <option value="3">3 per page</option>
                         <option value="4">4 per page</option>

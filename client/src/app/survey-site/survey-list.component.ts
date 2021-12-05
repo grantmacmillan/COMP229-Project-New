@@ -46,13 +46,13 @@ export class SurveyListComponent
   //Gets Categories from the Survey Repository
   get categories(): string[]
   {
-    return this.surveyRepository.getCategories();
+      return this.surveyRepository.getCategories();
   }
  
   //Changes the category to the selected one
   changeCategory(newCategory?: string): void
   {
-    this.selectedCategory = newCategory;
+    this.selectedCategory = newCategory; 
   }
 
   //Changes the page to the selected one

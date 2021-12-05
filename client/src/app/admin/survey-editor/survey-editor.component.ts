@@ -67,12 +67,12 @@ export class SurveyEditorComponent implements OnInit {
   //Go to survey list
   surveyList(): void
   {
-    this.router.navigate(['/admin/main/surveys']).then(() => {window.location.reload()}); //Same fix as teacher 
+    this.router.navigate(['/admin/main/dashboard']).then(() => {window.location.reload()}); //Same fix as teacher 
   }
 
   //Go to survey list
   cancel(): void
   {
-    this.router.navigateByUrl('/admin/main/surveys');
+    this.router.navigateByUrl('/admin/main/dashboard');
   }
 }

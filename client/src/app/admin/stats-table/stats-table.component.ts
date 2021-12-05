@@ -77,7 +77,7 @@ export class StatsTableComponent implements OnInit {
       if(value.title == survey.title)
         value.questionnaire.lines.forEach(function (line) {
           if(line.answer == line.question.choice1)
-            count++
+            count++;
         })
     })
     return count;

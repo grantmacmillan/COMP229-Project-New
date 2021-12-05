@@ -10,13 +10,14 @@ WebApp name: Survey Site
 Description: Question Edit Editor Component Html - question-table-edit-editor.component.html
 -->
 
-<main>
+<main class="container" style="margin-bottom: auto; padding-bottom: auto;">
+    <div class="container" style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black; padding-bottom: 10px;">
     <!--Conditional title-->
     <div class="container">
         <div
             [class.text-dark]='editing'
             [class.text-dark]='editing'>
-            <h5>{{ editing ? 'Edit' : 'Add' }} Question</h5>
+            <h5 style="text-align: center; color: white;">{{ editing ? 'Edit' : 'Add' }} Question</h5>
         </div>
 
         <!--Form-->
@@ -47,12 +48,16 @@ Description: Question Edit Editor Component Html - question-table-edit-editor.co
             </div>
 
             <!--Buttons-->
+            <div style="text-align: center;">
             <button class="btn btn-primary m-1" [class.btn-warning]='editing' type="submit">
                 <i class="{{editing ? 'fas fa-save' : 'fas fa-plus-circle'}}"></i> {{ editing ? "Save" : "Add" }}
             </button>
             <button type='reset' class="btn btn-secondary" routerLink='/admin/main/page-edit'>
                 <i class="fas fa-undo"></i> Cancel
             </button>
+        </div>
         </form>
     </div>
+    </div>  
+    <br><br>
 </main>

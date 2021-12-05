@@ -25,7 +25,7 @@ Description: Auth Component Html - auth.component.html
             <!--Form-->
             <p class="titles">Please Login</p>
             <form autoComplete='off' #form='ngForm'
-                  (ngSubmit)='authenticate(form, user._id)'> 
+                  (ngSubmit)='authenticate(form, user._id, user)'> 
                 <fieldset class="form-group">
                     <label for="username">Username:</label>
                     <input type="text" class="form-control"

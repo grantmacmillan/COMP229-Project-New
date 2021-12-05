@@ -31,6 +31,9 @@ import { HttpClientModule } from "@angular/common/http";
 import { ContactService } from "./contact.service";
 import { User } from "../model/user.model";
 import { QuestionTableEditEditorComponent } from './question-table-edit-editor/question-table-edit-editor.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SurveySelectedComponent } from './survey-selected/survey-selected.component';
+import { SurveyAnsweredSelectedComponent } from './survey-answered-selected/survey-answered-selected.component';
 
 const routing = RouterModule.forChild([
     { path: 'auth', component: AuthComponent },
@@ -46,10 +49,16 @@ const routing = RouterModule.forChild([
             { path: 'page-edit', component: QuestionTableEditComponent, data: {title: 'Question Table'}, canActivate: [AuthGuard]},
            
             { path: 'survey-answered', component: SurveyAnsweredTableComponent, canActivate: [AuthGuard]},
+
+            { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
             
             { path: 'user-edit', component: UserEditorComponent, canActivate: [AuthGuard]},
 
             { path: 'stats-table/:id', component: StatsTableComponent, canActivate: [AuthGuard]},
+
+            { path: 'survey-selected/:id', component: SurveySelectedComponent, canActivate: [AuthGuard]},
+
+            { path: 'survey-answered-selected/:id', component: SurveyAnsweredSelectedComponent, canActivate: [AuthGuard]},
 
             { path: 'surveys', component: SurveyTableComponent, data: {title: 'Survey Table'}, canActivate: [AuthGuard]},
             { path: 'surveys/:mode', component: SurveyEditorComponent, data: {title: 'Add Survey'}, canActivate: [AuthGuard]},
@@ -65,6 +74,7 @@ const routing = RouterModule.forChild([
     declarations: [AuthComponent, AdminComponent, SurveyTableComponent, 
         QuestionEditorComponent, QuestionTableComponent, SurveyEditorComponent, 
         SurveyAditorComponent, QuestionTableEditComponent, RegisterComponent, 
-        SurveyAnsweredTableComponent, UserEditorComponent, StatsTableComponent, QuestionTableEditEditorComponent]
+        SurveyAnsweredTableComponent, UserEditorComponent, StatsTableComponent, 
+        QuestionTableEditEditorComponent, DashboardComponent, SurveySelectedComponent, SurveyAnsweredSelectedComponent]
 })
 export class AdminModule {}

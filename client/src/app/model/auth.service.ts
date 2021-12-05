@@ -25,7 +25,12 @@ export class AuthService
     {
         this.user = new User();
         datasource.getUsers().subscribe(data => {
-            this.users=data;});
+            this.users=data;
+            console.log(this.users);});
+    }
+
+    getUsers(): User[] {
+        return this.users;
     }
 
     //Authenticate An Existing User
@@ -47,9 +52,14 @@ export class AuthService
     }
 
     //Returns Sepecific User based on Id -- Still Need to work on that
-    getUser(id: string): User
+    getUser(user: User): User
     {
-        return this.users.find(u => u._id === id) as User;
+        return this.users.find(u => u._id === user._id) as User;
+    }
+
+    //ADDED THIS
+    getUser2(): User {
+        return this.datasource.loadUser();
     }
 
     //Stores User Data

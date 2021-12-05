@@ -11,10 +11,10 @@ Description: Questionnaire-Detail Component Html - questionnaire-detail.componen
 -->
 
 <!--Main Content-->
-<main>
+<main class="container" style="margin-bottom: 0px; text-align: center;">
 <div class="container">
     <div class="row">
-        <div class="col mt-2">
+        <div class="col">
 
             <!--Titles-->
             <p class="titles">{{ survey.title }}</p>
@@ -22,27 +22,29 @@ Description: Questionnaire-Detail Component Html - questionnaire-detail.componen
             <h6 class="text-center"> {{ survey.description }}</h6>
 
             <!--Displays Questions and Choices In a Repeating Manner-->
-            <table class="table table-bordered table-stripped p-2">
+            <div style="background-color: rgb(105, 105, 105); box-shadow: 5px 5px 15px black;"  class="form-check form-check-inline">
+            <table class="table table-bordered table-stripped p-2" style="text-align: left;">
                 <tr *ngFor='let line of survey.questionnaire.lines; let i = index;'>
                     <td>{{ line.question.title }}</td>
-                    <td> 
-                        <label>{{ line.question.choice1 }}</label>
-                        <input type="radio" name={{i}} class="form-control-sm" value={{line.question.choice1}} [(ngModel)]='line.answer'>
+                    <td > 
+                        <label class="form-check-label">{{ line.question.choice1 }}</label>
+                        <input type="radio" name={{i}} class="form-check-input bg-warning" value={{line.question.choice1}} [(ngModel)]='line.answer'>
                     </td>
                     <td>
-                        <label>{{ line.question.choice2 }}</label>
-                        <input type="radio" name={{i}} class="form-control-sm" value={{line.question.choice2}} [(ngModel)]='line.answer'>
+                        <label class="form-check-label">{{ line.question.choice2 }}</label>
+                        <input type="radio" name={{i}} class="form-check-input bg-warning" value={{line.question.choice2}} [(ngModel)]='line.answer'>
                     </td>
                     <td>
-                        <label>{{ line.question.choice3 }}</label>
-                        <input type="radio" name={{i}} class="form-control-sm" value={{line.question.choice3}} [(ngModel)]='line.answer'>
+                        <label class="form-check-label">{{ line.question.choice3 }}</label>
+                        <input type="radio" name={{i}} class="form-check-input bg-warning" value={{line.question.choice3}} [(ngModel)]='line.answer'>
                     </td>
                     <td>
-                        <label>{{ line.question.choice4 }}</label>
-                        <input type="radio" name={{i}} class="form-control-sm" value={{line.question.choice4}} [(ngModel)]='line.answer'>
+                        <label class="form-check-label">{{ line.question.choice4 }}</label>
+                        <input type="radio" name={{i}} class="form-check-input bg-warning" value={{line.question.choice4}} [(ngModel)]='line.answer'>
                     </td>
                 </tr>
-            </table>       
+            </table>   
+        </div>    
         </div>            
     </div>
 </div>

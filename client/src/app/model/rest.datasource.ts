@@ -16,7 +16,6 @@ import { Observable } from 'rxjs';
 import { Question } from './question.model';
 import { Survey } from './survey.model';
 import {JwtHelperService} from '@auth0/angular-jwt';
-
 import { User } from './user.model';
 import { SurveyAnswered } from './surveyAnswered.model';
 
@@ -44,6 +43,7 @@ export class RestDataSource
   {
     this.user = new User();
     this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+    console.log(this.getUsers());
   }
 
   /*USER*/
@@ -95,7 +95,7 @@ export class RestDataSource
   }
 
   /* QUESTION */
-  /*GET Question*/
+  /*GET Questions*/
   getQuestions(): Observable<Question[]>
   {
     return this.http.get<Question[]>(this.baseUrl + 'question-list');
@@ -187,6 +187,14 @@ export class RestDataSource
     const token = localStorage.getItem('id_token');
     this.authToken = token;
     this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
+  }
+
+  //ADDED
+  public loadUser(): User
+  {
+    this.loadToken();
+    var user = localStorage.getItem('user');
+    return JSON.parse(user);
   }
 }
 

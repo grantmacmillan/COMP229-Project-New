@@ -10,7 +10,8 @@ WebApp name: Survey Site
 Description: Question Table Edit Component Html - question-table-edit.component.html
 -->
 
-<main>
+<main class="container" style="margin-bottom: auto; padding-bottom: auto;">
+    <div class="container" style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black; padding-bottom: 10px;">
     <!--Title-->
     <p class="titles">Question List</p>
 
@@ -57,6 +58,7 @@ Description: Question Table Edit Component Html - question-table-edit.component.
 </table>
 
 <!--Create New Question Button-->
+<div style="text-align: center;">
 <button class="btn btn-primary" routerLink='/admin/main/page-edit/add'>
     <i class="fas fa-plus-circle"></i> Create a Question
 </button>
@@ -65,4 +67,6 @@ Description: Question Table Edit Component Html - question-table-edit.component.
 <button class="btn btn-secondary m-1" (click)='returnToEditSurvey(survey._id)'>
     <i class="fas fa-undo"></i> Back
 </button>
+</div>
+    </div>
 </main>

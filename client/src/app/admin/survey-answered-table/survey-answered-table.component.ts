@@ -48,4 +48,10 @@ export class SurveyAnsweredTableComponent implements OnInit {
       this.router.navigateByUrl('/admin/surveyAnswered');
     }
   }
+
+   //Navigates to the questionnaire component and passes the selected survey ID
+   selectSurvey(id: number): void
+   {
+     this.router.navigateByUrl('/admin/main/survey-answered-selected/' + id);
+   }
 }

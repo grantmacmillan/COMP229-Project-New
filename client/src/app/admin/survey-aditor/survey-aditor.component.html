@@ -17,9 +17,11 @@ Description: Survey-Aditor Component Html - survey-aditor.component.html
     <button class="btn btn-primary" routerLink='/admin/main/surveys'>Return to Surveys</button>
 </div> -->
 
+<main class="container" style="padding-bottom: auto; margin-bottom:auto">
+    <div class="container" style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black; padding-bottom: 10px;">
 <div *ngIf='!surveySent'>
     <div  class="p-2 text-white">
-        <h5>Edit Survey</h5>
+        <p class="titles">Edit Survey</p>
     </div>
 <!--Form-->
 <form novalidate #form='ngForm' (ngSubmit)='updateSurvey(form)'>
@@ -51,15 +53,17 @@ Description: Survey-Aditor Component Html - survey-aditor.component.html
     </div>
 
     <!--Buttons-->
+    <div style="text-align: center;">
     <button class="btn btn-warning m-1" type="submit">
-        <i class="fas fa-plus-circle"></i> Edit
+        <i class="fas fa-exchange-alt"></i> Edit
     </button>
-    <button class="btn btn-secondary m-1" (click)='addQuestion(survey._id)'>
-        Add Question
+    <button class="btn btn-primary m-1" (click)='addQuestion(survey._id)'>
+        <i class="fas fa-plus-circle"></i> Add Question
     </button>
     <button class="btn btn-secondary m-1" routerLink='/admin/main/surveys'>
-        Back
+        <i class="fas fa-undo"></i> Back
     </button>
+</div>
 
 </form>
 
@@ -83,3 +87,5 @@ Description: Survey-Aditor Component Html - survey-aditor.component.html
             Remove
     </button> 
 </div> 
+</div>  
+</main>

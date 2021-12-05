@@ -13,15 +13,9 @@ Description: Home Component Html - home.component.html
 
 <!--Main Content-->
 <main class="container">
-    <div class="button-container">
-
+    <div>
       <!--Banner-->
-      <img src="../../assets/images/HomeBanner.png" style="width: 100%; margin-top: 10px; border-style: solid; border-color: black; border-width: 2px;" alt="Banner">
-        <a href="/question-list">
-
-          <!--Button to Surveys-->
-            <input type="button" class="btn btn-success" value="Select a Survey"/>
-        </a>
+      <img src="../../assets/images/HomeBanner.png" style="width: 100%; margin-top: 10px; border-style: solid; border-color: black; border-width: 2px; box-shadow:5px 5px 15px #000000 ;" alt="Banner">
     </div>
   
     <div>
@@ -29,8 +23,19 @@ Description: Home Component Html - home.component.html
         <tr>
           <td>
           <!-- Survey Template -->
-            <div class="card" style="width: 40rem;">
-              <img src="../../assets/images/gameDesign.png" class="card-img-top" alt="Survey Template 1">
+      
+            <div class="card" style="width: 18rem; height: 50px;">
+              <img src="../../assets/images/FillOutSurvey.png" class="card-img-top" alt="Survey Template 1">
+                <div class="card-body">
+                  <h5 class="card-title" style="text-align: center;">Fill Out a Survey</h5>
+                  <p class="card-text">Click the link below to start filling out a survey!</p> <br>
+                  <a routerLink="/question-list" class="btn btn-success">Select a Survey</a>
+                </div>
+            </div>
+            </td> 
+            <td>
+            <div class="card" style="width: 18rem; height: 50px;">
+              <img src="../../assets/images/CreateSurvey.png" class="card-img-top" alt="Survey Template 1">
                 <div class="card-body">
                   <h5 class="card-title" style="text-align: center;">Multiple Choice Survey</h5>
                   <p class="card-text">Click the link below to start creating your multiple choice survey!</p>
@@ -41,6 +46,7 @@ Description: Home Component Html - home.component.html
           </td>
         </tr>
       </table>
+      <br><br>
     </div>
 </main>
 

@@ -7,8 +7,7 @@ import { Questionnaire } from 'src/app/model/questionnaire.model';
 
 @Component({
   selector: 'app-question-table-edit-editor',
-  templateUrl: './question-table-edit-editor.component.html',
-  styleUrls: ['./question-table-edit-editor.component.css']
+  templateUrl: './question-table-edit-editor.component.html'
 })
 export class QuestionTableEditEditorComponent implements OnInit {
   editing = false;
@@ -36,5 +35,4 @@ export class QuestionTableEditEditorComponent implements OnInit {
     this.questionnaire.addLine(this.question);  
     this.router.navigateByUrl('/admin/main/page-edit');
   }
-
 }

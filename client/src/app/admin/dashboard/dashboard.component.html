@@ -1,0 +1,66 @@
+
+<!--
+Student IDs: 
+  - 301129935
+  - 301136902
+  - 301180926
+  - 301166198
+  - 301134374
+  - 301153049
+WebApp name: Survey Site
+Description: Home Component Html - home.component.html
+-->
+
+<!--Main Content-->
+<main class="container" style="padding-bottom: auto; margin-bottom:auto">
+  <p class="titles">Dashboard</p>
+
+  <div style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black;" >
+    <table style="margin-top: 40px;">
+      <tr>
+        <td>
+        <!-- Create Survey -->
+          <div class="card bg-dark" style="width: 25rem; height: 100px; " style="text-align: center;">
+            <img src="../../assets/images/FillOutSurvey.png" class="card-img-top" alt="Create a Survey">
+              <div class="card-body">
+                <a routerLink="/admin/main/surveys/add" class="btn btn-success">Create a Survey</a>
+              </div>
+          </div>
+        </td> 
+
+          <!--Previously Created Surveys-->
+        <td>
+          <div class="card bg-dark" style="width: 25rem; height: 100px;"  style="text-align: center;">
+            <img src="../../assets/images/CreateSurvey.png" class="card-img-top" alt="Previously Created Surveys">
+              <div class="card-body">
+                <a  routerLink="/admin/main/surveys" class="btn btn-primary">Created Surveys </a>
+              </div>
+          </div>
+        </td>
+
+        <td>
+          <!-- Answered Survey List -->
+            <div class="card bg-dark" style="width: 25rem; height: 100px;"  style="text-align: center;">
+              <img src="../../assets/images/FillOutSurvey.png" class="card-img-top" alt="Answered Surveys">
+                <div class="card-body">
+                  <a routerLink="/admin/main/survey-answered" class="btn btn-primary">Filled Out Survey List</a>
+                </div>
+            </div>
+          </td> 
+
+          <td>
+            <!-- Modify Account -->
+              <div class="card bg-dark" style="width: 25rem; height: 100px;"  style="text-align: center;">
+                <img src="../../assets/images/FillOutSurvey.png" class="card-img-top" alt="Survey Template 1">
+                  <div class="card-body">
+                    <a routerLink="/admin/main/user-edit" class="btn btn-warning">Modify Account</a>
+                  </div>
+              </div>
+          </td> 
+      </tr>
+    </table>
+    <br><br><br>
+  </div>
+</main>
+
+

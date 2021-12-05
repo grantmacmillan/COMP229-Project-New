@@ -9,13 +9,15 @@ Student IDs:
 WebApp name: Survey Site
 Description: Survey Editor Component Html - survey-editor.component.html
 -->
-<main>
+<main class="container" style="padding-bottom: auto; margin-bottom:auto">
+    <div class="container" style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black; padding-bottom: 10px;">
 <!--Conditional Title-->
 <div *ngIf='surveySent' class="m-2 text-center">
     <h2>Thanks!</h2>
     <p>Thanks for creating a survey.</p>
-    <button class="btn btn-primary" (click)='surveyList()'>Return to Surveys</button>
+    <button class="btn btn-success" (click)='surveyList()'>Return to Dashboard!</button>
 </div>
+
 <div *ngIf='!surveySent'>
     <p class="titles" style="padding-top: 30px;">Add Survey</p>
 <form novalidate #form='ngForm' (ngSubmit)='submitSurvey(form)'>
@@ -62,13 +64,14 @@ Description: Survey Editor Component Html - survey-editor.component.html
     </button>
 </div>
 </form>
+
 <!--Conditional Section IF No Surveys-->
 <div *ngIf='questionnaire.lines.length == 0' style="text-align: center;">
     <label class="text-center" colspan="4">No questions in this survey</label>
 </div> 
 
     <!--Repeating section for questions-->
-    <div *ngFor='let line of questionnaire.lines'>
+    <div *ngFor='let line of questionnaire.lines' style="padding-left: 30px">
         <label> {{ line.question.title }} </label><br>
         <ul>
             <li><label class="text-right">{{ line.question.choice1 }}</label></li>
@@ -81,6 +84,7 @@ Description: Survey Editor Component Html - survey-editor.component.html
             Remove
     </button> 
 </div> 
+</div>
 
      
 

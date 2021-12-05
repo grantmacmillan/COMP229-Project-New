@@ -25,7 +25,7 @@ router.post('/login',indexController.processLoginPage);
 router.post('/register',indexController.processRegisterPage); 
 
 /*POST Route for processing the Edit page*/
-router.post('/user-edit', indexController.processEditPage);
+router.post('/user-edit/:id', indexController.processEditPage);
 
 /*GET to perform UserLogout*/
 router.get('/logout', indexController.performLogout);

@@ -10,7 +10,7 @@ WebApp name: Survey Site
 Description: User Editor Component Html - user-editor.component.html
 -->
 
-<main class="container">
+<main class="container" style="padding-bottom: auto; margin-bottom: auto;">
   <div class="row">
       <div class="col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-sm-8 offset-sm-1">
 
@@ -20,42 +20,81 @@ Description: User Editor Component Html - user-editor.component.html
                {{ errorMessage }}
           </div>
 
-          <!--Form-->
-          <h1>Modify Account</h1>
-          <form #form='ngForm'> 
-              <fieldset class="form-group">
-                  <label for="username">Username:</label>
-                  <input type="text" class="form-control"
-                  name='username' placeholder='Enter Username'
-                  id='username' required> 
-              </fieldset>
+        <!--Form-->
+        <h1>Modify Account</h1>
+        <form class="formGroup px-4 py-4" [formGroup]="userUpdateForm"
+        [class.has-error]="(username.invalid && username.touched) || (email.invalid && email.touched) || (displayName.invalid && displayName.touched)">
+    
+        <!--Username-->
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" pattern="^[a-zA-Z]*$" formControlName="username">
+        <div class="text-danger" *ngIf="(username.invalid && username.touched)">
+            *Username is required
+        </div>
+        <div *ngIf="username.errors?.pattern" style="color: red">
+            *Username not valid.
+        </div> <br>
+        <!--Username End-->
 
-              <fieldset class="form-group">
-                  <label for="email">Email:</label>
-                  <input type="email" class="form-control"
-                  name='email' placeholder='Enter Email'
-                  id='email' [value]='user.email' required>
-              </fieldset>
+        <!--Display Name-->
+        <label for="displayName">Display Name: </label>
+        <input type="text" class="form-control" id="displayName" pattern="^[a-zA-Z]*$" formControlName="displayName">
+        <div class="text-danger" *ngIf="displayName.invalid && (displayName.dirty || displayName.touched)">
+            *Display Name is required
+        </div>
+        <div *ngIf="displayName.errors?.pattern" style="color: red">
+            *Display Name not valid
+        </div> <br>
+        <!-- Display Name end-->
 
-              <fieldset class="form-group">
-                  <label for="displayName">Display Name:</label>
-                  <input type="text" class="form-control"
-                  name='displayName' placeholder='Enter Display Name'
-                  id='displayName' required>
-              </fieldset>
+        <!--Email-->
+        <label for="email">Email: </label>
+        <input type="email" class="form-control" id="email" patter="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})&" formControlName="email">
+        <div class="text-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+            *Email is required
+        </div>
+        <div *ngIf="email.errors?.pattern" style="color: red;">
+            *Email not valid.
+        </div>
+        <!--email end-->
 
-              <!--Buttons-->
-              <fieldset class="form-group text-right">
-                  <button class='btn btn-warning m-1'>
-                      <i class="fas fa-sign-in-alt"></i> 
-                      Update
-                  </button>
-                  <button class="btn btn-secondary m-1" routerLink='/admin/main/surveys'>
-                      <i class="fas fa-undo"></i> 
-                      Cancel
-                  </button>
-              </fieldset>
-          </form>
+       <!--<button (click)="updateUser()" type="button" [disabled]="userUpdateForm.invalid"
+            class="btn btn-primary">Update</button>-->
+        </form>
+
+        
+
+          <form novalidate #form='ngForm' (ngSubmit)='save(form)'>
+            <div class="form-group">
+                <label>Username: </label>
+                <input type="text" class="form-control" name='username' [(ngModel)]='user1.username'>
+            </div>
+
+            <div class="form-group">
+                <label>Email: </label>
+                <input type="email" class="form-control" name='email' [(ngModel)]='user1.email'>
+            </div>
+
+            <div class="form-group">
+                <label>Password: </label>
+                <input type="text" class="form-control" name='password' [(ngModel)]='user1.password'>
+            </div>
+
+            <div class="form-group">
+                <label>Display Name: </label>
+                <input type="text" class="form-control" name='displayName' [(ngModel)]='user1.displayName'>
+            </div>
+
+            <br>
+            <button class="btn btn-primary m-1" type="submit">
+                <i class="fas fa-save"></i> Update User
+            </button>
+
+            <button class="btn btn-secondary m-1" routerLink='/admin/main/dashboard'>
+                <i class="fas fa-undo"></i> 
+                Cancel
+            </button>
+            </form> 
       </div>
   </div>
 </main>
