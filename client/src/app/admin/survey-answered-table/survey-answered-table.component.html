@@ -14,40 +14,38 @@ Description: Survey Answered Table Component Html - survey-answered-table.compon
     <div style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black; margin: 10px; padding: 10px">
 <!--Title-->
         <p class="titles">Filled Out Surveys</p>
-            <br>
-        <div class="container">
-            <table class="table table-sm">
-                <tbody>
-                    <tr *ngIf='getSurveys().length == 0'>
-                        <td colspan="5">There are no filled surveys</td>
+        <br>
+        <table class="table table-responsive">
+            <tbody>
+                <tr *ngIf='getSurveys().length == 0'>
+                    <td colspan="5">There are no filled surveys</td>
+                </tr>
+
+                <!--Table with surveys-->
+                <ng-template ngFor let-s [ngForOf]='getSurveys()'>
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th colspan="2">Description</th>
+                        <th></th>
+                        <th></th>
                     </tr>
+                    
+                        <td>{{ s.title }}</td>
+                        <td>{{ s.category }}</td>
+                        <td>{{ s.description }}</td>
+                    
+                        <!--Delete Button-->
+                        <button class="btn btn-danger" (click)='delete(s._id)'>
+                            <i class="fas fa-trash-alt"></i> Delete </button>
 
-                    <!--Table with surveys-->
-                    <ng-template ngFor let-s [ngForOf]='getSurveys()'>
-                        <tr>
-                            <th>Title</th>
-                            <th>Category</th>
-                            <th colspan="2">Description</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        
-                            <td>{{ s.title }}</td>
-                            <td>{{ s.category }}</td>
-                            <td>{{ s.description }}</td>
-                        
-                            <!--Delete Button-->
-                            <button class="btn btn-danger" (click)='delete(s._id)'>
-                                <i class="fas fa-trash-alt"></i> Delete </button>
-
-                            <button class="btn btn-info m-1"
-                                (click)='selectSurvey(s._id)'>
-                                <i class="fas fa-question-circle"></i> See Full Survey
-                            </button>
-                    </ng-template>
-                </tbody>
-            </table>
-        </div>
+                        <button class="btn btn-info m-1"
+                            (click)='selectSurvey(s._id)'>
+                            <i class="fas fa-question-circle"></i> See Full Survey
+                        </button>
+                </ng-template>
+            </tbody>
+        </table>
     </div>
      <!--Back Button-->
      <div class="d-grid gap-2 col-3 mx-auto">

@@ -1,4 +1,3 @@
-
 <!--
 Student IDs: 
   - 301129935
@@ -15,51 +14,51 @@ Description: Home Component Html - home.component.html
 <main class="container" style="padding-bottom: auto; margin-bottom:auto">
   <p class="titles">Dashboard</p>
 
-  <div style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black; margin-bottom: 190px;" >
-    <table style="margin-top: 40px;">
-      <tr>
-        <td>
+  <div class="container" style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black; margin-bottom: 300px;" >
+    <div class="row ">
+      
         <!-- Create Survey -->
-          <div class="card bg-dark" style="width: 25rem; height: 100px; " style="text-align: center;">
-            <img src="../../assets/images/admin1.png" class="card-img-top" alt="Create a Survey">
+        <div class="col-3" style="padding-top:10px; padding-bottom: 10px">
+          <div class="card bg-dark"  style="text-align: center;">
+            <img src="../../assets/images/DBCreateSurvey.png" class="card-img-top" alt="Create a Survey">
               <div class="card-body">
                 <a routerLink="/admin/main/surveys/add" class="btn btn-success">Create a Survey</a>
               </div>
           </div>
-        </td> 
-
+        </div>
+      
+        
           <!--Previously Created Surveys-->
-        <td>
-          <div class="card bg-dark" style="width: 25rem; height: 100px;"  style="text-align: center;">
-            <img src="../../assets/images/admin1.png" class="card-img-top" alt="Previously Created Surveys">
+        <div class="col-3" style="padding-top:10px; padding-bottom: 10px">
+          <div class="card bg-dark"  style="text-align: center;">
+            <img src="../../assets/images/DBCreatedSurvey.png" class="card-img-top" alt="Previously Created Surveys">
               <div class="card-body">
                 <a  routerLink="/admin/main/surveys" class="btn btn-primary">Created Surveys </a>
               </div>
           </div>
-        </td>
-
-        <td>
+        </div>
+      
+       
           <!-- Answered Survey List -->
-            <div class="card bg-dark" style="width: 25rem; height: 100px;"  style="text-align: center;">
-              <img src="../../assets/images/admin1.png" class="card-img-top" alt="Answered Surveys">
+          <div class="col-3" style="padding-top:10px; padding-bottom: 10px">
+            <div class="card bg-dark"   style="text-align: center;">
+              <img src="../../assets/images/DBFilledOutSurvey.png" class="card-img-top" alt="Answered Surveys">
                 <div class="card-body">
                   <a routerLink="/admin/main/survey-answered" class="btn btn-light">Filled Out Survey List</a>
                 </div>
             </div>
-          </td> 
-
-          <td>
+          </div>
+        
             <!-- Modify Account -->
-              <div class="card bg-dark" style="width: 25rem; height: 100px;"  style="text-align: center;">
-                <img src="../../assets/images/admin2.png" class="card-img-top" alt="Survey Template 1">
+            <div class="col-3" style="padding-top:10px; padding-bottom: 10px">
+              <div class="card bg-dark" style="text-align: center;">
+                <img src="../../assets/images/DBUserEdit.png" class="card-img-top" alt="Survey Template 1">
                   <div class="card-body">
                     <a routerLink="/admin/main/user-edit" class="btn btn-warning">Modify Account</a>
                   </div>
               </div>
-          </td> 
-      </tr>
-    </table>
-    <br><br><br>
+            </div>
+    </div>
   </div>
 </main>
 

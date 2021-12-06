@@ -11,11 +11,11 @@ Description: Survey Table Component Html - survey-table.component.html
 -->
 
 <main class="container" style="padding-bottom: auto; margin-bottom: auto;">
-  <div style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black;">
+  <div style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black; margin: 10px; padding: 10px">
   <!--Title-->
   <p class="titles">Previously Created Surveys</p>
   <br>
-  <table class="table">
+  <table class="table table-responsive">
     <tbody>
       <tr *ngIf='getSurveys().length == 0'>
         <td colspan="5">There are no surveys</td>
@@ -40,8 +40,8 @@ Description: Survey Table Component Html - survey-table.component.html
             <i class="fas fa-trash-alt"></i> Delete </button>
 
             <!--Stats Button-->
-          <button class="btn btn-success m-1" (click)='stats(s._id)'>
-            <i class="fas fa-info-circle"></i> Stats</button>
+            <button class="btn btn-success m-1" (click)='stats(s._id)'>
+              <i class="fas fa-info-circle"></i> Stats</button>
 
             <!-- Edit Button -->
             <button class="btn btn-warning m-1" (click)='editSurvey(s)'>
