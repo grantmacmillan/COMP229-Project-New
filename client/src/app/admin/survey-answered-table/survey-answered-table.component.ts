@@ -39,13 +39,13 @@ export class SurveyAnsweredTableComponent implements OnInit {
   //Delete a survey based on id
   delete(id: number): void
   {
-    if(confirm("Are you sure?"))
+    if(confirm("Are you sure you want to delete this answered survey?"))
     {
       this.repository.deleteSurvey(id);
     }
     else
     {
-      this.router.navigateByUrl('/admin/surveyAnswered');
+      this.router.navigateByUrl('/admin/main/survey-answered');
     }
   }
 

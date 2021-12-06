@@ -20,6 +20,7 @@ Description: Survey Editor Component Html - survey-editor.component.html
 
 <div *ngIf='!surveySent'>
     <p class="titles" style="padding-top: 30px;">Add Survey</p>
+
 <form novalidate #form='ngForm' (ngSubmit)='submitSurvey(form)'>
 
     <!--Survey Information-->
@@ -50,19 +51,19 @@ Description: Survey Editor Component Html - survey-editor.component.html
         </label>
     </div>
 
-<!--Buttons-->
-<div style="text-align: center;">
-    <button class="btn btn-success m-1" type="submit">
-        <i class="fas fa-check-square"></i> Create Survey
-    </button>
-    <button class="btn btn-primary m-1" (click)="addQuestion()">
-        <i class="fas fa-plus-circle">  Add Question(s) </i> 
-    </button>
+    <!--Buttons-->
+    <div style="text-align: center;">
+        <button class="btn btn-success m-1" type="submit">
+            <i class="fas fa-check-square"></i> Create Survey
+        </button>
+        <button class="btn btn-primary m-1" (click)="addQuestion()">
+            <i class="fas fa-plus-circle">  Add Question(s) </i> 
+        </button>
 
-    <button class="btn btn-secondary m-1" (click)="cancel()">
-        <i class="fas fa-undo"> Cancel </i>
-    </button>
-</div>
+        <button class="btn btn-secondary m-1" (click)="cancel()">
+            <i class="fas fa-undo"> Cancel </i>
+        </button>
+    </div>
 </form>
 
 <!--Conditional Section IF No Surveys-->
@@ -79,13 +80,12 @@ Description: Survey Editor Component Html - survey-editor.component.html
             <li><label class="text-right">{{ line.question.choice3 }}</label></li>
             <li><label class="text-right">{{ line.question.choice4 }}</label></li>
         </ul>
-    <button class="btn btn-sm btn-danger"
-            (click)='questionnaire.removeLine(line.question._id)'>
-            Remove
-    </button> 
-</div> 
+        <button class="btn btn-sm btn-danger"
+                (click)='questionnaire.removeLine(line.question._id)'>
+                Remove
+        </button> 
+    </div> 
 </div>
-
      
 
             

@@ -15,7 +15,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { SurveyListComponent } from './survey-site/survey-list.component';
 import { QuestionnaireDetailComponent } from './survey-site/questionnaire-detail/questionnaire-detail.component';
-import { CheckoutComponent } from './survey-site/checkout/checkout.component';
 import { SurveysFirstGuard } from './guards/surveysFirst.guard';
 import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -29,7 +28,6 @@ const routes: Routes = [
 
   {path: 'question-list', component: SurveyListComponent, data: {title: 'Surveys'}, canActivate: [SurveysFirstGuard]},
   {path: 'questionnaire/:id', component: QuestionnaireDetailComponent, data: {title: 'Questionnaire'}, canActivate: [SurveysFirstGuard]},
-  {path: 'checkout', component: CheckoutComponent, data: {title: 'Checkout'}, canActivate: [SurveysFirstGuard]},
   {path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', redirectTo:'/home', pathMatch: 'full'}
