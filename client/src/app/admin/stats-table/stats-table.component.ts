@@ -87,6 +87,66 @@ getChoice1(title: string): Number
     return count;
   }
 
+  getChoice1Value(title: string): String
+  {
+    var choice = "";
+    let survey = this.survey;
+
+    this.getSurveys().forEach(function (value) {
+      if(value.title == survey.title)
+        value.questionnaire.lines.forEach(function (line) {
+          if(line.question.title == title)
+           choice = line.question.choice1;
+        })
+    })
+    return choice;
+  }
+
+  getChoice2Value(title: string): String
+  {
+    var choice = "";
+    let survey = this.survey;
+
+    this.getSurveys().forEach(function (value) {
+      if(value.title == survey.title)
+        value.questionnaire.lines.forEach(function (line) {
+          if(line.question.title == title)
+           choice = line.question.choice2;
+        })
+    })
+    return choice;
+  }
+
+  getChoice3Value(title: string): String
+  {
+    var choice = "";
+    let survey = this.survey;
+
+    this.getSurveys().forEach(function (value) {
+      if(value.title == survey.title)
+        value.questionnaire.lines.forEach(function (line) {
+          if(line.question.title == title)
+            choice = line.question.choice3;
+        })
+    })
+    return choice;
+  }
+
+  getChoice4Value(title: string): String
+  {
+    var choice = "";
+    let survey = this.survey;
+
+    this.getSurveys().forEach(function (value) {
+      if(value.title == survey.title)
+        value.questionnaire.lines.forEach(function (line) {
+          if(line.question.title == title)
+            choice = line.question.choice4;
+        })
+    })
+    return choice;
+  }
+
 getChoice2(title: string): Number
   {
     let count = 0;

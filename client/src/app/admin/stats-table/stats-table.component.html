@@ -40,16 +40,16 @@ Description: Stats Table Component Html - stats-table.component.html
                     <tr *ngFor='let line of survey.questionnaire.lines'>
                         <td >{{line.question.title}}</td>
                         <td>
-                            <div>{{getChoice1(line.question.title)}}</div>
+                            <div>{{getChoice1(line.question.title)}} {{getChoice1Value(line.question.title)}}</div>
                         </td>
                         <td>
-                            <div>{{getChoice2(line.question.title)}}</div>
+                            <div>{{getChoice2(line.question.title)}} {{getChoice2Value(line.question.title)}}</div>
                         </td>
                         <td>
-                            <div>{{getChoice3(line.question.title)}}</div>
+                            <div>{{getChoice3(line.question.title)}} {{getChoice3Value(line.question.title)}}</div>
                         </td>
                         <td>
-                            <div>{{getChoice4(line.question.title)}}</div>
+                            <div>{{getChoice4(line.question.title)}} {{getChoice4Value(line.question.title)}}</div>
                         </td>  
                     </tr>
                 </tbody>
