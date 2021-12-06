@@ -11,7 +11,8 @@ Description: Stats Table Component - stats-table.component.ts
 */
 
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, ChildrenOutletContexts, Router } from '@angular/router';
+import { Question } from 'src/app/model/question.model';
 import { Questionnaire } from 'src/app/model/questionnaire.model';
 import { Survey } from 'src/app/model/survey.model';
 import { SurveyRepository } from 'src/app/model/survey.repository';
@@ -29,6 +30,9 @@ export class StatsTableComponent implements OnInit {
 
   @ViewChild('statisticTable') statisticTable: ElementRef;
 
+  public surveyAnsweredArray: SurveyAnswered[] = [];
+  public choices: string[] = [];
+
   constructor(private repository: SurveyAnsweredRepository,
               private repositorySurvey: SurveyRepository,
               private activeRoute: ActivatedRoute,
@@ -37,6 +41,7 @@ export class StatsTableComponent implements OnInit {
               private contactService: ContactService) 
   {
     Object.assign(this.survey, repositorySurvey.getSurvey(activeRoute.snapshot.params.id));
+  
   }
 
   ngOnInit(): void {
@@ -67,8 +72,7 @@ export class StatsTableComponent implements OnInit {
     return count;
   }
 
-  //Getting how many people selected choice 1
-  get choice1(): Number
+getChoice1(title: string): Number
   {
     let count = 0;
     let survey = this.survey;
@@ -76,15 +80,14 @@ export class StatsTableComponent implements OnInit {
     this.getSurveys().forEach(function (value) {
       if(value.title == survey.title)
         value.questionnaire.lines.forEach(function (line) {
-          if(line.answer == line.question.choice1)
+          if(line.question.title == title && line.answer == line.question.choice1)
             count++;
         })
     })
     return count;
   }
 
-  //Getting how many people selected choice 2
-  get choice2(): Number
+getChoice2(title: string): Number
   {
     let count = 0;
     let survey = this.survey;
@@ -92,15 +95,14 @@ export class StatsTableComponent implements OnInit {
     this.getSurveys().forEach(function (value) {
       if(value.title == survey.title)
         value.questionnaire.lines.forEach(function (line) {
-          if(line.answer == line.question.choice2)
-            count++
+          if(line.question.title == title && line.answer == line.question.choice2)
+            count++;
         })
     })
     return count;
   }
 
-  //Getting how many people selected choice 3
-  get choice3(): Number
+getChoice3(title: string): Number
   {
     let count = 0;
     let survey = this.survey;
@@ -108,15 +110,14 @@ export class StatsTableComponent implements OnInit {
     this.getSurveys().forEach(function (value) {
       if(value.title == survey.title)
         value.questionnaire.lines.forEach(function (line) {
-          if(line.answer == line.question.choice3)
-            count++
+          if(line.question.title == title && line.answer == line.question.choice3)
+            count++;
         })
     })
     return count;
   }
 
-  //Getting how many people selected choice 4
-  get choice4(): Number
+getChoice4(title: string): Number
   {
     let count = 0;
     let survey = this.survey;
@@ -124,8 +125,8 @@ export class StatsTableComponent implements OnInit {
     this.getSurveys().forEach(function (value) {
       if(value.title == survey.title)
         value.questionnaire.lines.forEach(function (line) {
-          if(line.answer == line.question.choice4)
-            count++
+          if(line.question.title == title && line.answer == line.question.choice4)
+            count++;
         })
     })
     return count;
