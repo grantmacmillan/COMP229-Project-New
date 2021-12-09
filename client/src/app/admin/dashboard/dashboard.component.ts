@@ -25,10 +25,11 @@ export class DashboardComponent implements OnInit {
               private auth: AuthService,
               private activeRoute: ActivatedRoute) 
               {
-                Object.assign(this.user, auth.getUser(activeRoute.snapshot.params.id)); 
+                //Object.assign(this.user, auth.getUser(activeRoute.snapshot.params.id)); 
               }
 
   ngOnInit(): void {
+    this.user._id = this.auth.getLoggedUserId();
   }
 
   //Navigate to modify user and pass in the user id

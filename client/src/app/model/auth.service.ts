@@ -29,6 +29,12 @@ export class AuthService
         });
     }
 
+    getLoggedUserId(): string {
+        console.log("Auth service user id: " + this.user._id);
+        return this.datasource.getLoggedUserId(); //return undefined
+        //return this.user._id; //return undefined
+    }
+
     //Get all users
     getUsers(): User[] {
         return this.users;

@@ -46,6 +46,11 @@ export class RestDataSource
   }
 
   /*USER*/
+  getLoggedUserId(): string {
+    console.log("Datasource user id: " + this.user._id);
+    return this.user._id;
+  }
+  
   //Authenticate an Existing User
   authenticate(user: User): Observable<any>
   {
