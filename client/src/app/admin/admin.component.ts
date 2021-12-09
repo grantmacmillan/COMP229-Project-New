@@ -31,7 +31,7 @@ export class AdminComponent
     }
 
     //Modifying user
-    modifyUser(user: User): void {
-        this.router.navigateByUrl('/admin/main/user-edit/' + user._id);
-    }
+   // modifyUser(user: User): void {
+    //    this.router.navigateByUrl('/admin/main/user-edit/' + user.id);
+    //}
 }

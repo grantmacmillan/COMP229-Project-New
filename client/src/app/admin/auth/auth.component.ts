@@ -31,22 +31,23 @@ export class AuthComponent implements OnInit {
               private datasource: RestDataSource,
               public user: User) 
               {
-              
+                
               }
 
   ngOnInit(): void 
   {
-    this.users = this.auth.getUsers();
+
   }
 
   //Authenticate a user
-  authenticate(form: NgForm): void
+  authenticate(form: NgForm, user: User): void
   {
     if(form.valid)
     {
-      this.auth.authenticate(this.user).subscribe(data => {
+      this.auth.authenticate(user).subscribe(data => {
           if(data.success)
           {
+            console.log(data.user);
             this.auth.storeUserData(data.token, data.user);
             this.router.navigateByUrl('/admin/main/dashboard');
           }

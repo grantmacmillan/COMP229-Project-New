@@ -80,7 +80,7 @@ module.exports.processLoginPage = (req, res, next) =>
            }
 
            const payload = {
-            id: user._id,
+            _id: user._id,
             displayName: user.displayName,
             username: user.username,
             email: user.email
@@ -91,7 +91,7 @@ module.exports.processLoginPage = (req, res, next) =>
            });
 
               return res.json({success: true, msg: 'User Logged in Successfully', user: {
-                    id: user._id,
+                    _id: user._id,
                     displayName: user.displayName,
                     username: user.username,
                     email: user.email

@@ -11,6 +11,7 @@ Description: Authentication Service - auth.service.ts
 */
 
 import { Injectable } from "@angular/core";
+import { use } from "passport";
 import { Observable } from "rxjs";
 import { RestDataSource } from "./rest.datasource";
 import { User } from "./user.model";
@@ -31,8 +32,7 @@ export class AuthService
 
     getLoggedUserId(): string {
         console.log("Auth service user id: " + this.user._id);
-        return this.datasource.getLoggedUserId(); //return undefined
-        //return this.user._id; //return undefined
+        return this.datasource.getLoggedUserId(); 
     }
 
     //Get all users
@@ -53,9 +53,10 @@ export class AuthService
     }
 
     //Allows Modification of User Date
-    modifyUser(user: User): Observable<any>
+    modifyUser(user: User): void
     {
-        return this.datasource.modifyUser(user);
+        this.datasource.modifyUser(user).subscribe(user => {
+            this.users.splice(this.users.findIndex(u => u._id === user._id), 1, user); });
     }
 
     //Returns Sepecific User based on Id
@@ -80,5 +81,9 @@ export class AuthService
     logout(): Observable<any>
     {
         return this.datasource.logout();
+    }
+
+    loadUser(): User {
+        return this.datasource.loadUser();
     }
 }

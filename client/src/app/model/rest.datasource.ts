@@ -90,7 +90,7 @@ export class RestDataSource
   //Get all users
   getUsers(): Observable<User[]>
   {
-    return this.http.get<User[]>(this.baseUrl + 'user-edit');
+    return this.http.get<User[]>(this.baseUrl + 'user-list');
   }
 
   //Checks if the User is LoggedIn

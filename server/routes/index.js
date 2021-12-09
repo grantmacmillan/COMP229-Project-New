@@ -16,7 +16,7 @@ let router = express.Router();
 let indexController = require('../controllers/index');
 
 /*GET Route*/
-router.get('/user-edit', indexController.displayUserList)
+router.get('/user-list', indexController.displayUserList)
 
 /*POST Route for processing the Login page*/
 router.post('/login',indexController.processLoginPage); 

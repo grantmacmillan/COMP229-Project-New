@@ -32,11 +32,11 @@ export class UserEditorComponent implements OnInit {
               private activeRoute: ActivatedRoute,
               public user: User) 
   {
-    Object.assign(this.user, auth.getUser(activeRoute.snapshot.params.id)); 
+    Object.assign(this.user, this.auth.getUser(this.auth.loadUser()._id));
   }
   
   ngOnInit(): void {
-    
+
   }
 
   //Saves a User
