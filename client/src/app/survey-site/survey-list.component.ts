@@ -14,7 +14,6 @@ import { Component, Injectable } from '@angular/core';
 import { QuestionRepository } from '../model/question.repository';
 import { Questionnaire } from '../model/questionnaire.model';
 import {Router} from "@angular/router";
-import { Location } from '@angular/common';
 import { SurveyRepository } from '../model/survey.repository';
 import { Survey } from '../model/survey.model';
 
@@ -32,8 +31,7 @@ export class SurveyListComponent
   constructor(private repository: QuestionRepository,
               private surveyRepository: SurveyRepository,
               private questionnaire: Questionnaire,
-              private router: Router,
-              private location: Location) { }
+              private router: Router) { }
 
   //Gets Surveys from the Survey Repository
   get surveys(): Survey[]

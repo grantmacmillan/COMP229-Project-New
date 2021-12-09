@@ -58,21 +58,9 @@ export class SurveyEditorComponent implements OnInit {
     }
   }
 
-  //Go to add question
-  addQuestion(): void 
-  {
-    this.router.navigateByUrl('/admin/main/questions');
-  }
-
-  //Go to survey list
+  //Go to dashboard
   surveyList(): void
   {
     this.router.navigate(['/admin/main/dashboard']).then(() => {window.location.reload()}); //Same fix as teacher 
-  }
-
-  //Go to survey list
-  cancel(): void
-  {
-    this.router.navigateByUrl('/admin/main/dashboard');
   }
 }

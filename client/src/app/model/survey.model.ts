@@ -45,7 +45,7 @@ export class Survey
         return `Survey
         -------------------------
         Title        : ${this.title}
-        Cat : ${this.category}
+        Cat          : ${this.category}
         Questionnaire: ${this.questionnaire}
         ActivatesIn  : ${this.activatesIn}
         deactivatesIn: ${this.deactivatesIn} 

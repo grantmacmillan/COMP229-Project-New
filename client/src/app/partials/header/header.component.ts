@@ -50,6 +50,7 @@ export class HeaderComponent implements OnInit {
     return result;
   }
 
+  //Modifies user
   modifyUser(user: User): void {
     this.router.navigateByUrl('/admin/main/user-edit/' + user._id);
   }

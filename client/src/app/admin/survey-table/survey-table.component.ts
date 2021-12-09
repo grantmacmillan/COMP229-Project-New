@@ -31,21 +31,11 @@ export class SurveyTableComponent implements OnInit
               public user: User,
               public survey:Survey) 
               {
-               // Object.assign(this.user, auth.getUser(activeRoute.snapshot.params.id)); 
+                
               }
 
   ngOnInit(): void {
    
-  }
-
-  getUser(): User {
-
-    var userReturn = null;
-    this.auth.getUsers().forEach(function (value) {
-      if(value._id == this.user._id)
-        userReturn =  this.user;
-    })
-    return userReturn;
   }
 
   //Get surveys
@@ -77,19 +67,6 @@ export class SurveyTableComponent implements OnInit
   stats(id: number): void
   {
     this.router.navigateByUrl('/admin/main/stats-table/' + id); 
-  }
-
-  //Modify User
-  modifyUser(user: User): void
-  {
-    this.router.navigateByUrl('/admin/main/user-edit');
-  }
-
-  //Create Survey
-  createSurvey(): void
-  {
-    this.router.navigateByUrl('/admin/main/surveys/add');
-    //this.router.navigate(['/admin/main/surveys/add']).then(() => {window.location.reload()}); //Same fix as teacher
   }
 
   //Navigates to the questionnaire component and passes the selected survey ID

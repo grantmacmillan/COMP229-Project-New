@@ -59,6 +59,7 @@ export class SurveyAditorComponent implements OnInit {
     this.router.navigateByUrl('/admin/main/page-edit');
   }
 
+  //Remove a question
   removeQuestion(question: Question): void
   {
     const index = this.questionnaire.lines.findIndex(l => l.question._id === question._id)

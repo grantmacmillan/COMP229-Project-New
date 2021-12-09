@@ -13,7 +13,7 @@ Description: Manifest of the app folder - app.module.ts
 //Manifest for the app folder
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt';
+import { JwtModule } from '@auth0/angular-jwt';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BookStoreModule} from './survey-site/survey-list.module'

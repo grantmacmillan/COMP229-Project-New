@@ -10,7 +10,7 @@ WebApp name: Survey Site
 Description: Counter Directive - counter.directive.ts
 */
 
-import { Directive, ViewContainerRef, TemplateRef, Input, Attribute, SimpleChanges, OnChanges } from '@angular/core';
+import { Directive, ViewContainerRef, TemplateRef, Input, SimpleChanges, OnChanges } from '@angular/core';
 
 @Directive({
   selector: '[counterOf]'

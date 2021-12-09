@@ -7,7 +7,7 @@ Student IDs:
   - 301134374
   - 301153049
 WebApp name: Survey Site
-Description: Home Component Html - home.component.html
+Description: Dashboard Component Html - dashboard.component.html
 -->
 
 <!--Main Content-->
@@ -54,7 +54,7 @@ Description: Home Component Html - home.component.html
               <div class="card bg-dark" style="text-align: center;">
                 <img src="../../assets/images/DBUserEdit.png" class="card-img-top" alt="Survey Template 1">
                   <div class="card-body">
-                    <a routerLink="/admin/main/user-edit" class="btn btn-warning">Modify Account</a>
+                    <a (click)='modifyUser()' class="btn btn-warning">Modify Account</a>
                   </div>
               </div>
             </div>

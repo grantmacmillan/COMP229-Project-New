@@ -11,9 +11,7 @@ Description: Stats Table Component - stats-table.component.ts
 */
 
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, ChildrenOutletContexts, Router } from '@angular/router';
-import { Question } from 'src/app/model/question.model';
-import { Questionnaire } from 'src/app/model/questionnaire.model';
+import { ActivatedRoute } from '@angular/router';
 import { Survey } from 'src/app/model/survey.model';
 import { SurveyRepository } from 'src/app/model/survey.repository';
 import { SurveyAnswered } from 'src/app/model/surveyAnswered.model';
@@ -72,6 +70,7 @@ export class StatsTableComponent implements OnInit {
     return count;
   }
 
+//Getting stats for choice one of questions in survey
 getChoice1(title: string): Number
   {
     let count = 0;
@@ -87,66 +86,7 @@ getChoice1(title: string): Number
     return count;
   }
 
-  getChoice1Value(title: string): String
-  {
-    var choice = "";
-    let survey = this.survey;
-
-    this.getSurveys().forEach(function (value) {
-      if(value.title == survey.title)
-        value.questionnaire.lines.forEach(function (line) {
-          if(line.question.title == title)
-           choice = line.question.choice1;
-        })
-    })
-    return choice;
-  }
-
-  getChoice2Value(title: string): String
-  {
-    var choice = "";
-    let survey = this.survey;
-
-    this.getSurveys().forEach(function (value) {
-      if(value.title == survey.title)
-        value.questionnaire.lines.forEach(function (line) {
-          if(line.question.title == title)
-           choice = line.question.choice2;
-        })
-    })
-    return choice;
-  }
-
-  getChoice3Value(title: string): String
-  {
-    var choice = "";
-    let survey = this.survey;
-
-    this.getSurveys().forEach(function (value) {
-      if(value.title == survey.title)
-        value.questionnaire.lines.forEach(function (line) {
-          if(line.question.title == title)
-            choice = line.question.choice3;
-        })
-    })
-    return choice;
-  }
-
-  getChoice4Value(title: string): String
-  {
-    var choice = "";
-    let survey = this.survey;
-
-    this.getSurveys().forEach(function (value) {
-      if(value.title == survey.title)
-        value.questionnaire.lines.forEach(function (line) {
-          if(line.question.title == title)
-            choice = line.question.choice4;
-        })
-    })
-    return choice;
-  }
-
+//Getting stats for choice two of questions in survey
 getChoice2(title: string): Number
   {
     let count = 0;
@@ -162,6 +102,7 @@ getChoice2(title: string): Number
     return count;
   }
 
+//Getting stats for choice three of questions in survey
 getChoice3(title: string): Number
   {
     let count = 0;
@@ -177,6 +118,7 @@ getChoice3(title: string): Number
     return count;
   }
 
+//Getting stats for choice four of questions in survey
 getChoice4(title: string): Number
   {
     let count = 0;

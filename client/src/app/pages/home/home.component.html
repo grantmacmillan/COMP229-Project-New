@@ -1,4 +1,3 @@
-
 <!--
 Student IDs: 
   - 301129935
@@ -12,33 +11,33 @@ Description: Home Component Html - home.component.html
 -->
 
 <!--Main Content-->
-<main class="container">
+<main class="container" style="margin-bottom: 0px; padding-bottom: 0px;">
     <div>
       <!--Banner-->
       <img src="../../assets/images/HomeBanner.png" style="width: 100%; margin-top: 10px; border-style: solid; border-color: black; border-width: 2px; box-shadow:5px 5px 15px #000000 ;" alt="Banner">
     </div>
   
-    <div>
-      <table style="margin-top: 40px;">
+    <div class="container">
+      <table style="margin-top: 40px; margin-right: 80px; margin-left: 80px;">
         <tr>
           <td>
+
           <!-- Survey Template -->
-      
-            <div class="card" style="width: 18rem; height: 50px;">
+            <div class="card text-center" style="width: 100%; ">
               <img src="../../assets/images/FillOutSurvey.png" class="card-img-top" alt="Survey Template 1">
                 <div class="card-body">
                   <h5 class="card-title" style="text-align: center;">Fill Out a Survey</h5>
-                  <p class="card-text">Click the link below to start filling out a survey!</p> <br>
+                  <p class="card-text" style="text-align: center;">Click the link below to start filling out a survey!</p> <br>
                   <a routerLink="/question-list" class="btn btn-success">Select a Survey</a>
                 </div>
             </div>
             </td> 
             <td>
-            <div class="card" style="width: 18rem; height: 50px;">
+            <div class="card text-center" style="width: 100%;">
               <img src="../../assets/images/CreateSurvey.png" class="card-img-top" alt="Survey Template 1">
                 <div class="card-body">
                   <h5 class="card-title" style="text-align: center;">Multiple Choice Survey</h5>
-                  <p class="card-text">Click the link below to start creating your multiple choice survey!</p>
+                  <p class="card-text" style="text-align: center;">Click the link below to start creating your multiple choice survey!</p>
                   <a *ngIf='isLoggedIn()' routerLink="/admin/main/surveys" class="btn btn-success">Create</a>
                   <a *ngIf='!isLoggedIn()' routerLink="/login" class="btn btn-success">Create</a>
                 </div>

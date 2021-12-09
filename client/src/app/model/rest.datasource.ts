@@ -43,7 +43,6 @@ export class RestDataSource
   {
     this.user = new User();
     this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
-    console.log(this.getUsers());
   }
 
   /*USER*/
@@ -62,7 +61,7 @@ export class RestDataSource
   //Modifies a User
   modifyUser(user: User): Observable<any>
   {
-    return this.http.post<any>(this.baseUrl + 'user-edit', user, this.httpOptions);
+    return this.http.post<any>(`${this.baseUrl}user-edit/${user._id}`, user, this.httpOptions);
   }
 
   //Stores User Data
@@ -83,6 +82,7 @@ export class RestDataSource
     return this.http.get<any>(this.baseUrl + 'logout', this.httpOptions)
   }
 
+  //Get all users
   getUsers(): Observable<User[]>
   {
     return this.http.get<User[]>(this.baseUrl + 'user-edit');
@@ -189,7 +189,7 @@ export class RestDataSource
     this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
   }
 
-  //ADDED
+  //Load User from LocalStorage
   public loadUser(): User
   {
     this.loadToken();

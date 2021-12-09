@@ -15,7 +15,6 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/model/auth.service';
 import { RestDataSource } from 'src/app/model/rest.datasource';
-
 import { User } from '../../model/user.model'
 
 @Component({
@@ -38,13 +37,11 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void 
   {
     this.users = this.auth.getUsers();
-    console.log("ngOnInit of auth.component"+this.users);
   }
 
   //Authenticate a user
-  authenticate(form: NgForm, id: string, user:User): void
+  authenticate(form: NgForm): void
   {
-    console.log("In authenticate of auth.component.ts" + this.datasource.getUsers());
     if(form.valid)
     {
       this.auth.authenticate(this.user).subscribe(data => {
@@ -52,7 +49,6 @@ export class AuthComponent implements OnInit {
           {
             this.auth.storeUserData(data.token, data.user);
             this.router.navigateByUrl('/admin/main/dashboard');
-            console.log(this.user);
           }
       });
     }

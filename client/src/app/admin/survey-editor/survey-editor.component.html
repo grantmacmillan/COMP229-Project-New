@@ -22,7 +22,6 @@ Description: Survey Editor Component Html - survey-editor.component.html
     <p class="titles" style="padding-top: 30px;">Add Survey</p>
 
 <form novalidate #form='ngForm' (ngSubmit)='submitSurvey(form)'>
-
     <!--Survey Information-->
     <div class="form-group">
         <label>Survey Title</label>
@@ -56,11 +55,11 @@ Description: Survey Editor Component Html - survey-editor.component.html
         <button class="btn btn-success m-1" type="submit">
             <i class="fas fa-check-square"></i> Create Survey
         </button>
-        <button class="btn btn-primary m-1" (click)="addQuestion()">
+        <button class="btn btn-primary m-1" routerLink='/admin/main/questions'>
             <i class="fas fa-plus-circle">  Add Question(s) </i> 
         </button>
 
-        <button class="btn btn-secondary m-1" (click)="cancel()">
+        <button class="btn btn-secondary m-1" routerLink='/admin/main/dashboard'>
             <i class="fas fa-undo"> Cancel </i>
         </button>
     </div>

@@ -12,7 +12,6 @@ Description: Questionnaire Model - questionnaire.model.ts
 
 import { Injectable } from "@angular/core";
 import { Question } from "./question.model";
-import { Survey } from "./survey.model";
 
 @Injectable()
 export class Questionnaire

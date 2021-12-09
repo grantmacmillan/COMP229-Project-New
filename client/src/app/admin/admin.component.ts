@@ -23,12 +23,14 @@ export class AdminComponent
     constructor(private auth: AuthService,
                 private router: Router) {}
 
+    //Loggin user out
     logout(): void
     {
         this.auth.logout();
         this.router.navigateByUrl('/');
     }
 
+    //Modifying user
     modifyUser(user: User): void {
         this.router.navigateByUrl('/admin/main/user-edit/' + user._id);
     }

@@ -52,7 +52,7 @@ const routing = RouterModule.forChild([
 
             { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
             
-            { path: 'user-edit', component: UserEditorComponent, canActivate: [AuthGuard]},
+            { path: 'user-edit/:id', component: UserEditorComponent, canActivate: [AuthGuard]},
 
             { path: 'stats-table/:id', component: StatsTableComponent, canActivate: [AuthGuard]},
 
