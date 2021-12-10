@@ -49,6 +49,8 @@ export class StatsTableComponent implements OnInit {
   }
 
   //Exporting Table to Excel
+  /* exportElmToExcel function is connected to the exportTableElmToExcel function into the contact.service.ts file
+     This function comes from a tutorial taught by: Idris Rampurawala*/
   exportElmToExcel(): void
   {
     this.contactService.exportTableElmToExcel(this.statisticTable, 'statisticTable');

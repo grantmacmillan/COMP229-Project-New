@@ -46,4 +46,8 @@ export class HeaderComponent implements OnInit {
     
     return result;
   }
+
+  goToLogin(): void {
+    this.router.navigate(['/login']).then(() => {window.location.reload()}); 
+  }
 }

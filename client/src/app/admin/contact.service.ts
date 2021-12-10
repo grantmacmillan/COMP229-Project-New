@@ -9,6 +9,13 @@ Student IDs:
 WebApp name: Survey Site
 Description: Contact Service - contact.service.ts
 */
+
+/*This component comes from Idris Rampurawala's tutorial on how to export to excel.
+  The exportTableElmToExcel function takes an element reference, which will come from the stats-table.component.html
+  and a string that will represent the filename once the table is exported.
+  npm install xlsx --save has been done to access the XLSX classes and functions
+  Link to tutorial: https://dev.to/idrisrampurawala/exporting-data-to-excel-and-csv-in-angular-3643#export-to-excel*/
+  
 import { Injectable, ElementRef } from '@angular/core';
 import * as XLSX from 'xlsx';
 

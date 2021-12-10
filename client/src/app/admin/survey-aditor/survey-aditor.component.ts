@@ -59,8 +59,13 @@ export class SurveyAditorComponent implements OnInit {
   //Remove a question
   removeQuestion(question: Question): void
   {
-    const index = this.questionnaire.lines.findIndex(l => l.question._id === question._id)
-    this.questionnaire.lines.splice(index, 1);
-    this.repository.updateSurvey(this.survey);
+    if(confirm("Are you sure you want to delete this question?")) {
+      const index = this.survey.questionnaire.lines.findIndex(l => l.question.title === question.title)
+      this.questionnaire.lines.splice(index, 1);
+      this.repository.updateSurvey(this.survey);
+    }
+    else {
+      this.router.navigateByUrl('/admin/main/surveys/edit/' + this.survey._id);
+    }
   }
 }
