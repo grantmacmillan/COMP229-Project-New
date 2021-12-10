@@ -40,10 +40,6 @@ export class RegisterComponent implements OnInit {
     {
       this.auth.authenticateRegister(this.user).subscribe(data => {
         
-        //if(data.success)
-            //this.auth.storeUserData(data.token, data.user);
-          
-          
       });
       this.router.navigate(['admin/auth']).then(() => {window.location.reload()});
     }
