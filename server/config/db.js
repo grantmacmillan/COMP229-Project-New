@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Connection to MongoDB - db.js
 */
-
 //This is connecting to the survey_site database in mongo
 module.exports = 
 {

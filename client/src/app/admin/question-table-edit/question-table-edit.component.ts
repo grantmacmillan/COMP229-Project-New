@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Question Table Edit Component - question-table-edit.component.ts
 */
-
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Question } from 'src/app/model/question.model';
@@ -24,15 +23,14 @@ import { Survey } from 'src/app/model/survey.model';
 export class QuestionTableEditComponent implements OnInit {
 
   constructor(private repository: QuestionRepository,
-    private router: Router,
-    public questionnaire: Questionnaire,
-    public survey: Survey) 
-    {
-      this.questionnaire = this.survey.questionnaire;
-    }
+              private router: Router,
+              public questionnaire: Questionnaire,
+              public survey: Survey) 
+              {
+                this.questionnaire = this.survey.questionnaire;
+              }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   //Get Questions
   getQuestions(): Question[]

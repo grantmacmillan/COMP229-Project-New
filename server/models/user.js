@@ -10,7 +10,7 @@ WebApp name: Survey Site
 Description: User Model - user.js
 */
 
-//require modules for the User model
+//required modules for the User model
 let mongoose = require('mongoose');
 let passportLocalMongoose = require('passport-local-mongoose');
 

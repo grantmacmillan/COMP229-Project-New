@@ -9,8 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Question Editor Component - question-editor.component.ts
 */
-
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -22,24 +20,24 @@ import { Questionnaire } from 'src/app/model/questionnaire.model';
   templateUrl: './question-editor.component.html'
 })
 export class QuestionEditorComponent implements OnInit {
+
   editing = false;
   question: Question = new Question();
 
   constructor(private repository: QuestionRepository,
               private router: Router,
               activeRoute: ActivatedRoute,
-              public questionnaire: Questionnaire,
-              private location: Location) 
+              public questionnaire: Questionnaire) 
   {
     this.editing = activeRoute.snapshot.params.mode === 'edit'; 
+
     if(this.editing)
     {
       Object.assign(this.question, repository.getQuestion(activeRoute.snapshot.params.id));
     }
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   //Saves a Question
   save(form: NgForm): void

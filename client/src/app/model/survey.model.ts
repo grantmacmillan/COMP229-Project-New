@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Suvey Model - survey.model.ts
 */
-
 import { Injectable } from "@angular/core";
 import { Questionnaire } from "./questionnaire.model";
 
@@ -37,7 +36,6 @@ export class Survey
         this.title = this.category = this.description = null;
         this.name = this.address = this.city = this.province = this.postalCode = this.country = null;
         this.activatesIn = this.deactivatesIn = null;
-        //this.questionnaire.clear();
     }
 
     public toString(): string

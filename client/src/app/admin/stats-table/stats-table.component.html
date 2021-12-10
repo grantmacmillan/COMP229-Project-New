@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Stats Table Component Html - stats-table.component.html
 -->
-
 <main>
     <div style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black; margin: 10px; padding: 10px">
     <p class="titles">Statistic</p>
@@ -19,6 +18,7 @@ Description: Stats Table Component Html - stats-table.component.html
             <table class="table table-sm" #statisticTable>
                 <thead class="thead-dark">
                     <tr>
+                        <!--Headers-->
                         <th scope="col">
                             Number Of Respondents:    {{numberAnsweredSurveys}}
                         </th>
@@ -37,6 +37,8 @@ Description: Stats Table Component Html - stats-table.component.html
                     </tr>
                 </thead>
                 <tbody>
+
+                    <!--Statistics-->
                     <tr *ngFor='let line of survey.questionnaire.lines'>
                         <td >{{line.question.title}}</td>
                         <td>
@@ -55,16 +57,19 @@ Description: Stats Table Component Html - stats-table.component.html
                 </tbody>
             </table>
 
-        <!--Buttons-->
-        <div class="d-grid gap-2 col-3 mx-auto">
-            <button class="btn btn-secondary" routerLink="/admin/main/surveys">
-                <i class="fas fa-undo"></i> Back
-            </button>
+            <!--Buttons-->
+            <div class="d-grid gap-2 col-3 mx-auto">
 
-            <button class="btn btn-success" (click)='exportElmToExcel()'>
-                <i class="fas fa-file-export"></i> Export To Excel
-            </button>
+                <!--Back Button-->
+                <button class="btn btn-secondary" routerLink="/admin/main/surveys">
+                    <i class="fas fa-undo"></i> Back
+                </button>
+
+                <!--Export To Excel Button-->
+                <button class="btn btn-success" (click)='exportElmToExcel()'>
+                    <i class="fas fa-file-export"></i> Export To Excel
+                </button>
+            </div>
         </div>
-    </div>
-</div>  
+    </div>  
 </main>

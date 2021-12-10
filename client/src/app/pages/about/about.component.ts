@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: About Component - about.component.ts
 */
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BasePageComponent } from '../../partials/base-page/base-page.component';
@@ -20,10 +19,10 @@ import { BasePageComponent } from '../../partials/base-page/base-page.component'
 })
 export class AboutComponent extends BasePageComponent implements OnInit {
 
-  constructor(route : ActivatedRoute) {
+  constructor(route : ActivatedRoute) 
+  {
     super(route);
-   }
-
-  override ngOnInit(): void {
   }
+
+  override ngOnInit(): void { }
 }

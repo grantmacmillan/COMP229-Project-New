@@ -9,16 +9,15 @@ Student IDs:
 WebApp name: Survey Site
 Description: Controller to allow Full CRUD on Question Object - question.js
 */
-
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
-
 let jwt = require('jsonwebtoken');
 
 //Create a reference to the db schema which is the model
 let Question = require('../models/question');
 
+//Displays Question List
 module.exports.displayQuestionList= (req, res, next) => {
     Question.find((err, questionList) => {
         if(err)
@@ -32,10 +31,12 @@ module.exports.displayQuestionList= (req, res, next) => {
     });
 };
 
+//Displays Add Page
 module.exports.displayAddPage = (req, res, next) => {
     res.json({success: true, msg: 'Successfully Displayed Add Page'});
 };
 
+//Processes Add Page
 module.exports.processedAddPage =  (req, res, next) => {
     let newQuestion = Question({
         "title": req.body.title, 
@@ -59,6 +60,7 @@ module.exports.processedAddPage =  (req, res, next) => {
     });
  };
 
+ //Displays Edit Page
  module.exports.displayEditPage = (req, res, next) => {
     let id = req.params.id; 
 
@@ -76,6 +78,7 @@ module.exports.processedAddPage =  (req, res, next) => {
     });
 };
 
+//Processes Edit Page
 module.exports.processEditPage = (req, res, next) => {
     let id = req.params.id;
     let updatedQuestion = new Question({
@@ -101,6 +104,7 @@ module.exports.processEditPage = (req, res, next) => {
     });
 };
 
+//Performs Delete
 module.exports.performDelete = (req, res, next) => {
     let id = req.params.id;
     Question.deleteOne({_id: id}, (err) => 

@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Survey Editor Component - survey-editor.component.ts
 */
-
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -22,6 +21,7 @@ import { SurveyRepository } from 'src/app/model/survey.repository';
   templateUrl: './survey-editor.component.html'
 })
 export class SurveyEditorComponent implements OnInit {
+
   editing = false;
   submitted = false;
   surveySent = false;
@@ -35,32 +35,26 @@ export class SurveyEditorComponent implements OnInit {
     this.editing = activeRoute.snapshot.params.mode === 'edit'; 
 
     if(this.editing)
-    {
       Object.assign(this.survey, repository.getSurvey(activeRoute.snapshot.params.id)); 
-    }
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   //Submits a survey
   submitSurvey(form: NgForm): void
   {
-    console.log(this.survey.toString());
     this.submitted = true;
     if(form.valid)
-    {
         this.repository.saveSurvey(this.survey).subscribe(survey => {
         this.survey.clear();
         this.surveySent = true;
         this.submitted = false;
-      });
-    }
+      }); 
   }
 
   //Go to dashboard
   surveyList(): void
   {
-    this.router.navigate(['/admin/main/dashboard']).then(() => {window.location.reload()}); //Same fix as teacher 
+    this.router.navigate(['/admin/main/dashboard']).then(() => {window.location.reload()});  
   }
 }

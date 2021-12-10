@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Survey-Answered Selected Component - survey-answered-selected.component.ts
 */
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SurveyAnswered } from 'src/app/model/surveyAnswered.model';
@@ -28,7 +27,5 @@ export class SurveyAnsweredSelectedComponent implements OnInit {
     Object.assign(this.survey, repositorySurvey.getSurvey(activeRoute.snapshot.params.id));
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 }

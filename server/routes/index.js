@@ -9,10 +9,8 @@ Student IDs:
 WebApp name: Survey Site
 Description: Routes of the user - index.js
 */
-
 let express = require('express');
 let router = express.Router();
-
 let indexController = require('../controllers/index');
 
 /*GET Route*/

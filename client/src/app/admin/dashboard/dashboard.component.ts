@@ -10,7 +10,7 @@ WebApp name: Survey Site
 Description: Dashboard Component - dashboard.component.ts
 */
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/model/auth.service';
 import { User } from 'src/app/model/user.model';
 
@@ -22,17 +22,14 @@ export class DashboardComponent implements OnInit {
 
   constructor(public user:User,
               private router: Router,
-              private auth: AuthService,
-              private activeRoute: ActivatedRoute) 
+              private auth: AuthService) 
               {
                 Object.assign(this.user, this.auth.getUser(this.auth.loadUser()._id));
               }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
 
-  }
-
-  //Navigate to modify user and pass in the user id
+  //Navigate to modify user
   modifyUser(): void {
     this.router.navigateByUrl('/admin/main/user-edit/' + this.user._id);
   }

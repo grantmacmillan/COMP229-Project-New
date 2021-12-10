@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Container for the Question, Line and Questionnaire - container.js
 */
-
 "use strict"
 class Question 
 {

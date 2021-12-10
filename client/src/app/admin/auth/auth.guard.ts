@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Auth Guard Component - auth.guard.ts
 */
-
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from "@angular/router";
 import { AuthService } from "src/app/model/auth.service";

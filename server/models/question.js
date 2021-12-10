@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Question Model - question.js
 */
-
 let mongoose = require('mongoose');
 
 //Question Model

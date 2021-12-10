@@ -10,31 +10,34 @@ WebApp name: Survey Site
 Description: Survey Answered Selected Component Html - survey-answered-selected.component.html
 -->
 <main>
-    <div style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black; margin: 10px; padding: 10px">
-    <p class="titles">{{survey.title}}</p>
-        <h5 style="text-align: center">{{survey.category}}</h5>
-        <p style="text-align: center">{{survey.description}}</p>
+   <div style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black; margin: 10px; padding: 10px">
+      <p class="titles">{{survey.title}}</p>
+      <h5 style="text-align: center">{{survey.category}}</h5>
+      <p style="text-align: center">{{survey.description}}</p>
 
-
+    <!--Table-->
     <table class="table table-sm">
       <tbody>
         <tr>
+            <!--Headers-->
             <th>Questions</th>
             <th>Answers</th>
         </tr>
-              <!--Questions and choices-->
-              <tr *ngFor='let line of survey.questionnaire.lines'>
-                <td>{{ line.question.title }}</td>
-                <td>{{ line.answer }}</td>
-            </tr>
+
+        <!--Questions and choices-->
+        <tr *ngFor='let line of survey.questionnaire.lines'>
+            <td>{{ line.question.title }}</td>
+            <td>{{ line.answer }}</td>
+        </tr>
       </tbody>
     </table> 
   </div>
 
   <!-- Buttons -->
-    <div class="d-grid gap-2 col-3 mx-auto">
-        <button class="btn btn-secondary" routerLink="/admin/main/survey-answered">
-            <i class="fas fa-undo"></i> Back
-        </button>
-    </div>    
+  <div class="d-grid gap-2 col-3 mx-auto">
+    <!--Back Button-->
+    <button class="btn btn-secondary" routerLink="/admin/main/survey-answered">
+        <i class="fas fa-undo"></i> Back
+    </button>
+  </div>    
 </main>

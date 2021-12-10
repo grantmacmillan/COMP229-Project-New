@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: users.js
 */
-
 let express = require('express');
 let router = express.Router();
 

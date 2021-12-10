@@ -9,12 +9,9 @@ Student IDs:
 WebApp name: Survey Site
 Description: Routes of the survey-answered - surveyAnswered.js
 */
-
 let express =  require('express');
 let router = express.Router();
-
 let passport = require('passport');
-
 let surveyAnsweredController = require('../controllers/surveyAnswered');
 
 /*GET ORDER LIST -- READ */

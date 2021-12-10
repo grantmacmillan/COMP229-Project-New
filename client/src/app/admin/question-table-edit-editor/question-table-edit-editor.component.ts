@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Question Table Edit Editor Component - question-table-edit-editor.component.ts
 */
-
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -22,12 +21,13 @@ import { Questionnaire } from 'src/app/model/questionnaire.model';
   templateUrl: './question-table-edit-editor.component.html'
 })
 export class QuestionTableEditEditorComponent implements OnInit {
+
   editing = false;
   question: Question = new Question();
 
   constructor(private repository: QuestionRepository,
               private router: Router,
-              activeRoute: ActivatedRoute,
+              private activeRoute: ActivatedRoute,
               public questionnaire: Questionnaire) 
   {
     this.editing = activeRoute.snapshot.params.mode === 'edit'; 
@@ -37,8 +37,7 @@ export class QuestionTableEditEditorComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   //Saves a Question
   save(form: NgForm): void

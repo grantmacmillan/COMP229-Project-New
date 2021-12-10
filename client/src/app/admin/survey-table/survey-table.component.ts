@@ -9,10 +9,8 @@ Student IDs:
 WebApp name: Survey Site
 Description: Survey Table Component - survey-table.component.ts
 */
-
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from 'src/app/model/auth.service';
+import { Router } from '@angular/router';
 import { Survey } from 'src/app/model/survey.model';
 import { SurveyRepository } from 'src/app/model/survey.repository';
 import { User } from 'src/app/model/user.model';
@@ -25,18 +23,11 @@ export class SurveyTableComponent implements OnInit
   includeShipped = false;
 
   constructor(private repository: SurveyRepository,
-              private auth: AuthService,
-              private activeRoute: ActivatedRoute,
               private router: Router,
               public user: User,
-              public survey:Survey) 
-              {
-                
-              }
+              public survey:Survey) { }
 
-  ngOnInit(): void {
-   
-  }
+  ngOnInit(): void { }
 
   //Get surveys
   getSurveys(): Survey[]
@@ -69,7 +60,7 @@ export class SurveyTableComponent implements OnInit
     this.router.navigateByUrl('/admin/main/stats-table/' + id); 
   }
 
-  //Navigates to the questionnaire component and passes the selected survey ID
+  //Navigates to the survey-selected component
   selectSurvey(id: number): void
   {
     this.router.navigateByUrl('/admin/main/survey-selected/' + id);

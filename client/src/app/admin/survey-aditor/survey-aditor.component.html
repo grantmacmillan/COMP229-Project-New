@@ -11,73 +11,89 @@ Description: Survey-Aditor Component Html - survey-aditor.component.html
 -->
 <main class="container" style="padding-bottom: auto; margin-bottom:auto">
     <div class="container" style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black; padding-bottom: 10px;">
-<div *ngIf='!surveySent'>
-    <div  class="p-2 text-white">
-        <p class="titles">Edit Survey</p>
-    </div>
-<!--Form-->
-<form novalidate #form='ngForm' (ngSubmit)='updateSurvey(form)'>
-    <div class="form-group">
-        <label>Survey Title</label>
-        <input  type="text" class="form-control" name='title' [(ngModel)]='survey.title'>
-    </div>
 
-    <div class="form-group">
-        <label>Category</label>
-        <input type="text" class="form-control" name='category' [(ngModel)]='survey.category'>
-    </div>
+        <!--Conditional Statement-->
+        <div *ngIf='!surveySent'>
+            <div  class="p-2 text-white">
+                <p class="titles">Edit Survey</p>
+            </div>
 
-    <div class="form-group">
-        <label>Description</label>
-        <input type="text" class="form-control" name='description' [(ngModel)]='survey.description'>
-    </div>
+            <!--Form-->
+            <form novalidate #form='ngForm' (ngSubmit)='updateSurvey(form)'>
 
-    <div class="form-group">
-        <label>Activates In: 
-            <input type="date" class="form-control" name='activatesIn' [(ngModel)]='survey.activatesIn'>
-        </label>
-    </div>
+                <!--Title-->
+                <div class="form-group">
+                    <label>Survey Title</label>
+                    <input  type="text" class="form-control" name='title' [(ngModel)]='survey.title'>
+                </div>
 
-    <div class="form-group">
-        <label>How long does the survey stay active? 
-            <input type="date" class="form-control" name='deactivatesIn' [(ngModel)]='survey.deactivatesIn'>
-        </label>
-    </div>
+                <!--Category-->
+                <div class="form-group">
+                    <label>Category</label>
+                    <input type="text" class="form-control" name='category' [(ngModel)]='survey.category'>
+                </div>
 
-    <!--Buttons-->
-    <div style="text-align: center;">
-    <button class="btn btn-warning m-1" type="submit">
-        <i class="fas fa-exchange-alt"></i> Edit
-    </button>
-    <button class="btn btn-primary m-1" (click)='addQuestion(survey._id)'>
-        <i class="fas fa-plus-circle"></i> Add Question(s)
-    </button>
-    <button class="btn btn-secondary m-1" routerLink='/admin/main/surveys'>
-        <i class="fas fa-undo"></i> Cancel
-    </button>
-</div>
+                <!--Description-->
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" class="form-control" name='description' [(ngModel)]='survey.description'>
+                </div>
 
-</form>
+                <!--Activating Date-->
+                <div class="form-group">
+                    <label>Activating Date: 
+                        <input type="date" class="form-control" name='activatesIn' [(ngModel)]='survey.activatesIn'>
+                    </label>
+                </div>
 
-</div> 
-    <!--Conditional Section IF No Surveys-->
-<div *ngIf='survey.questionnaire.lines.length == 0' style="text-align: center;">
-    <label class="text-center" colspan="4">No questions in this survey</label>
-</div> 
+                <!--Deactivating Date-->
+                <div class="form-group">
+                    <label>Deactivating Date: 
+                        <input type="date" class="form-control" name='deactivatesIn' [(ngModel)]='survey.deactivatesIn'>
+                    </label>
+                </div>
 
-    <!--Repeating section for questions-->
-    <div *ngFor='let line of survey.questionnaire.lines'>
-        <label> {{ line.question.title }} </label><br>
-        <ul>
-            <li><label class="text-right">{{ line.question.choice1 }}</label></li>
-            <li><label class="text-right">{{ line.question.choice2 }}</label></li>
-            <li><label class="text-right">{{ line.question.choice3 }}</label></li>
-            <li><label class="text-right">{{ line.question.choice4 }}</label></li>
-        </ul>
-    <button class="btn btn-sm btn-danger"
-            (click)='removeQuestion(line.question)'>
-            Remove
-    </button> 
-</div> 
-</div>  
+                <!--Buttons-->
+                <div style="text-align: center;">
+
+                    <!--Edit Button-->
+                    <button class="btn btn-warning m-1" type="submit">
+                        <i class="fas fa-exchange-alt"></i> Edit
+                    </button>
+
+                    <!--Add Question Button-->
+                    <button class="btn btn-primary m-1" (click)='addQuestion(survey._id)'>
+                        <i class="fas fa-plus-circle"></i> Add Question(s)
+                    </button>
+
+                    <!--Cancel Button-->
+                    <button class="btn btn-secondary m-1" routerLink='/admin/main/surveys'>
+                        <i class="fas fa-undo"></i> Cancel
+                    </button>
+                </div>
+            </form>
+        </div> 
+
+        <!--Conditional Section IF No Questions-->
+        <div *ngIf='survey.questionnaire.lines.length == 0' style="text-align: center;">
+            <label class="text-center" colspan="4">No questions in this survey</label>
+        </div> 
+
+        <!--Repeating section for questions-->
+        <div *ngFor='let line of survey.questionnaire.lines'>
+            <label> {{ line.question.title }} </label><br>
+            <ul>
+                <li><label class="text-right">{{ line.question.choice1 }}</label></li>
+                <li><label class="text-right">{{ line.question.choice2 }}</label></li>
+                <li><label class="text-right">{{ line.question.choice3 }}</label></li>
+                <li><label class="text-right">{{ line.question.choice4 }}</label></li>
+            </ul>
+
+            <!--Remove Button-->
+            <button class="btn btn-sm btn-danger"
+                    (click)='removeQuestion(line.question)'>
+                    Remove
+            </button> 
+        </div> 
+    </div>  
 </main>

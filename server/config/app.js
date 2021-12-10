@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Entry Point of the applicaiton - app.js
 */
-
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');

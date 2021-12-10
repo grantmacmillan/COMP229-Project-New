@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Questionnaire-Detail Component - questionnaire-detail.component.ts
 */
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Questionnaire } from 'src/app/model/questionnaire.model';
@@ -23,6 +22,7 @@ import { SurveyAnsweredRepository } from 'src/app/model/surveyAnswered.repositor
   templateUrl: './questionnaire-detail.component.html'
 })
 export class QuestionnaireDetailComponent implements OnInit {
+
   editing = false;
   
   constructor(public questionnaire: Questionnaire,
@@ -33,11 +33,10 @@ export class QuestionnaireDetailComponent implements OnInit {
               private activeRoute: ActivatedRoute,
               private router: Router) 
   {
-      Object.assign(this.survey, repositorySurvey.getSurvey(activeRoute.snapshot.params.id));
+    Object.assign(this.survey, repositorySurvey.getSurvey(activeRoute.snapshot.params.id));
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   //Submits the filled survey to the SurveyAnswered Repository
   submitSurvey(survey: Survey): void

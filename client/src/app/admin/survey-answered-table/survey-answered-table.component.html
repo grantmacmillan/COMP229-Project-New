@@ -9,21 +9,26 @@ Student IDs:
 WebApp name: Survey Site
 Description: Survey Answered Table Component Html - survey-answered-table.component.html
 -->
-
 <main class="container" style="padding-bottom: auto; margin-bottom: auto;">
     <div style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black; margin: 10px; padding: 10px">
-<!--Title-->
+
+        <!--Title-->
         <p class="titles">Filled Out Surveys</p>
         <br>
+
+        <!--Table-->
         <table class="table table-responsive">
             <tbody>
+                <!--Conditionnal if no filled surveys-->
                 <tr *ngIf='getSurveys().length == 0'>
                     <td colspan="5">There are no filled surveys</td>
                 </tr>
 
-                <!--Table with surveys-->
+            <!--Repeating Section-->
                 <ng-template ngFor let-s [ngForOf]='getSurveys()'>
                     <tr>
+
+                        <!--Headers-->
                         <th>Title</th>
                         <th>Category</th>
                         <th colspan="2">Description</th>
@@ -31,6 +36,7 @@ Description: Survey Answered Table Component Html - survey-answered-table.compon
                         <th></th>
                     </tr>
                     
+                        <!--Survey Information-->
                         <td>{{ s.title }}</td>
                         <td>{{ s.category }}</td>
                         <td>{{ s.description }}</td>
@@ -39,6 +45,7 @@ Description: Survey Answered Table Component Html - survey-answered-table.compon
                         <button class="btn btn-danger" (click)='delete(s._id)'>
                             <i class="fas fa-trash-alt"></i> Delete </button>
 
+                        <!--See Full Survey Button-->
                         <button class="btn btn-info m-1"
                             (click)='selectSurvey(s._id)'>
                             <i class="fas fa-question-circle"></i> See Full Survey
@@ -47,8 +54,9 @@ Description: Survey Answered Table Component Html - survey-answered-table.compon
             </tbody>
         </table>
     </div>
+
      <!--Back Button-->
-     <div class="d-grid gap-2 col-3 mx-auto">
+    <div class="d-grid gap-2 col-3 mx-auto">
         <button class="btn btn-secondary" routerLink="/admin/main/dashboard">
             <i class="fas fa-undo"></i> Back To Dashboard
         </button>

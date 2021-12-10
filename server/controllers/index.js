@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Controller to allow user to login, logout, and register - index.js
 */
-
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
@@ -23,6 +22,7 @@ let DB = require('../config/db');
 let userModel = require('../models/user');
 let User = userModel.User; // alias
 
+//Displays User List
 module.exports.displayUserList= (req, res, next) => {
     User.find((err, userList) => {
         if(err)
@@ -36,6 +36,7 @@ module.exports.displayUserList= (req, res, next) => {
     });
 };
 
+//Displays Login Page
 module.exports.displayLoginPage = (req, res, next) =>
 {
     //check if the user is already logged in
@@ -54,6 +55,7 @@ module.exports.displayLoginPage = (req, res, next) =>
     }
 }  
 
+//Processes Login Page
 module.exports.processLoginPage = (req, res, next) =>
 {
     passport.authenticate('local', 
@@ -80,7 +82,7 @@ module.exports.processLoginPage = (req, res, next) =>
            }
 
            const payload = {
-            _id: user._id,
+            id: user._id,
             displayName: user.displayName,
             username: user.username,
             email: user.email
@@ -100,6 +102,7 @@ module.exports.processLoginPage = (req, res, next) =>
     }) (req, res, next);
 }
 
+//Processes Edit Page
 module.exports.processEditPage = (req, res, next) => {
     let id = req.params.id;
     let updatedUser = new User({
@@ -123,6 +126,7 @@ module.exports.processEditPage = (req, res, next) => {
     });
 };
 
+//Displays Register Page
 module.exports.displayRegisterPage = (req, res, next) =>
 {
     //Checks if the user is not already logged in
@@ -140,6 +144,7 @@ module.exports.displayRegisterPage = (req, res, next) =>
     }
 }
 
+//Processes Register Page
 module.exports.processRegisterPage = (req, res, next) =>
 {
     //create a user object
@@ -178,6 +183,7 @@ module.exports.processRegisterPage = (req, res, next) =>
     });
 }
 
+//Performs Logout
 module.exports.performLogout = (req, res, next) => 
 {
     req.logout();

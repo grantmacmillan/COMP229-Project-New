@@ -9,16 +9,15 @@ Student IDs:
 WebApp name: Survey Site
 Description: Controller to allow Full CRUD on SurveyAnswered Object - surveyAnswered.js
 */
-
 let express = require('express');
 const survey = require('../models/survey');
 let router = express.Router();
-
 let SurveyAnswered = require('../models/surveyAnswered');
 let Container = require('../models/container');
 let Questionnaire = Container.Questionnaire;
 let Question = Container.Question;
 
+//Displays Survey Answered List 
 module.exports.displaySurveyAnsweredList = (req, res, next) => 
 {
     SurveyAnswered.find((err, surveyAnsweredList) => {
@@ -33,6 +32,7 @@ module.exports.displaySurveyAnsweredList = (req, res, next) =>
     });
 }
 
+//Processes Survey Answered Add Page
 module.exports.processSurveyAnsweredAddPage = (req, res, next) => {
     //Serialize the questionnaire data
     let questionnaire = new Questionnaire();
@@ -84,6 +84,7 @@ module.exports.processSurveyAnsweredAddPage = (req, res, next) => {
     });
 }
 
+//Processes Surveys Answered Edit Page
 module.exports.processSurveyAnsweredEditPage = (req, res, next) => {
     let id = req.params.id;
 
@@ -135,7 +136,7 @@ module.exports.processSurveyAnsweredEditPage = (req, res, next) => {
     })
 }
 
-
+//Performs Delete
 module.exports.performDelete = (req, res, next) => {
     let id = req.params.id;
 

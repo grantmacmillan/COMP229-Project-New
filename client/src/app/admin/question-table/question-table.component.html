@@ -9,62 +9,69 @@ Student IDs:
 WebApp name: Survey Site
 Description: Question Table Component Html - question-table.component.html
 -->
-
 <main style="padding-bottom: auto; margin-bottom:auto">
     <div class="container" style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black; padding-bottom: 10px;">
     <!--Title-->
     <p class="titles">Question List</p>
 
-    <!--Table-->
-<table class="table table-sm">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th colspan="4">Choices</th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+        <!--Table-->
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <!--Headers-->
+                    <th>Title</th>
+                    <th colspan="4">Choices</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
 
-        <!--Questions-->
-        <tr *ngFor='let q of getQuestions()'>
-            <td>{{ q.title }}</td>
-            <td>{{ q.choice1 }}</td>
-            <td>{{ q.choice2 }}</td>
-            <td>{{ q.choice3 }}</td>
-            <td>{{ q.choice4 }}</td>
-            <td>
+            <tbody>
+                <!--Questions-->
+                <tr *ngFor='let q of getQuestions()'>
+                    <td>{{ q.title }}</td>
+                    <td>{{ q.choice1 }}</td>
+                    <td>{{ q.choice2 }}</td>
+                    <td>{{ q.choice3 }}</td>
+                    <td>{{ q.choice4 }}</td>
 
-                <!--Buttons-->
-                <button class="btn btn-sm btn-primary m-1" (click)='editQuestion(q._id)'> 
-                    <i class="fas fa-pencil-alt"></i> Edit
-                </button>
-            </td>
-            <td>
-                <button class="btn btn-sm btn-danger m-1" (click)='deleteQuestion(q._id)'>
-                    <i class="fas fa-trash-alt"></i> Delete
-                </button>
-            </td>
-            <td>
-                <button class="btn btn-success btn-sm float-right"
-                (click)='addQuestionToQuestionnaire(q)'>
-                    Add To Survey
-                </button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+                    <!--Edit Button-->
+                    <td>
+                        <button class="btn btn-sm btn-primary m-1" (click)='editQuestion(q._id)'> 
+                            <i class="fas fa-pencil-alt"></i> Edit
+                        </button>
+                    </td>
 
-<!--Create and Cancel Buttons-->
-<div style="text-align: center;">
-<button class="btn btn-primary m-1" routerLink='/admin/main/questions/add'>
-    <i class="fas fa-plus-circle"></i> Create Question
-</button>
-<button class="btn btn-secondary" routerLink='/admin/main/surveys/add'>
-    <i class="fas fa-undo"></i> Cancel
-</button>
-</div>
-</div>
+                    <!--Delete Button-->
+                    <td>
+                        <button class="btn btn-sm btn-danger m-1" (click)='deleteQuestion(q._id)'>
+                            <i class="fas fa-trash-alt"></i> Delete
+                        </button>
+                    </td>
+
+                    <!--Add To Survey Button-->
+                    <td>
+                        <button class="btn btn-success btn-sm float-right"
+                        (click)='addQuestionToQuestionnaire(q)'>
+                            Add To Survey
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!--Buttons-->
+        <div style="text-align: center;">
+            <!--Create Button-->
+            <button class="btn btn-primary m-1" routerLink='/admin/main/questions/add'>
+                <i class="fas fa-plus-circle"></i> Create Question
+            </button>
+
+            <!--Cancel Button-->
+            <button class="btn btn-secondary" routerLink='/admin/main/surveys/add'>
+                <i class="fas fa-undo"></i> Cancel
+            </button>
+        </div>
+    </div>
 </main>

@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Footer Component - footer.component.ts
 */
-
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -20,6 +19,5 @@ export class FooterComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 }

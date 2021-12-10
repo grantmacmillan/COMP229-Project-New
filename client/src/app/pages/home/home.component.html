@@ -9,20 +9,18 @@ Student IDs:
 WebApp name: Survey Site
 Description: Home Component Html - home.component.html
 -->
-
-<!--Main Content-->
 <main class="container" style="margin-bottom: 0px; padding-bottom: 0px;">
+    <!--Banner-->
     <div>
-      <!--Banner-->
       <img src="../../assets/images/HomeBanner.png" style="width: 100%; margin-top: 10px; border-style: solid; border-color: black; border-width: 2px; box-shadow:5px 5px 15px #000000 ;" alt="Banner">
     </div>
   
     <div class="container">
       <table style="margin-top: 40px; margin-right: 80px; margin-left: 80px;">
         <tr>
-          <td>
 
-          <!-- Survey Template -->
+          <!-- Select A Survey Section -->
+          <td>
             <div class="card text-center" style="width: 100%; ">
               <img src="../../assets/images/FillOutSurvey.png" class="card-img-top" alt="Survey Template 1">
                 <div class="card-body">
@@ -31,8 +29,10 @@ Description: Home Component Html - home.component.html
                   <a routerLink="/question-list" class="btn btn-success">Select a Survey</a>
                 </div>
             </div>
-            </td> 
-            <td>
+          </td> 
+
+          <!--Create A Survey Section-->
+          <td>
             <div class="card text-center" style="width: 100%;">
               <img src="../../assets/images/CreateSurvey.png" class="card-img-top" alt="Survey Template 1">
                 <div class="card-body">

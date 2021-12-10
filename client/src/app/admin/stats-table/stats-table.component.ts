@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Stats Table Component - stats-table.component.ts
 */
-
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Survey } from 'src/app/model/survey.model';
@@ -39,11 +38,9 @@ export class StatsTableComponent implements OnInit {
               private contactService: ContactService) 
   {
     Object.assign(this.survey, repositorySurvey.getSurvey(activeRoute.snapshot.params.id));
-  
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   //Get Surveys
   getSurveys(): SurveyAnswered[]
@@ -70,8 +67,8 @@ export class StatsTableComponent implements OnInit {
     return count;
   }
 
-//Getting stats for choice one of questions in survey
-getChoice1(title: string): Number
+  //Getting stats for choice one of questions in survey
+  getChoice1(title: string): Number
   {
     let count = 0;
     let survey = this.survey;
@@ -86,8 +83,8 @@ getChoice1(title: string): Number
     return count;
   }
 
-//Getting stats for choice two of questions in survey
-getChoice2(title: string): Number
+  //Getting stats for choice two of questions in survey
+  getChoice2(title: string): Number
   {
     let count = 0;
     let survey = this.survey;
@@ -102,8 +99,8 @@ getChoice2(title: string): Number
     return count;
   }
 
-//Getting stats for choice three of questions in survey
-getChoice3(title: string): Number
+  //Getting stats for choice three of questions in survey
+  getChoice3(title: string): Number
   {
     let count = 0;
     let survey = this.survey;
@@ -118,8 +115,8 @@ getChoice3(title: string): Number
     return count;
   }
 
-//Getting stats for choice four of questions in survey
-getChoice4(title: string): Number
+  //Getting stats for choice four of questions in survey
+  getChoice4(title: string): Number
   {
     let count = 0;
     let survey = this.survey;

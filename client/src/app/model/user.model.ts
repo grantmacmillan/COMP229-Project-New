@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: User Model - user.model.ts
 */
-
 export class User
 {
     _id: string;

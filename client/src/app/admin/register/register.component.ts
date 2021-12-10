@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Registed Component - register.component.ts
 */
-
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -36,18 +35,15 @@ export class RegisterComponent implements OnInit {
   //Authenticating a New User
   authenticateRegister(form: NgForm): void
   {
+    //Checks if form is valid
     if(form.valid)
     {
       this.auth.authenticateRegister(this.user).subscribe(data => {
         
         if(data.success)
-          {
-            
             this.auth.storeUserData(data.token, data.user);
-            //this.router.navigateByUrl('admin/auth');
-            
-          }
-          this.router.navigateByUrl('admin/auth');
+          
+          this.router.navigate(['admin/auth']).then(() => {window.location.reload()});
       });
     }
     else

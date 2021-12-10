@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: IIFE - app.js
 */
-
 // IIFE --> Immediately Invoked Function Expression
 (function(){
     

@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Contact Service - contact.service.ts
 */
-
 import { Injectable, ElementRef } from '@angular/core';
 import * as XLSX from 'xlsx';
 

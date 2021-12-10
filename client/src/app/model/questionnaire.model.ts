@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Questionnaire Model - questionnaire.model.ts
 */
-
 import { Injectable } from "@angular/core";
 import { Question } from "./question.model";
 
@@ -20,54 +19,40 @@ export class Questionnaire
     public updatedAnswer = "";
 
     //Addes a new line in a survey quesitonnaire
-    addLine(question: Question, answer: string = ""): void
-    {
+    addLine(question: Question, answer: string = ""): void {
         const line = this.lines.find(l => l.question._id === question._id);
         if(line !== undefined)
-        {
             line.answer = answer;
-        }
-        else
-        {
-            console.log("Question pushed");
+        
+        else  
             this.lines.push(new QuestionnaireLine(question, answer));
-        }
     }
 
     //Addes a new line in a survey-answered questionnaire
-    addSurveyAnsweredLine(question: Question, answer: string): void
-    {
+    addSurveyAnsweredLine(question: Question, answer: string): void {
         const line = this.lines.find(l => l.question._id === question._id);
         if(line !== undefined)
-        {
             line.answer = answer;
-        }
+        
         else
-        {
             this.lines.push(new QuestionnaireLine(question, answer));
-        }
     }
 
     //Updates an answer
-    updateAnswer(question: Question, answer: string): void
-    {
+    updateAnswer(question: Question, answer: string): void {
         const line = this.lines.find(l => l.question._id === question._id);
         if(line !== undefined)
-        {
             line.answer = String(answer);
-        }
     }
 
     //Remove a line from a questionnaire
-    removeLine(id: number): void
-    {
+    removeLine(id: number): void {
         const index = this.lines.findIndex(l => l.question._id === id)
         this.lines.splice(index, 1);
     }
 
     //Clears questionnaire
-    clear():void
-    {
+    clear():void {
         this.lines = [];
     }
 }

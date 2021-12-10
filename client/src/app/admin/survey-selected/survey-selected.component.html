@@ -10,15 +10,16 @@ WebApp name: Survey Site
 Description: Survey Selected Component Html - survey-selected.component.html
 -->
 <main>
-    <div style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black; margin: 10px; padding: 10px">
-    <p class="titles">{{survey.title}}</p>
+  <div style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black; margin: 10px; padding: 10px">
+        <p class="titles">{{survey.title}}</p>
         <h5 style="text-align: center">{{survey.category}}</h5>
         <p style="text-align: center">{{survey.description}}</p>
 
-
+    <!--Table-->
     <table class="table table-sm">
       <tbody>
         <tr>
+            <!--Headers-->
             <th>Questions</th>
             <th>Choices</th>
         </tr>
@@ -34,10 +35,10 @@ Description: Survey Selected Component Html - survey-selected.component.html
     </table> 
   </div>
 
-  <!-- Buttons -->
-    <div class="d-grid gap-2 col-3 mx-auto">
-        <button class="btn btn-secondary" routerLink="/admin/main/surveys">
-            <i class="fas fa-undo"></i> Back
-        </button>
-    </div>    
+  <!-- Back Button-->
+  <div class="d-grid gap-2 col-3 mx-auto">
+      <button class="btn btn-secondary" routerLink="/admin/main/surveys">
+          <i class="fas fa-undo"></i> Back
+      </button>
+  </div>    
 </main>

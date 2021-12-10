@@ -9,9 +9,7 @@ Student IDs:
 WebApp name: Survey Site
 Description: Authentication Service - auth.service.ts
 */
-
 import { Injectable } from "@angular/core";
-import { use } from "passport";
 import { Observable } from "rxjs";
 import { RestDataSource } from "./rest.datasource";
 import { User } from "./user.model";
@@ -30,8 +28,8 @@ export class AuthService
         });
     }
 
+    //Gets Id from logged user
     getLoggedUserId(): string {
-        console.log("Auth service user id: " + this.user._id);
         return this.datasource.getLoggedUserId(); 
     }
 
@@ -41,48 +39,42 @@ export class AuthService
     }
 
     //Authenticate An Existing User
-    authenticate(user: User): Observable<any>
-    {
+    authenticate(user: User): Observable<any> {
         return this.datasource.authenticate(user);
     }
 
     //Creates Authentication for a New User
-    authenticateRegister(user: User): Observable<any>
-    {
+    authenticateRegister(user: User): Observable<any> {
         return this.datasource.authenticateRegister(user);
     }
 
     //Allows Modification of User Date
-    modifyUser(user: User): void
-    {
+    modifyUser(user: User): void {
         this.datasource.modifyUser(user).subscribe(user => {
-            this.users.splice(this.users.findIndex(u => u._id === user._id), 1, user); });
+        this.users.splice(this.users.findIndex(u => u._id === user._id), 1, user); });
     }
 
     //Returns Sepecific User based on Id
-    getUser(id: string): User
-    {
+    getUser(id: string): User {
         return this.users.find(u => u._id === id) as User;
     }
 
     //Stores User Data
-    storeUserData(token: any, user: User): void
-    {
+    storeUserData(token: any, user: User): void {
         this.datasource.storeUserData(token, user);
     }
 
     //Returns True is User is Authenticated
-    get authenticated(): boolean
-    {
+    get authenticated(): boolean {
         return this.datasource.loggedIn();
     }
 
     //Logs the User Out
-    logout(): Observable<any>
-    {
+    logout(): Observable<any> {
         return this.datasource.logout();
     }
 
+    //Load User from LocalStorage
     loadUser(): User {
         return this.datasource.loadUser();
     }

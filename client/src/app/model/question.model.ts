@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Question Model - question.model.ts
 */
-
 export class Question
 {
     constructor(

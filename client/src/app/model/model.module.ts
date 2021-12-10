@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Model Module - model.module.ts
 */
-
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { AuthService } from "./auth.service";

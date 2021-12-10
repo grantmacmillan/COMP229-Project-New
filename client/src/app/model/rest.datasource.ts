@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Rest DataSource - rest.datasource.ts
 */
-
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -47,31 +46,26 @@ export class RestDataSource
 
   /*USER*/
   getLoggedUserId(): string {
-    console.log("Datasource user id: " + this.user._id);
     return this.user._id;
   }
   
   //Authenticate an Existing User
-  authenticate(user: User): Observable<any>
-  {
+  authenticate(user: User): Observable<any> {
     return this.http.post<any>(this.baseUrl + 'login', user, this.httpOptions);
   }
 
   //Authenticate a New User
-  authenticateRegister(user: User): Observable<any>
-  {
+  authenticateRegister(user: User): Observable<any> {
     return this.http.post<any>(this.baseUrl + 'register', user, this.httpOptions);
   }
 
   //Modifies a User
-  modifyUser(user: User): Observable<any>
-  {
+  modifyUser(user: User): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}user-edit/${user._id}`, user, this.httpOptions);
   }
 
   //Stores User Data
-  storeUserData(token: any, user: User): void
-  {
+  storeUserData(token: any, user: User): void {
     localStorage.setItem('id_token', 'Bearer ' + token);
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
@@ -79,8 +73,7 @@ export class RestDataSource
   }
 
   //Logs a User Out
-  logout(): Observable<any>
-  {
+  logout(): Observable<any> {
     this.authToken = null;
     this.user = null;
     localStorage.clear();
@@ -88,118 +81,100 @@ export class RestDataSource
   }
 
   //Get all users
-  getUsers(): Observable<User[]>
-  {
+  getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.baseUrl + 'user-list');
   }
 
   //Checks if the User is LoggedIn
-  loggedIn(): boolean
-  {
+  loggedIn(): boolean {
     return !this.jwtService.isTokenExpired(this.authToken);
   }
 
   /* QUESTION */
   /*GET Questions*/
-  getQuestions(): Observable<Question[]>
-  {
+  getQuestions(): Observable<Question[]> {
     return this.http.get<Question[]>(this.baseUrl + 'question-list');
   }
 
   /*ADD Question*/
-  addQuestion(question: Question): Observable<Question>
-  {
+  addQuestion(question: Question): Observable<Question> {
     this.loadToken();
     return this.http.post<Question>(this.baseUrl + 'question-list/add', question, this.httpOptions);
   }
 
   /*UPDATE Question*/
-  updateQuestion(question: Question): Observable<Question>
-  {
+  updateQuestion(question: Question): Observable<Question> {
     this.loadToken();
     return this.http.post<Question>(`${this.baseUrl}question-list/edit/${question._id}`, question, this.httpOptions);
   }
 
   /*DELETE Question*/
-  deleteQuestion(id: number): Observable<Question>
-  {
+  deleteQuestion(id: number): Observable<Question> {
     this.loadToken();
-    console.log(id);
     return this.http.get<Question>(`${this.baseUrl}question-list/delete/${id}`, this.httpOptions);
   }
 
   /*SURVEYS*/
   /*GET Survey*/
-  getSurveys(): Observable<Survey[]>
-  {
+  getSurveys(): Observable<Survey[]> {
     this.loadToken();
     return this.http.get<Survey[]>(this.baseUrl + 'surveys');
   }
 
   /*SAVE Survey*/
-  saveSurvey(survey: Survey): Observable<Survey>
-  {
+  saveSurvey(survey: Survey): Observable<Survey> {
       console.log(JSON.stringify(survey));
       return this.http.post<Survey>(this.baseUrl + 'surveys/add', survey); 
   }
 
   /*UPDATE Survey*/
-  updateSurvey(survey: Survey): Observable<Survey>
-  {
+  updateSurvey(survey: Survey): Observable<Survey> {
     this.loadToken();
     return this.http.post<Survey>(`${this.baseUrl}surveys/edit/${survey._id}`, survey, this.httpOptions);
   }
   
   /*DELETE Survey*/
-  deleteSurvey(id: number): Observable<Survey>
-  {
+  deleteSurvey(id: number): Observable<Survey> {
     this.loadToken();
     return this.http.get<Survey>(`${this.baseUrl}surveys/delete/${id}`, this.httpOptions);
   }
 
   /*ANSWERED SURVEYS*/
   /*GET AnsweredSurvey*/
-  getAnsweredSurveys(): Observable<SurveyAnswered[]>
-  {
+  getAnsweredSurveys(): Observable<SurveyAnswered[]> {
     this.loadToken();
     return this.http.get<SurveyAnswered[]>(this.baseUrl + 'surveyAnswered');
   }
 
    /*SAVE AnsweredSurvey*/
-  saveSurveyAnswered(surveyAnswered: SurveyAnswered): Observable<SurveyAnswered>
-  {
+  saveSurveyAnswered(surveyAnswered: SurveyAnswered): Observable<SurveyAnswered> {
     console.log(JSON.stringify(surveyAnswered));
     return this.http.post<SurveyAnswered>(this.baseUrl + 'surveyAnswered/add', surveyAnswered);
   }
 
   /*UPDATE AnsweredSurvey*/
-  updateSurveyAnswered(surveyAnswered: SurveyAnswered): Observable<SurveyAnswered>
-  {
+  updateSurveyAnswered(surveyAnswered: SurveyAnswered): Observable<SurveyAnswered> {
     this.loadToken();
     return this.http.post<SurveyAnswered>(`${this.baseUrl}updatedOrders/edit/${surveyAnswered._id}`, surveyAnswered, this.httpOptions);
   }
 
   /*DELETE AnsweredSurvey*/
-  deleteSurveyAnswered(id: number): Observable<SurveyAnswered>
-  {
+  deleteSurveyAnswered(id: number): Observable<SurveyAnswered> {
     this.loadToken();
     return this.http.get<SurveyAnswered>(`${this.baseUrl}surveyAnswered/delete/${id}`, this.httpOptions);
   }
 
   //Loads User Token
-  private loadToken(): void
-  {
+  private loadToken(): void {
     const token = localStorage.getItem('id_token');
     this.authToken = token;
     this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
   }
 
   //Load User from LocalStorage
-  public loadUser(): User
-  {
+  public loadUser(): User {
     this.loadToken();
     var user = localStorage.getItem('user');
     return JSON.parse(user);
   }
 }
-

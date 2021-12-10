@@ -9,56 +9,63 @@ Student IDs:
 WebApp name: Survey Site
 Description: Question Editor Component Html - question-editor.component.html
 -->
-
 <main style="padding-bottom: auto; margin-bottom: auto;">
     <div class="container" style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black; padding-bottom: 10px;">
-    <!--Conditional title-->
-    <div class="container">
-        <div
-            [class.text-dark]='editing'
-            [class.text-dark]='editing'>
-            <h5 style="text-align: center; color: white;">{{ editing ? 'Edit' : 'Add' }} Question</h5>
+
+        <!--Conditional title-->
+        <div class="container">
+            <div
+                [class.text-dark]='editing'
+                [class.text-dark]='editing'>
+                <h5 style="text-align: center; color: white;">{{ editing ? 'Edit' : 'Add' }} Question</h5>
+            </div>
+
+            <!--Form-->
+            <form novalidate #form='ngForm' (ngSubmit)='save(form)'>
+                <!--Question Title-->
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" class="form-control" name='title' [(ngModel)]='question.title'>
+                </div>
+
+                <!--Choice 1-->
+                <div class="form-group">
+                    <label>Choice 1</label>
+                    <input type="text" class="form-control" name='choich1' [(ngModel)]='question.choice1'>
+                </div>
+
+                <!--Choice 2-->
+                <div class="form-group">
+                    <label>Choice 2</label>
+                    <input type="text" class="form-control" name='choich2' [(ngModel)]='question.choice2'>
+                </div>
+
+                <!--Choice 3-->
+                <div class="form-group">
+                    <label>Choice 3</label>
+                    <input type="text" class="form-control" name='choich3' [(ngModel)]='question.choice3'>
+                </div>
+
+                <!--Choice 4-->
+                <div class="form-group">
+                    <label>Choice 4</label>
+                    <input type="text" class="form-control" name='choich4' [(ngModel)]='question.choice4'>
+                </div>
+
+                <!--Buttons-->
+                <div style="text-align: center; padding: 5px;">
+                    <!--Edit/Save Button-->
+                    <button class="btn btn-primary m-1" [class.btn-warning]='editing' type="submit">
+                        <i class="{{editing ? 'fas fa-save' : 'fas fa-plus-circle'}}"></i> {{ editing ? "Save" : "Add" }}
+                    </button>
+
+                    <!--Cancel Button-->
+                    <button type='reset' class="btn btn-secondary" routerLink='/admin/main/questions'>
+                        <i class="fas fa-undo"></i> Cancel
+                    </button>
+                </div>
+            </form>
         </div>
-
-        <!--Form-->
-        <form novalidate #form='ngForm' (ngSubmit)='save(form)'>
-            <div class="form-group">
-                <label>Title</label>
-                <input type="text" class="form-control" name='title' [(ngModel)]='question.title'>
-            </div>
-
-            <div class="form-group">
-                <label>Choice 1</label>
-                <input type="text" class="form-control" name='choich1' [(ngModel)]='question.choice1'>
-            </div>
-
-            <div class="form-group">
-                <label>Choice 2</label>
-                <input type="text" class="form-control" name='choich2' [(ngModel)]='question.choice2'>
-            </div>
-
-            <div class="form-group">
-                <label>Choice 3</label>
-                <input type="text" class="form-control" name='choich3' [(ngModel)]='question.choice3'>
-            </div>
-
-            <div class="form-group">
-                <label>Choice 4</label>
-                <input type="text" class="form-control" name='choich4' [(ngModel)]='question.choice4'>
-            </div>
-
-            <!--Buttons-->
-            <div style="text-align: center; padding: 5px;">
-            <button class="btn btn-primary m-1" [class.btn-warning]='editing' type="submit">
-                <i class="{{editing ? 'fas fa-save' : 'fas fa-plus-circle'}}"></i> {{ editing ? "Save" : "Add" }}
-            </button>
-            <button type='reset' class="btn btn-secondary" routerLink='/admin/main/questions'>
-                <i class="fas fa-undo"></i> Cancel
-            </button>
-        </div>
-        </form>
-        
-    </div>
     </div>
     <br><br>
 </main>

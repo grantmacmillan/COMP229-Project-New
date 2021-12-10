@@ -9,12 +9,9 @@ Student IDs:
 WebApp name: Survey Site
 Description: Routes of the questions - question.js
 */
-
 let express = require('express');
 let router = express.Router();
-
 let passport = require('passport');
-
 let questionController = require('../controllers/question');
 
 /*GET Route for the Book List page - READ operation*/

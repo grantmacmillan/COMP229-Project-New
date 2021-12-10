@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Question Table Component - question-table.component.ts
 */
-
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Question } from 'src/app/model/question.model';
@@ -25,8 +24,7 @@ export class QuestionTableComponent implements OnInit {
               private router: Router,
               public questionnaire: Questionnaire) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   //Get Questions
   getQuestions(): Question[]
@@ -43,7 +41,7 @@ export class QuestionTableComponent implements OnInit {
     }
     else
     {
-      window.location.reload(); //Refresh fix
+      window.location.reload();
       this.router.navigateByUrl('/admin/main/questions');
     }
   }

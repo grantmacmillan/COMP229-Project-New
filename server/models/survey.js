@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Survey Model - survey.js
 */
-
 let mongoose = require('mongoose');
 
 //Create Survey model class

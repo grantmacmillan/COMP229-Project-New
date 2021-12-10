@@ -9,10 +9,8 @@ Student IDs:
 WebApp name: Survey Site
 Description: Routing Module of the App - app-routing.module.ts
 */
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { SurveyListComponent } from './survey-site/survey-list.component';
 import { QuestionnaireDetailComponent } from './survey-site/questionnaire-detail/questionnaire-detail.component';
 import { SurveysFirstGuard } from './guards/surveysFirst.guard';

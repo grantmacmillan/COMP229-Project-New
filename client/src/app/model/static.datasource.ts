@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Static Data Source - static.datasource.ts
 */
-
 import { Injectable } from '@angular/core';
 import {Question} from './question.model';
 import { from, Observable } from 'rxjs';
@@ -38,14 +37,12 @@ export class StaticDataSource
     ];
 
     //Gets Questions from the above question array
-    getQuestions(): Observable<Question[]>
-    {
+    getQuestions(): Observable<Question[]> {
         return from([this.questions]);
     }
 
     //Saves survey
-    saveSurvey(survey: Survey): Observable<Survey>
-    {
+    saveSurvey(survey: Survey): Observable<Survey> {
         console.log(JSON.stringify(survey));
         return from ([survey]);
     }

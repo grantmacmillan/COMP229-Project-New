@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Pages Module - pages.module.ts
 */
-
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";

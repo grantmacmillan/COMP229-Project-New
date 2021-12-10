@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Survey First Guard - surveyFirst.guard.ts
 */
-
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from "@angular/router";
 import { SurveyListComponent } from "../survey-site/survey-list.component";

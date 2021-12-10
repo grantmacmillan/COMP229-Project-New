@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: Survey Answered Table Component - survey-answered-table.component.ts
 */
-
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SurveyAnswered } from 'src/app/model/surveyAnswered.model';
@@ -27,8 +26,7 @@ export class SurveyAnsweredTableComponent implements OnInit {
               public survey: SurveyAnswered, 
               private router: Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   //Get Surveys
   getSurveys(): SurveyAnswered[]

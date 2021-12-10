@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: App Component - app.component.ts
 */
-
 import { Component } from '@angular/core';
 
 @Component({

@@ -9,7 +9,6 @@ Student IDs:
 WebApp name: Survey Site
 Description: SurveyAnswered Model - surveyAnswered.model.ts
 */
-
 import { Injectable } from "@angular/core";
 import { Questionnaire } from "./questionnaire.model";
 
