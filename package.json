@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "start": "node ./server.js",
-    "postinstall": "ng build",
     "server": "nodemon server.js"
   },
   "engines": {
