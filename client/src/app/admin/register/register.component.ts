@@ -43,8 +43,9 @@ export class RegisterComponent implements OnInit {
         //if(data.success)
             //this.auth.storeUserData(data.token, data.user);
           
-          this.router.navigate(['admin/auth']).then(() => {window.location.reload()});
+          
       });
+      this.router.navigate(['admin/auth']).then(() => {window.location.reload()});
     }
     else
     {
