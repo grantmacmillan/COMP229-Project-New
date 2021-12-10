@@ -41,7 +41,8 @@ export class RestDataSource
               private jwtService: JwtHelperService)
   {
     this.user = new User();
-    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+    //this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/api/`;
+    this.baseUrl = `https://xtremedynamos-survey-site.herokuapp.com/api/`;
   }
 
   /*USER*/
