@@ -44,15 +44,18 @@ export class SurveyEditorComponent implements OnInit {
   submitSurvey(form: NgForm): void
   {
     this.submitted = true;
-    if(form.valid){
+    if(form.valid)
         this.repository.saveSurvey(this.survey).subscribe(survey => {
         this.survey.clear();
         this.surveySent = true;
         this.submitted = false;
-
-      }); 
-      this.router.navigate(['/admin/main/dashboard']).then(() => {window.location.reload()});  
-    }
         
+      }); 
+  }
+
+  //Go to dashboard
+  surveyList(): void
+  {
+    this.router.navigateByUrl('/admin/main/dashboard');
   }
 }

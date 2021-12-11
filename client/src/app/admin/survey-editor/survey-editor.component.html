@@ -13,6 +13,13 @@ Description: Survey Editor Component Html - survey-editor.component.html
     <div class="container" style="background-color: rgb(44, 44, 44); box-shadow: 5px 5px 15px black; padding-bottom: 10px;">
 
     <!--Conditional Title-->
+    <div *ngIf='surveySent' class="m-2 text-center">
+        <h2>Thanks!</h2>
+        <p>Thanks for creating a survey.</p>
+        <button class="btn btn-success" (click)='surveyList()'>Return to Dashboard!</button>
+    </div>
+
+    <!--Conditional Title-->
     <div *ngIf='!surveySent'>
         <p class="titles" style="padding-top: 30px;">Add Survey</p>
 
