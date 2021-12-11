@@ -44,6 +44,6 @@ export class QuestionTableEditEditorComponent implements OnInit {
   {
     this.repository.saveQuestion(this.question); 
     this.questionnaire.addLine(this.question);  
-    this.router.navigate(['/admin/main/page-edit']).then(() => {window.location.reload()});
+    this.router.navigate(['/admin/main/surveys']).then(() => {window.location.reload()});
   }
 }
